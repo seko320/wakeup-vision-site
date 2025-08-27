@@ -24,17 +24,13 @@
         }
 
         .site-header {
-            background: #fff;
-            padding: 1rem 2rem;
+            background: #fff; padding: 1rem 2rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center;
-            border-bottom: 1px solid #eee;
+            text-align: center; border-bottom: 1px solid #eee;
         }
         .site-header a {
-            color: #20B2AA;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
+            color: #20B2AA; text-decoration: none;
+            font-weight: 700; font-size: 1rem;
         }
         
         .container {
@@ -82,7 +78,7 @@
             font-weight: 700;
         }
 
-        .intro-text p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
+        .intro-text p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; text-wrap: balance; }
         .intro-text strong { color: #1a1a1a; }
         
         .color-palette {
@@ -111,14 +107,13 @@
         .color-info h3 { font-weight: 700; }
         .color-code { font-family: monospace; background: #f5f5f5; padding: 0.3rem 0.6rem; border-radius: 5px; margin-top: 0.5rem; display: inline-block; }
         
-        /* AJUSTE: Grid 2x2 para Templates de Posts em telas maiores */
         .post-examples {
             display: grid;
             gap: 2rem;
             margin-top: 2rem;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
-        @media (min-width: 992px) {
+        @media (min-width: 768px) {
             .post-examples {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -129,16 +124,36 @@
             overflow: hidden;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            display: flex; /* Adicionado para controle de layout interno */
+            flex-direction: column; /* Adicionado */
         }
         
         .post-example:hover { transform: translateY(-5px); }
-        .post-content { padding: 2rem; text-align: center; min-height: 250px; display: flex; flex-direction: column; justify-content: center; }
-        .post-title { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; }
-        .post-subtitle { font-size: 1rem; margin-bottom: 1.5rem; opacity: 0.8; }
-        .post-cta { padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; display: inline-block; margin-top: 1rem; }
+        /* CORREÇÃO: Aplicando o gradiente ao container e ajustando filhos */
+        .post-example.gradient-bg {
+            background: linear-gradient(135deg, #1a1a1a, #4A4A4A);
+            color: white;
+        }
+        .post-example.gradient-bg-premium {
+            background: linear-gradient(135deg, #FFD43B, #20B2AA);
+            color: #1a1a1a;
+        }
+        .post-content { padding: 2rem; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .post-title { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; text-wrap: balance; }
+        .post-subtitle { font-size: 1rem; margin-bottom: 1.5rem; opacity: 0.8; text-wrap: balance; }
+        .post-cta { padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; display: inline-block; margin-top: auto; }
         .post-info { padding: 1.5rem; background: #f8f8f8; border-top: 3px solid #20B2AA; }
+        /* CORREÇÃO: Removendo fundo branco indesejado */
+        .post-example.gradient-bg .post-info, .post-example.gradient-bg-premium .post-info {
+            background: rgba(0,0,0,0.1); /* Fundo sutil para destacar sem quebrar o layout */
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+        .post-example.gradient-bg-premium .post-info {
+            color: #1a1a1a;
+        }
+
         .post-educativo { background: linear-gradient(135deg, #20B2AA, #7FFFD4); color: white; }
-        .post-venda { background: linear-gradient(135deg, #1a1a1a, #4A4A4A); color: white; }
         .post-resultado { background: linear-gradient(135deg, #51CF66, #40E0D0); color: white; }
         .cta-educativo { background: white; color: #20B2AA; }
         .cta-venda { background: #20B2AA; color: white; }
@@ -161,9 +176,14 @@
 
         .usage-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 1.5rem; 
             margin-top: 2rem; 
+        }
+        @media (min-width: 992px) {
+            .usage-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         .usage-card { background: #F9F9F9; border-left: 5px solid #20B2AA; padding: 1.5rem; border-radius: 10px; }
         .usage-title { font-size: 1.2rem; margin-bottom: 1rem; font-weight: 700; }
@@ -217,9 +237,9 @@
             <h2 class="section-title">📱 Templates de Posts</h2>
             <div class="post-examples">
                 <div class="post-example"><div class="post-content post-educativo"><h3 class="post-title">5 Erros que Matam sua Presença Online</h3><p class="post-subtitle">Descubra o que está sabotando seu crescimento</p><a href="#" class="post-cta cta-educativo">Quero Saber Mais</a></div><div class="post-info"><strong>Tipo:</strong> Educativo/Dica<br><strong>Cores:</strong> Turquesa + Branco</div></div>
-                <div class="post-example"><div class="post-content post-venda"><h3 class="post-title">Pronto para Despertar sua Marca?</h3><p class="post-subtitle">Transforme sua presença digital em resultados</p><a href="#" class="post-cta cta-venda">Vamos Conversar</a></div><div class="post-info"><strong>Tipo:</strong> Venda/CTA<br><strong>Cores:</strong> Preto + Turquesa</div></div>
+                <div class="post-example gradient-bg"><div class="post-content"><h3 class="post-title">Pronto para Despertar sua Marca?</h3><p class="post-subtitle">Transforme sua presença digital em resultados</p><a href="#" class="post-cta cta-venda">Vamos Conversar</a></div><div class="post-info"><strong>Tipo:</strong> Venda/CTA<br><strong>Cores:</strong> Preto + Turquesa</div></div>
                 <div class="post-example"><div class="post-content post-resultado"><h3 class="post-title">Cliente Aumentou 300% o Engajamento</h3><p class="post-subtitle">Veja como transformamos a presença dele</p><a href="#" class="post-cta cta-resultado">Ver Case Completo</a></div><div class="post-info"><strong>Tipo:</strong> Prova Social<br><strong>Cores:</strong> Verde + Branco</div></div>
-                <div class="post-example"><div class="post-content" style="background: linear-gradient(135deg, #FFD43B, #20B2AA); color: #1a1a1a;"><h3 class="post-title">Transformação Premium Garantida</h3><p class="post-subtitle">Sua marca merece brilhar no digital</p><a href="#" class="post-cta" style="background: #1a1a1a; color: #FFD43B;">Investir em Mim</a></div><div class="post-info"><strong>Tipo:</strong> Premium/Exclusivo<br><strong>Cores:</strong> Dourado + Turquesa</div></div>
+                <div class="post-example gradient-bg-premium"><div class="post-content"><h3 class="post-title">Transformação Premium Garantida</h3><p class="post-subtitle">Sua marca merece brilhar no digital</p><a href="#" class="post-cta" style="background: #1a1a1a; color: #FFD43B;">Investir em Mim</a></div><div class="post-info"><strong>Tipo:</strong> Premium/Exclusivo<br><strong>Cores:</strong> Dourado + Turquesa</div></div>
             </div>
         </div>
 
@@ -239,6 +259,8 @@
                 <div class="usage-card"><h3 class="usage-title">💰 Posts de Venda</h3><div class="color-combo"><span class="color-dot" style="background: #1a1a1a;"></span> Fundo: Preto Elegante</div><div class="color-combo"><span class="color-dot" style="background: white;"></span> Texto: Branco</div><div class="color-combo"><span class="color-dot" style="background: #20B2AA;"></span> CTA: Turquesa</div></div>
                 <div class="usage-card"><h3 class="usage-title">🎯 Posts de Resultados</h3><div class="color-combo"><span class="color-dot" style="background: #51CF66;"></span> Fundo: Verde Sucesso</div><div class="color-combo"><span class="color-dot" style="background: white;"></span> Texto: Branco</div><div class="color-combo"><span class="color-dot" style="background: #40E0D0;"></span> Accent: Verde Água</div></div>
                 <div class="usage-card"><h3 class="usage-title">⚡ Posts Premium</h3><div class="color-combo"><span class="color-dot" style="background: #FFD43B;"></span> Fundo: Dourado</div><div class="color-combo"><span class="color-dot" style="background: #1a1a1a;"></span> Texto: Preto Elegante</div><div class="color-combo"><span class="color-dot" style="background: #20B2AA;"></span> CTA: Turquesa</div></div>
+                <div class="usage-card"><h3 class="usage-title">📧 Materiais de Venda</h3><div class="color-combo"><span class="color-dot" style="background: #F9F9F9;"></span> Fundo: Off-White</div><div class="color-combo"><span class="color-dot" style="background: #1a1a1a;"></span> Texto: Preto Elegante</div><div class="color-combo"><span class="color-dot" style="background: #20B2AA;"></span> Títulos: Turquesa</div></div>
+                <div class="usage-card"><h3 class="usage-title">📊 Apresentações</h3><div class="color-combo"><span class="color-dot" style="background: #F9F9F9;"></span> Fundo: Off-White</div><div class="color-combo"><span class="color-dot" style="background: #20B2AA;"></span> Headers: Turquesa</div><div class="color-combo"><span class="color-dot" style="background: #40E0D0;"></span> Gráficos: Verde Água</div></div>
             </div>
         </div>
 
