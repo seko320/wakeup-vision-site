@@ -4,549 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wake Up Vision - Marketing com Alma para Negócios Autênticos</title>
+    <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
+
     <style>
+        /* O bloco @font-face foi REMOVIDO daqui */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            /* --- NOME DA FONTE AJUSTADO PARA O PADRÃO ADOBE FONTS --- */
+            font-family: 'dita', sans-serif; 
+            line-height: 1.7;
+            color: #1a1a1a;
+            background-color: #F9F9F9;
             overflow-x: hidden;
         }
         
-        /* Header */
+        /* O restante do CSS permanece exatamente o mesmo */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed; top: 0; width: 100%;
+            background: rgba(249, 249, 249, 0.85);
+            backdrop-filter: blur(10px); z-index: 1000;
+            padding: 1rem 0; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
-        
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
         }
-        
         .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #20B2AA;
-            text-decoration: none;
+            font-size: 2.2rem; font-weight: 700; color: #20B2AA; text-decoration: none;
         }
-        
         .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+            display: flex; list-style: none; gap: 2.5rem;
         }
-        
         .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            text-decoration: none; color: #1a1a1a; font-weight: 400;
+            font-size: 1.1rem; transition: color 0.3s ease;
         }
-        
-        .nav-links a:hover {
-            color: #20B2AA;
-        }
-        
-        /* Hero Section */
+        .nav-links a:hover { color: #20B2AA; }
         .hero {
             background: linear-gradient(135deg, #20B2AA 0%, #1a1a1a 70%, #000 100%);
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white; position: relative; overflow: hidden;
+            padding: 80px 2rem 0;
         }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            z-index: 2;
-            position: relative;
-        }
-        
+        .hero-content { max-width: 850px; z-index: 2; position: relative; }
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;
             animation: slideInUp 1s ease-out;
         }
-        
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9;
             animation: slideInUp 1s ease-out 0.3s both;
         }
-        
         .cta-button {
-            display: inline-block;
-            background: white;
-            color: #1a1a1a;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: slideInUp 1s ease-out 0.6s both;
-            border: 2px solid transparent;
+            display: inline-block; background: white; color: #1a1a1a; padding: 1rem 2.5rem;
+            border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem;
+            transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: slideInUp 1s ease-out 0.6s both; border: 2px solid transparent;
         }
-        
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(32, 178, 170, 0.4);
-            background: #20B2AA;
-            color: white;
-            border: 2px solid white;
+            transform: translateY(-5px); box-shadow: 0 15px 40px rgba(32, 178, 170, 0.4);
+            background: #20B2AA; color: white; border: 2px solid white;
         }
-        
-        /* Seções Gerais */
-        section {
-            padding: 5rem 0;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
+        section { padding: 6rem 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1a1a1a;
+            text-align: center; font-size: 2.8rem; font-weight: 700;
+            margin-bottom: 3.5rem; color: #1a1a1a;
         }
-        
-        /* Seção das Dores */
-        .pain-points {
-            background: #f5f5f5;
-        }
-        
-        .pain-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .pain-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .pain-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .pain-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #20B2AA, #00CED1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        /* Nossa Filosofia */
-        .philosophy {
-            background: #1a1a1a;
-            color: white;
-        }
-        
-        .philosophy-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .philosophy p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-        
-        .pillars {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
+        .philosophy { background: #1a1a1a; color: #F9F9F9; }
+        .philosophy-content { text-align: center; max-width: 800px; margin: 0 auto; }
+        .philosophy p { font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.8; opacity: 0.9; }
+        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .pillar {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: background 0.3s ease;
+            background: rgba(255, 255, 255, 0.05); padding: 2.5rem 2rem; border-radius: 15px;
+            text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .pillar:hover {
-            background: rgba(32, 178, 170, 0.2);
-        }
-        
-        .pillar h3 {
-            color: #20B2AA;
-            margin-bottom: 1rem;
-        }
-        
-        /* Soluções */
-        .solutions {
-            background: white;
-        }
-        
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        
+        .pillar:hover { background: rgba(32, 178, 170, 0.2); }
+        .pillar h3 { color: #20B2AA; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700; }
+        .solutions { background: #F9F9F9; }
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 3rem; }
         .solution-card {
-            background: linear-gradient(145deg, #f5f5f5, #e5e5e5);
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
+            background: white; border-radius: 20px; padding: 3rem 2rem; text-align: center;
+            position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); border: 1px solid #eee;
         }
-        
-        .solution-card:hover {
-            transform: translateY(-15px);
-        }
-        
+        .solution-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
         .solution-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
             background: linear-gradient(90deg, #20B2AA, #1a1a1a);
         }
-        
-        .solution-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .solution-card h3 {
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .solution-card p {
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            color: #666;
-        }
-        
-        /* CTA Final */
-        .final-cta {
-            background: linear-gradient(135deg, #1a1a1a, #20B2AA);
-            color: white;
-            text-align: center;
-        }
-        
-        .final-cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h3 {
-            color: #20B2AA;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: #20B2AA;
-        }
-        
-        /* Animações */
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsivo */
+        .solution-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+        .solution-card h3 { color: #1a1a1a; margin-bottom: 1rem; font-size: 1.6rem; font-weight: 700; }
+        .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; }
+        .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
+        footer { background: #1a1a1a; color: #F9F9F9; padding: 4rem 0 2rem 0; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem; text-align: left; }
+        .footer-section h3 { color: #20B2AA; margin-bottom: 1rem; font-weight: 700; }
+        .footer-section a { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
+        .footer-section a:hover { color: #20B2AA; }
+        .footer-bottom { border-top: 1px solid #444; padding-top: 2rem; margin-top: 2rem; text-align: center; }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .solutions-grid,
-            .pain-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.2rem; }
+            .nav-links { display: none; }
+            .solutions-grid { grid-template-columns: 1fr; }
+            section { padding: 4rem 0; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
-            <a href="#home" class="logo">WUV</a>
+            <a href="#" class="logo">WUV</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Sua marca tem alma. Vamos mostrá-la pro mundo?</h1>
-            <p>Não criamos apenas posts bonitos. Descobrimos a personalidade única do seu negócio e transformamos isso em uma presença digital que gera resultados reais.</p>
-            <a href="#contato" class="cta-button">Quero Despertar Minha Marca</a>
-        </div>
-    </section>
-
-    <!-- Seção das Dores -->
-    <section class="pain-points">
-        <div class="container">
-            <h2 class="section-title">Você já se sentiu assim?</h2>
-            <div class="pain-grid">
-                <div class="pain-item">
-                    <div class="pain-icon">😔</div>
-                    <h3>Falando Sozinho</h3>
-                    <p>Posta nas redes, mas parece que está falando sozinho</p>
-                </div>
-                <div class="pain-item">
-                    <div class="pain-icon">😰</div>
-                    <h3>Concorrência Crescendo</h3>
-                    <p>Vê os concorrentes crescendo enquanto você fica "patinando"</p>
-                </div>
-                <div class="pain-item">
-                    <div class="pain-icon">😕</div>
-                    <h3>Trabalho Ignorado</h3>
-                    <p>Sabe que seu trabalho é único, mas ninguém parece notar</p>
-                </div>
-                <div class="pain-item">
-                    <div class="pain-icon">😵</div>
-                    <h3>Perdido no Digital</h3>
-                    <p>Tem vontade de crescer, mas não sabe por onde começar no digital</p>
-                </div>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Sua marca tem alma. Vamos mostrá-la pro mundo?</h1>
+                <p>Não criamos apenas posts bonitos. Descobrimos a personalidade única do seu negócio e transformamos isso em uma presença digital que gera resultados reais.</p>
+                <a href="#contato" class="cta-button">Quero Despertar Minha Marca</a>
             </div>
-            <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #666;">
-                <strong>Se você se identificou com pelo menos um desses pontos, chegou ao lugar certo.</strong>
-            </p>
-        </div>
-    </section>
-
-    <!-- Nossa Filosofia -->
-    <section class="philosophy">
-        <div class="container">
-            <div class="philosophy-content">
-                <h2 class="section-title" style="color: white;">Cada negócio tem uma história. A nossa é contar a sua.</h2>
-                
-                <p>Na Wake Up Vision, acreditamos que não existe fórmula mágica. Existe autenticidade.</p>
-                
-                <p>Cada cliente nosso tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
-                
-                <div class="pillars">
-                    <div class="pillar">
-                        <h3>🤝 Parceria Acima do Pacote</h3>
-                        <p>Somos parceiros do seu crescimento, não apenas fornecedores</p>
-                    </div>
-                    <div class="pillar">
-                        <h3>💫 Estratégia com Alma</h3>
-                        <p>Todo conteúdo carrega sua personalidade autêntica</p>
-                    </div>
-                    <div class="pillar">
-                        <h3>💎 Honestidade Radical</h3>
-                        <p>Falamos a verdade, sempre. Mesmo quando dói</p>
+        </section>
+        <section id="sobre" class="philosophy">
+            <div class="container">
+                <div class="philosophy-content">
+                    <h2 class="section-title" style="color: white;">Cada negócio tem uma história. A nossa é contar a sua.</h2>
+                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas. Acreditamos em autenticidade.</p>
+                    <p>Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
+                    <div class="pillars">
+                        <div class="pillar"><h3>🤝 Parceria Acima do Pacote</h3><p>Somos parceiros do seu crescimento, não apenas fornecedores de posts.</p></div>
+                        <div class="pillar"><h3>💫 Estratégia com Alma</h3><p>Todo conteúdo carrega sua personalidade autêntica, criando conexões reais.</p></div>
+                        <div class="pillar"><h3>💎 Honestidade Radical</h3><p>Falamos a verdade, sempre. Sem enrolação, com foco no que realmente importa.</p></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Nossas Soluções -->
-    <section id="servicos" class="solutions">
-        <div class="container">
-            <h2 class="section-title">Como Trabalhamos</h2>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <div class="solution-icon">📋</div>
-                    <h3>Diagnóstico e Mapa Estratégico</h3>
-                    <p>"Para quem quer clareza total sobre os próximos passos"</p>
-                    <div>Análise completa + plano de ação detalhado para você executar</div>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="solution-icon">🤝</div>
-                    <h3>Parceria Estratégica</h3>
-                    <p>"Para quem quer resultados sem dor de cabeça"</p>
-                    <div>Nós executamos a estratégia enquanto você foca no que faz de melhor</div>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="solution-icon">🚀</div>
-                    <h3>Motor de Crescimento</h3>
-                    <p>"Para quem está pronto para o próximo nível"</p>
-                    <div>Estratégia + execução + tráfego pago = crescimento sustentável</div>
+        </section>
+        <section id="servicos" class="solutions">
+            <div class="container">
+                <h2 class="section-title">Nossas Soluções</h2>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3><p>Para quem quer clareza total sobre os próximos passos.</p><div>Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3><p>Para quem quer resultados consistentes sem dor de cabeça.</p><div>Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3><p>Para quem está pronto para acelerar e escalar.</p><div>Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Pronto para despertar sua marca?</h2>
-            <p>Não importa se você está começando ou se já tem um negócio estabelecido. Se você tem vontade de crescer e toparia fazer as coisas de um jeito diferente, vamos conversar.</p>
-            <a href="#contato" class="cta-button">Vamos Conversar no WhatsApp</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
+        </section>
+        <section class="final-cta">
+            <div class="container">
+                <h2 class="section-title" style="color:white; margin-bottom: 2rem;">Pronto para despertar o potencial da sua marca?</h2>
+                <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto;">Chega de se sentir invisível no digital. Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar. Sem compromisso, sem pressão.</p>
+                <a href="#contato" class="cta-button">Vamos Conversar no WhatsApp</a>
+            </div>
+        </section>
+    </main>
     <footer id="contato">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Wake Up Vision</h3>
-                    <p>Marketing com alma para negócios autênticos</p>
-                    <p>📍 Florianópolis/SC - Atendimento Nacional</p>
+                    <h3>Wake Up Vision</h3><p>Marketing com alma para negócios autênticos.</p><p>📍 Florianópolis/SC - Atendimento Nacional</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Contato</h3>
-                    <p>📧 contato@wakeupvision.com.br</p>
-                    <p>📱 WhatsApp: (48) 99999-9999</p>
-                    <p>⏰ Seg-Sex, 9h às 18h</p>
+                    <h3>Contato</h3><p><a href="mailto:contato@wakeupvision.com.br">📧 contato@wakeupvision.com.br</a></p><p><a href="https://wa.me/5548999999999" target="_blank">📱 WhatsApp: (48) 99999-9999</a></p>
                 </div>
                 <div class="footer-section">
-                    <h3>Redes Sociais</h3>
-                    <p>📱 Instagram: @wuv.mkt</p>
-                    <p>💼 LinkedIn: Wake Up Vision</p>
+                    <h3>Links Úteis</h3><p><a href="guia-de-marca.html" target="_blank">🎨 Nosso Guia de Marca</a></p><p style="color: #888;">💼 Portfólio (em breve)</p>
                 </div>
             </div>
-            <div style="border-top: 1px solid #555; padding-top: 2rem; margin-top: 2rem;">
-                <p>&copy; 2024 Wake Up Vision. Todos os direitos reservados.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Wake Up Vision. Todos os direitos reservados.</p></div>
         </div>
     </footer>
-
-    <script>
-        // Smooth scrolling para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Animação de entrada para elementos visíveis
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Aplicar animação para cards e seções
-        document.querySelectorAll('.pain-item, .solution-card, .pillar').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
