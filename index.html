@@ -3,217 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wake Up Vision - Marketing com Alma para Negócios Autênticos</title>
+    <title>Wake Up Vision - Manual da Marca</title>
+    
     <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'dita', sans-serif; 
-            line-height: 1.7;
+            font-family: 'dita', sans-serif;
+            line-height: 1.6;
             color: #1a1a1a;
-            background-color: #F9F9F9;
+            background: #F9F9F9;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        header {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(249, 249, 249, 0.85);
-            backdrop-filter: blur(10px); z-index: 1000;
-            padding: 1rem 0; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+
+        .site-header {
+            background: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 1px solid #eee;
         }
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+        .site-header a {
+            color: #20B2AA;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
         }
-        .logo { font-size: 2.2rem; font-weight: 700; color: #20B2AA; text-decoration: none; }
-        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
-        .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
-        .nav-links a:hover { color: #20B2AA; }
-        .hero {
-            background: linear-gradient(135deg, #20B2AA 0%, #1a1a1a 70%, #000 100%);
-            min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; color: white; position: relative; overflow: hidden; padding: 80px 2rem 0;
-        }
-        .hero-content { max-width: 850px; z-index: 2; position: relative; }
-        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; }
-        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; }
-        .cta-button {
-            display: inline-block; background: white; color: #1a1a1a; padding: 1rem 2.5rem;
-            border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem;
-            transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: slideInUp 1s ease-out 0.6s both; border: 2px solid transparent;
-        }
-        .cta-button:hover {
-            transform: translateY(-5px); box-shadow: 0 15px 40px rgba(32, 178, 170, 0.4);
-            background: #20B2AA; color: white; border: 2px solid white;
-        }
-        section { padding: 6rem 2rem; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; }
-        .philosophy { background: #1a1a1a; color: #F9F9F9; }
-        .philosophy-content { text-align: center; max-width: 800px; margin: 0 auto; }
-        /* AJUSTE: Justificar texto principal da filosofia */
-        .philosophy p { font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.8; opacity: 0.9; text-align: justify; }
         
-        /* AJUSTE: Grid para pilares - 2 colunas para 3 itens */
-        .pillars { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexível para 2 ou 3+ */
-            gap: 2rem; 
-            margin-top: 3rem; 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
-        @media (min-width: 768px) and (max-width: 1199px) { /* Ajuste para telas médias (2 colunas) */
-            .pillars {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 600px; /* Limita a largura para centralizar 2 colunas */
-                margin-left: auto;
-                margin-right: auto;
+        
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #20B2AA, #1a1a1a);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            color: #20B2AA;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #20B2AA;
+            padding-left: 1.5rem;
+            font-weight: 700;
+        }
+
+        .intro-text p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
+        .intro-text strong { color: #1a1a1a; }
+        
+        .color-palette {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        @media (min-width: 992px) {
+            .color-palette {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
-        .pillar { background: rgba(255, 255, 255, 0.05); padding: 2.5rem 2rem; border-radius: 15px; text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .pillar:hover { background: rgba(32, 178, 170, 0.2); }
-        .pillar h3 { color: #20B2AA; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700; }
-        /* AJUSTE: Mudar texto dos pilares para centralizado novamente para evitar quebras estranhas */
-        .pillar p { text-align: center; } 
-
-        .solutions { background: #F9F9F9; }
-        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 3rem; }
-        .solution-card { background: white; border-radius: 20px; padding: 3rem 2.5rem; text-align: center; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); border: 1px solid #eee; }
-        .solution-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
-        .solution-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #20B2AA, #1a1a1a); }
-        .solution-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
-        .solution-card h3 { color: #1a1a1a; margin-bottom: 1rem; font-size: 1.6rem; font-weight: 700; }
-        /* AJUSTE: Justificar texto dos cards de solução */
-        .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; text-align: justify; }
         
-        .testimonials { background: #fff; }
-        .testimonial-card { max-width: 800px; margin: 0 auto; text-align: center; }
-        .testimonial-card img {
-            width: 100%;
+        .color-card {
+            text-align: center;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            overflow: hidden;
             border: 1px solid #eee;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
         }
-        .testimonial-client { font-size: 1.1rem; line-height: 1.5; color: #4A4A4A; }
         
-        .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
-        /* AJUSTE: Centralizar texto e botão do CTA final */
-        .final-cta .section-title { margin-bottom: 2rem; }
-        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; } /* Centralizado */
+        .color-card:hover { transform: translateY(-5px); }
+        .color-sample { height: 120px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
+        .color-info { padding: 1.5rem; background: white; }
+        .color-info h3 { font-weight: 700; }
+        .color-code { font-family: monospace; background: #f5f5f5; padding: 0.3rem 0.6rem; border-radius: 5px; margin-top: 0.5rem; display: inline-block; }
         
-        footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
-        .footer-section h3 { color: #20B2AA; margin-bottom: 1.5rem; font-weight: 700; }
-        .footer-section p { margin-bottom: 0.8rem; }
-        .footer-section a { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
-        .footer-section a:hover { color: #20B2AA; }
-        .footer-bottom { border-top: 1px solid #444; padding-top: 2.5rem; margin-top: 2.5rem; text-align: center; opacity: 0.8; }
-        @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.2rem; }
-            .nav-links { display: none; }
-            section { padding: 4rem 1rem; }
-            /* Garantir que os pilares fiquem em 1 coluna em mobile */
-            .pillars { grid-template-columns: 1fr; }
+        .post-examples {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         }
+        
+        .post-example {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .post-example:hover { transform: translateY(-5px); }
+        .post-content { padding: 2rem; text-align: center; min-height: 250px; display: flex; flex-direction: column; justify-content: center; }
+        .post-title { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; }
+        .post-subtitle { font-size: 1rem; margin-bottom: 1.5rem; opacity: 0.8; }
+        .post-cta { padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; display: inline-block; margin-top: 1rem; }
+        .post-info { padding: 1.5rem; background: #f8f8f8; border-top: 3px solid #20B2AA; }
+        .post-educativo { background: linear-gradient(135deg, #20B2AA, #7FFFD4); color: white; }
+        .post-venda { background: linear-gradient(135deg, #1a1a1a, #4A4A4A); color: white; }
+        .post-resultado { background: linear-gradient(135deg, #51CF66, #40E0D0); color: white; }
+        .cta-educativo { background: white; color: #20B2AA; }
+        .cta-venda { background: #20B2AA; color: white; }
+        .cta-resultado { background: white; color: #51CF66; }
+        
+        .story-examples { aspect-ratio: 9/16; max-width: 250px; margin: 0 auto; border-radius: 20px; padding: 2rem 1rem; display: flex; flex-direction: column; justify-content: space-between; text-align: center; color: white; position: relative; overflow: hidden; }
+        .story-example::before { content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: rgba(255, 255, 255, 0.3); border-radius: 2px; }
+        .story-title { font-size: 1.1rem; font-weight: 700; }
+        .story-content { font-size: 0.9rem; opacity: 0.9; }
+        .story-cta { background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; }
+        .story-turquesa { background: linear-gradient(180deg, #20B2AA, #40E0D0); }
+        .story-preto { background: linear-gradient(180deg, #1a1a1a, #4A4A4A); }
+        .story-resultado { background: linear-gradient(180deg, #51CF66, #20B2AA); }
+
+        .usage-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 1.5rem; 
+            margin-top: 2rem; 
+        }
+        .usage-card { background: #F9F9F9; border-left: 5px solid #20B2AA; padding: 1.5rem; border-radius: 10px; }
+        .usage-title { font-size: 1.2rem; margin-bottom: 1rem; font-weight: 700; }
+        .color-combo { display: flex; align-items: center; margin: 0.5rem 0; font-size: 0.9rem; }
+        .color-dot { width: 20px; height: 20px; border-radius: 50%; margin-right: 0.75rem; border: 1px solid #ddd; }
+        
+        .rules-container { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
+        @media (min-width: 768px) { .rules-container { grid-template-columns: 1fr 1fr; } }
+        .rule-box { padding: 2.5rem; border-radius: 15px; }
+        .rule-box h3 { margin-bottom: 1.5rem; font-weight: 700; }
+        .rule-box ul { list-style-position: inside; padding-left: 0; line-height: 1.8; }
+        .do-box { background: #e0f8f7; color: #08421A; }
+        .do-box h3 { color: #20B2AA; }
+        .dont-box { background: #333; color: #F9F9F9; }
+        .dont-box h3 { color: #F74C4C; }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo">WUV</a>
-            <ul class="nav-links">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#depoimentos">Depoimentos</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <a href="index.html">← Voltar para o Site Principal da Wake Up Vision</a>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Sua marca tem alma. Vamos mostrá-la pro mundo?</h1>
-                <p>Não criamos apenas posts bonitos. Descobrimos a personalidade única do seu negócio e transformamos isso em uma presença digital que gera resultados reais.</p>
-                <a href="#contato" class="cta-button">Quero Despertar Minha Marca</a>
-            </div>
-        </section>
-
-        <section id="sobre" class="philosophy">
-            <div class="container">
-                <div class="philosophy-content">
-                    <h2 class="section-title" style="color: white;">Cada negócio tem uma história. A nossa é contar a sua.</h2>
-                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas. Acreditamos em autenticidade.</p>
-                    <p>Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
-                    <div class="pillars">
-                        <div class="pillar"><h3>🤝 Parceria Acima do Pacote</h3><p>Somos parceiros do seu crescimento, não apenas fornecedores de posts.</p></div>
-                        <div class="pillar"><h3>💫 Estratégia com Alma</h3><p>Todo conteúdo carrega sua personalidade autêntica, criando conexões reais.</p></div>
-                        <div class="pillar"><h3>💎 Honestidade Radical</h3><p>Falamos a verdade, sempre. Sem enrolação, com foco no que realmente importa.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="servicos" class="solutions">
-            <div class="container">
-                <h2 class="section-title">Nossas Soluções</h2>
-                <div class="solutions-grid">
-                    <div class="solution-card">
-                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3><p>Para quem quer clareza total sobre os próximos passos. Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</p>
-                    </div>
-                    <div class="solution-card">
-                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3><p>Para quem quer resultados consistentes sem dor de cabeça. Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</p>
-                    </div>
-                    <div class="solution-card">
-                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3><p>Para quem está pronto para acelerar e escalar. Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="depoimentos" class="testimonials">
-            <div class="container">
-                <h2 class="section-title">O que nossos parceiros dizem</h2>
-                <div class="testimonial-card">
-                    <img src="https://i.ibb.co/Y0TQPz2/depoimento-cliente.png" alt="Print de um depoimento de cliente elogiando o trabalho da Wake Up Vision">
-                    <p class="testimonial-client">
-                        <strong>Nome do Cliente</strong><br>
-                        Empresa do Cliente
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="final-cta">
-            <div class="container">
-                <h2 class="section-title" style="color:white; margin-bottom: 2rem;">Pronto para despertar o potencial da sua marca?</h2>
-                <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto;">Chega de se sentir invisível no digital. Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar. Sem compromisso, sem pressão.</p>
-                <a href="#contato" class="cta-button">Vamos Conversar no WhatsApp</a>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Wake Up Vision</h3><p>Marketing com alma para negócios autênticos.</p><p>📍 Florianópolis/SC - Atendimento Nacional</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contato</h3><p><a href="mailto:contato@wakeupvision.com.br">📧 contato@wakeupvision.com.br</a></p><p><a href="https://wa.me/5548999999999" target="_blank">📱 WhatsApp: (48) 99999-9999</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Links Úteis</h3>
-                    <p style="color: #888;">💼 Portfólio (em breve)</p>
-                </div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2025 Wake Up Vision. Todos os direitos reservados.</p></div>
+    <div class="container">
+        <div class="header">
+            <h1>Wake Up Vision</h1>
+            <p>Manual Completo da Marca - Guia Visual para Marketing</p>
         </div>
-    </footer>
+
+        <div class="section">
+            <h2 class="section-title">O que é Identidade Visual?</h2>
+            <div class="intro-text">
+                <p>Muitos pensam que se resume a um logo, mas a Identidade Visual é muito mais: <strong>é a linguagem visual completa de uma marca</strong>. É o conjunto estratégico de elementos como cores, fontes e estilo gráfico que, juntos, comunicam a personalidade, os valores e o propósito do negócio sem precisar de palavras.</p>
+                <p>A identidade da <strong>Wake Up Vision</strong>, por exemplo, não foi criada ao acaso. O <strong>Turquesa Principal (#20B2AA)</strong> foi escolhido por transmitir clareza, confiança e criatividade, enquanto o <strong>Preto Elegante (#1a1a1a)</strong> ancora a marca com sofisticação e seriedade. A fonte <strong>Dita</strong>, com sua personalidade única, reforça nossa abordagem autêntica e diferenciada.</p>
+                <p>Cada elemento que você verá a seguir é uma peça desse quebra-cabeça, desenhado para criar uma presença digital consistente, memorável e, acima de tudo, <strong>que gera conexão e resultados</strong>.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Paleta de Cores Completa</h2>
+            <div class="color-palette">
+                <div class="color-card"><div class="color-sample" style="background: #20B2AA; color: white;">WUV</div><div class="color-info"><h3>Turquesa Principal</h3><div class="color-code">#20B2AA</div><p><strong>Uso:</strong> Logo, CTAs, títulos</p></div></div>
+                <div class="color-card"><div class="color-sample" style="background: #1a1a1a; color: white;">WUV</div><div class="color-info"><h3>Preto Elegante</h3><div class="color-code">#1a1a1a</div><p><strong>Uso:</strong> Textos, fundos</p></div></div>
+                <div class="color-card"><div class="color-sample" style="background: #7FFFD4; color: #1a1a1a;">WUV</div><div class="color-info"><h3>Turquesa Claro</h3><div class="color-code">#7FFFD4</div><p><strong>Uso:</strong> Fundos suaves</p></div></div>
+                <div class="color-card"><div class="color-sample" style="background: #40E0D0; color: white;">WUV</div><div class="color-info"><h3>Verde Água</h3><div class="color-code">#40E0D0</div><p><strong>Uso:</strong> Accents, gradientes</p></div></div>
+                <div class="color-card"><div class="color-sample" style="background: #F9F9F9; color: #1a1a1a; border: 1px solid #e0e0e0;">WUV</div><div class="color-info"><h3>Off-White</h3><div class="color-code">#F9F9F9</div><p><strong>Uso:</strong> Fundos principais</p></div></div>
+                <div class="color-card"><div class="color-sample" style="background: #FFD43B; color: #1a1a1a;">WUV</div><div class="color-info"><h3>Dourado (Destaque)</h3><div class="color-code">#FFD43B</div><p><strong>Uso:</strong> Elementos premium</p></div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📱 Templates de Posts</h2>
+            <div class="post-examples">
+                <div class="post-example"><div class="post-content post-educativo"><h3 class="post-title">5 Erros que Matam sua Presença Online</h3><p class="post-subtitle">Descubra o que está sabotando seu crescimento</p><a href="#" class="post-cta cta-educativo">Quero Saber Mais</a></div><div class="post-info"><strong>Tipo:</strong> Educativo/Dica<br><strong>Cores:</strong> Turquesa + Branco</div></div>
+                <div class="post-example"><div class="post-content post-venda"><h3 class="post-title">Pronto para Despertar sua Marca?</h3><p class="post-subtitle">Transforme sua presença digital em resultados</p><a href="#" class="post-cta cta-venda">Vamos Conversar</a></div><div class="post-info"><strong>Tipo:</strong> Venda/CTA<br><strong>Cores:</strong> Preto + Turquesa</div></div>
+                <div class="post-example"><div class="post-content post-resultado"><h3 class="post-title">Cliente Aumentou 300% o Engajamento</h3><p class="post-subtitle">Veja como transformamos a presença dele</p><a href="#" class="post-cta cta-resultado">Ver Case Completo</a></div><div class="post-info"><strong>Tipo:</strong> Prova Social<br><strong>Cores:</strong> Verde + Branco</div></div>
+                <div class="post-example"><div class="post-content" style="background: linear-gradient(135deg, #FFD43B, #20B2AA); color: #1a1a1a;"><h3 class="post-title">Transformação Premium Garantida</h3><p class="post-subtitle">Sua marca merece brilhar no digital</p><a href="#" class="post-cta" style="background: #1a1a1a; color: #FFD43B;">Investir em Mim</a></div><div class="post-info"><strong>Tipo:</strong> Premium/Exclusivo<br><strong>Cores:</strong> Dourado + Turquesa</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📲 Templates de Stories</h2>
+            <div class="story-examples">
+                <div class="story-example story-turquesa"><div class="story-title">Dica Rápida</div><div class="story-content">Sua bio do Instagram deve responder 3 perguntas: QUEM você é, O QUE faz e PARA QUEM.</div><div class="story-cta">Arrasta pra cima</div></div>
+                <div class="story-example story-preto"><div class="story-title">Caixa de Perguntas</div><div class="story-content">Qual a maior dificuldade da sua marca hoje no digital?</div><div class="story-cta">Me conta aqui</div></div>
+                <div class="story-example story-resultado"><div class="story-title">Resultado Real</div><div class="story-content">+150% de alcance em 30 dias. Cliente feliz e resultado no bolso!</div><div class="story-cta">Ver o case</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📋 Guia de Uso por Situação</h2>
+            <div class="usage-grid">
+                <div class="usage-card"><h3 class="usage-title">📝 Posts Educativos</h3><div class="color-combo"><span class="color-dot" style="background: #20B2AA;"></span> Fundo: Turquesa Principal</div><div class="color-combo"><span class="color-dot" style="background: white;"></span> Texto: Branco</div><div class="color-combo"><span class="color-dot" style="background: #F9F9F9;"></span> CTA: Off-White</div></div>
+                <div class="usage-card"><h3 class="usage-title">💰 Posts de Venda</h3><div class="color-combo"><span class="color-dot" style="background: #1a1a1a;"></span> Fundo: Preto Elegante</div><div class="color-combo"><span class="color-dot" style="background: white;"></span> Texto: Branco</div><div class="color-combo"><span class="color-dot" style="background: #20B2AA;"></span> CTA: Turquesa</div></div>
+                <div class="usage-card"><h3 class="usage-title">🎯 Posts de Resultados</h3><div class="color-combo"><span class="color-dot" style="background: #51CF66;"></span> Fundo: Verde Sucesso</div><div class="color-combo"><span class="color-dot" style="background: white;"></span> Texto: Branco</div><div class="color-combo"><span class="color-dot" style="background: #40E0D0;"></span> Accent: Verde Água</div></div>
+                <div class="usage-card"><h3 class="usage-title">⚡ Posts Premium</h3><div class="color-combo"><span class="color-dot" style="background: #FFD43B;"></span> Fundo: Dourado</div><div class="color-combo"><span class="color-dot" style="background: #1a1a1a;"></span> Texto: Preto Elegante</div><div class="color-combo"><span class="color-dot" style="background: #20B2AA;"></span> CTA: Turquesa</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">⚠️ Regras de Ouro</h2>
+            <div class="rules-container">
+                <div class="rule-box do-box">
+                    <h3>✅ SEMPRE FAÇA:</h3>
+                    <ul>
+                        <li>Usar no máximo 3 cores por peça</li>
+                        <li>Manter contraste para boa leitura</li>
+                        <li>Combinar Turquesa + Preto para impacto</li>
+                        <li>Usar Off-white para fundos sofisticados</li>
+                        <li>Reservar o Dourado para detalhes premium</li>
+                    </ul>
+                </div>
+                <div class="rule-box dont-box">
+                    <h3>❌ NUNCA FAÇA:</h3>
+                    <ul>
+                        <li>Misturar mais de 4 cores</li>
+                        <li>Usar branco puro (sempre off-white #F9F9F9)</li>
+                        <li>Colocar texto claro em fundo claro</li>
+                        <li>Abusar do dourado (menos é mais)</li>
+                        <li>Usar cores fora da paleta oficial</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
