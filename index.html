@@ -55,11 +55,30 @@
         .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; }
         .philosophy { background: #1a1a1a; color: #F9F9F9; }
         .philosophy-content { text-align: center; max-width: 800px; margin: 0 auto; }
-        .philosophy p { font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.8; opacity: 0.9; }
-        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        /* AJUSTE: Justificar texto principal da filosofia */
+        .philosophy p { font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.8; opacity: 0.9; text-align: justify; }
+        
+        /* AJUSTE: Grid para pilares - 2 colunas para 3 itens */
+        .pillars { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexível para 2 ou 3+ */
+            gap: 2rem; 
+            margin-top: 3rem; 
+        }
+        @media (min-width: 768px) and (max-width: 1199px) { /* Ajuste para telas médias (2 colunas) */
+            .pillars {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 600px; /* Limita a largura para centralizar 2 colunas */
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
         .pillar { background: rgba(255, 255, 255, 0.05); padding: 2.5rem 2rem; border-radius: 15px; text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
         .pillar:hover { background: rgba(32, 178, 170, 0.2); }
         .pillar h3 { color: #20B2AA; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700; }
+        /* AJUSTE: Justificar texto dos pilares */
+        .pillar p { text-align: justify; }
+
         .solutions { background: #F9F9F9; }
         .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 3rem; }
         .solution-card { background: white; border-radius: 20px; padding: 3rem 2.5rem; text-align: center; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); border: 1px solid #eee; }
@@ -67,8 +86,9 @@
         .solution-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #20B2AA, #1a1a1a); }
         .solution-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
         .solution-card h3 { color: #1a1a1a; margin-bottom: 1rem; font-size: 1.6rem; font-weight: 700; }
-        .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; }
-        /* --- ESTILOS DA NOVA SEÇÃO DE DEPOIMENTOS --- */
+        /* AJUSTE: Justificar texto dos cards de solução */
+        .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; text-align: justify; }
+        
         .testimonials { background: #fff; }
         .testimonial-card { max-width: 800px; margin: 0 auto; text-align: center; }
         .testimonial-card img {
@@ -79,7 +99,12 @@
             border: 1px solid #eee;
         }
         .testimonial-client { font-size: 1.1rem; line-height: 1.5; color: #4A4A4A; }
+        
         .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
+        /* AJUSTE: Centralizar texto e botão do CTA final */
+        .final-cta .section-title { margin-bottom: 2rem; }
+        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; } /* Centralizado */
+        
         footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
         .footer-section h3 { color: #20B2AA; margin-bottom: 1.5rem; font-weight: 700; }
@@ -93,6 +118,8 @@
             .hero p { font-size: 1.2rem; }
             .nav-links { display: none; }
             section { padding: 4rem 1rem; }
+            /* Garantir que os pilares fiquem em 1 coluna em mobile */
+            .pillars { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -137,13 +164,13 @@
                 <h2 class="section-title">Nossas Soluções</h2>
                 <div class="solutions-grid">
                     <div class="solution-card">
-                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3><p>Para quem quer clareza total sobre os próximos passos.</p><div>Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</div>
+                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3><p>Para quem quer clareza total sobre os próximos passos.</p><p>Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</p>
                     </div>
                     <div class="solution-card">
-                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3><p>Para quem quer resultados consistentes sem dor de cabeça.</p><div>Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</div>
+                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3><p>Para quem quer resultados consistentes sem dor de cabeça.</p><p>Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</p>
                     </div>
                     <div class="solution-card">
-                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3><p>Para quem está pronto para acelerar e escalar.</p><div>Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</div>
+                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3><p>Para quem está pronto para acelerar e escalar.</p><p>Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</p>
                     </div>
                 </div>
             </div>
