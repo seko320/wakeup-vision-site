@@ -109,7 +109,7 @@
         .pillar-result .pillar-name { font-size: 1.2rem; font-weight: 700; }
         .pillar-result .stars-container { font-size: 1.5rem; color: var(--dourado-premium); display: flex; align-items: center; justify-content: center; gap: 0.1rem; }
         
-        .star-icon { width: 1em; height: 1em; fill: currentColor; }
+        .star-icon { width: 1em; height: 1em; }
         
         #answers-summary ul { list-style-type: none; padding-left: 0; }
         #answers-summary li { background: var(--off-white); padding: 0.8rem 1rem; border-radius: 5px; margin-bottom: 0.5rem; }
@@ -348,10 +348,9 @@
                 const numericScore = total > 0 ? (score / total) * 5 : 0;
                 const roundedScore = Math.round(numericScore * 2) / 2;
                 
-                // --- SVGs DAS ESTRELAS CORRIGIDOS ---
-                const starFull = `<svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-                const starHalf = `<svg class="star-icon" viewBox="0 0 24 24"><path d="M12 15.4V6.1l-3.29 2.73-3.89.34 2.83 2.5-1.09 3.86L12 15.4z"/></svg>`; // Metade esquerda
-                const starEmpty = `<svg class="star-icon" style="color: var(--cinza-estrela);" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`; // Cinza sólido
+                const starFull = `<svg class="star-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+                const starHalf = `<svg class="star-icon" viewBox="0 0 24 24"><defs><linearGradient id="half_grad"><stop offset="50%" stop-color="var(--dourado-premium)" /><stop offset="50%" stop-color="var(--cinza-estrela)" /></linearGradient></defs><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#half_grad)"/></svg>`;
+                const starEmpty = `<svg class="star-icon" viewBox="0 0 24 24" fill="var(--cinza-estrela)"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
 
                 let html = '';
                 const fullStars = Math.floor(roundedScore);
