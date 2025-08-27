@@ -55,55 +55,34 @@
         .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; }
         .philosophy { background: #1a1a1a; color: #F9F9F9; }
         .philosophy-content { text-align: center; max-width: 800px; margin: 0 auto; }
-        /* AJUSTE: Justificar texto principal da filosofia */
-        .philosophy p { font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.8; opacity: 0.9; text-align: justify; }
+        /* AJUSTE: Texto centralizado para melhor quebra de linha */
+        .philosophy p { font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.8; opacity: 0.9; text-align: center; }
         
-        /* AJUSTE: Grid para pilares - 2 colunas para 3 itens */
-        .pillars { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexível para 2 ou 3+ */
-            gap: 2rem; 
-            margin-top: 3rem; 
-        }
-        @media (min-width: 768px) and (max-width: 1199px) { /* Ajuste para telas médias (2 colunas) */
-            .pillars {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 600px; /* Limita a largura para centralizar 2 colunas */
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-        .pillar { background: rgba(255, 255, 255, 0.05); padding: 2.5rem 2rem; border-radius: 15px; text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .pillar { background: rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 15px; text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
         .pillar:hover { background: rgba(32, 178, 170, 0.2); }
         .pillar h3 { color: #20B2AA; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700; }
-        /* AJUSTE: Mudar texto dos pilares para centralizado novamente para evitar quebras estranhas */
-        .pillar p { text-align: center; } 
+        /* AJUSTE: Texto centralizado para melhor leitura */
+        .pillar p { text-align: center; }
 
         .solutions { background: #F9F9F9; }
-        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 3rem; }
-        .solution-card { background: white; border-radius: 20px; padding: 3rem 2.5rem; text-align: center; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); border: 1px solid #eee; }
+        /* AJUSTE: CSS para igualar altura dos cards */
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 3rem; align-items: stretch; }
+        .solution-card { background: white; border-radius: 20px; padding: 3rem 2.5rem; text-align: center; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); border: 1px solid #eee; display: flex; flex-direction: column; }
         .solution-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
         .solution-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #20B2AA, #1a1a1a); }
         .solution-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
         .solution-card h3 { color: #1a1a1a; margin-bottom: 1rem; font-size: 1.6rem; font-weight: 700; }
-        /* AJUSTE: Justificar texto dos cards de solução */
-        .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; text-align: justify; }
+        .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; flex-grow: 1; text-align: left; } /* Texto alinhado à esquerda para leitura */
         
         .testimonials { background: #fff; }
         .testimonial-card { max-width: 800px; margin: 0 auto; text-align: center; }
-        .testimonial-card img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            border: 1px solid #eee;
-        }
+        .testimonial-card img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 2rem; border: 1px solid #eee; }
         .testimonial-client { font-size: 1.1rem; line-height: 1.5; color: #4A4A4A; }
         
         .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
-        /* AJUSTE: Centralizar texto e botão do CTA final */
         .final-cta .section-title { margin-bottom: 2rem; }
-        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; } /* Centralizado */
+        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; }
         
         footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
@@ -118,8 +97,6 @@
             .hero p { font-size: 1.2rem; }
             .nav-links { display: none; }
             section { padding: 4rem 1rem; }
-            /* Garantir que os pilares fiquem em 1 coluna em mobile */
-            .pillars { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -154,6 +131,7 @@
                         <div class="pillar"><h3>🤝 Parceria Acima do Pacote</h3><p>Somos parceiros do seu crescimento, não apenas fornecedores de posts.</p></div>
                         <div class="pillar"><h3>💫 Estratégia com Alma</h3><p>Todo conteúdo carrega sua personalidade autêntica, criando conexões reais.</p></div>
                         <div class="pillar"><h3>💎 Honestidade Radical</h3><p>Falamos a verdade, sempre. Sem enrolação, com foco no que realmente importa.</p></div>
+                        <div class="pillar"><h3>🎯 Foco em Resultados</h3><p>Não estamos aqui para fazer posts bonitos. Cada ação é medida e otimizada para atingir seus objetivos de crescimento.</p></div>
                     </div>
                 </div>
             </div>
@@ -191,8 +169,8 @@
 
         <section class="final-cta">
             <div class="container">
-                <h2 class="section-title" style="color:white; margin-bottom: 2rem;">Pronto para despertar o potencial da sua marca?</h2>
-                <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto;">Chega de se sentir invisível no digital. Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar. Sem compromisso, sem pressão.</p>
+                <h2 class="section-title" style="color:white;">Pronto para despertar o potencial da sua marca?</h2>
+                <p>Chega de se sentir invisível no digital. Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar. Sem compromisso, sem pressão.</p>
                 <a href="#contato" class="cta-button">Vamos Conversar no WhatsApp</a>
             </div>
         </section>
