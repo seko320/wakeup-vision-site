@@ -33,49 +33,13 @@
         .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: #20B2AA; }
         
-        /* --- ESTILOS DO MENU MOBILE --- */
-        .mobile-menu-icon {
-            display: none;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        .mobile-menu-icon div {
-            width: 30px;
-            height: 3px;
-            background-color: #1a1a1a;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%; /* Começa fora da tela */
-            width: 70%;
-            max-width: 300px;
-            height: 100vh;
-            background-color: white;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            transition: right 0.5s ease;
-            padding-top: 100px;
-            z-index: 1000;
-        }
-        .mobile-nav.active {
-            right: 0;
-        }
-        .mobile-nav ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        .mobile-nav li {
-            margin-bottom: 2rem;
-        }
-        .mobile-nav a {
-            text-decoration: none;
-            color: #1a1a1a;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
+        .mobile-menu-icon { display: none; cursor: pointer; z-index: 1001; }
+        .mobile-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transition: 0.4s; }
+        .mobile-nav { position: fixed; top: 0; right: -100%; width: 70%; max-width: 300px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.5s ease; padding-top: 100px; z-index: 1000; }
+        .mobile-nav.active { right: 0; }
+        .mobile-nav ul { list-style: none; padding: 0; text-align: center; }
+        .mobile-nav li { margin-bottom: 2rem; }
+        .mobile-nav a { text-decoration: none; color: #1a1a1a; font-size: 1.5rem; font-weight: 700; }
 
         .hero {
             background: linear-gradient(135deg, #20B2AA 0%, #1a1a1a 70%, #000 100%);
@@ -100,13 +64,13 @@
         .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; text-wrap: balance; }
         .philosophy { background: #1a1a1a; color: #F9F9F9; }
         .philosophy-content { text-align: center; max-width: 800px; margin: 0 auto; }
-        .philosophy p { font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.8; opacity: 0.9; text-align: justify; text-wrap: balance; }
+        .philosophy p { font-size: 1.25rem; margin-bottom: 1rem; line-height: 1.8; opacity: 0.9; text-align: center; text-wrap: balance; }
         
         .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; align-items: stretch; }
         .pillar { background: rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 15px; text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; }
         .pillar:hover { background: rgba(32, 178, 170, 0.2); }
         .pillar h3 { color: #20B2AA; margin-bottom: 1.5rem; font-size: 1.3rem; font-weight: 700; }
-        .pillar p { text-align: center; flex-grow: 1; text-wrap: balance; }
+        .pillar p { text-align: left; flex-grow: 1; text-wrap: balance; }
 
         .solutions { background: #F9F9F9; }
         .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 3rem; align-items: stretch; }
@@ -115,7 +79,8 @@
         .solution-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #20B2AA, #1a1a1a); }
         .solution-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
         .solution-card h3 { color: #1a1a1a; margin-bottom: 1.5rem; font-size: 1.6rem; font-weight: 700; min-height: 3.2em; }
-        .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; flex-grow: 1; text-align: left; text-wrap: balance; }
+        .solution-card .subtitle { font-weight: 700; color: #1a1a1a; display: block; margin-bottom: 1rem; text-align: left; }
+        .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; flex-grow: 1; text-align: justify; text-wrap: balance; }
         
         .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
         .final-cta .section-title { margin-bottom: 2rem; }
@@ -183,8 +148,8 @@
             <div class="container">
                 <div class="philosophy-content">
                     <h2 class="section-title" style="color: white;">Cada negócio tem uma história.<br>A nossa é contar a SUA.</h2>
-                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas. Acreditamos em autenticidade.</p>
-                    <p>Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
+                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas.<br>Acreditamos em autenticidade.</p>
+                    <p style="text-align: justify; margin-top: 2rem;">Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
                     <div class="pillars">
                         <div class="pillar"><h3>🤝 Parceria Acima do Pacote</h3><p>Somos parceiros do seu crescimento, não apenas fornecedores de posts.</p></div>
                         <div class="pillar"><h3>💫 Estratégia com Alma</h3><p>Todo conteúdo carrega sua personalidade autêntica, criando conexões reais.</p></div>
@@ -200,13 +165,16 @@
                 <h2 class="section-title">Nossas Soluções</h2>
                 <div class="solutions-grid">
                     <div class="solution-card">
-                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3><p>Para quem quer clareza total sobre os próximos passos. Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</p>
+                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3>
+                        <p><span class="subtitle">Para quem quer clareza total sobre os próximos passos.</span>Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</p>
                     </div>
                     <div class="solution-card">
-                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3><p>Para quem quer resultados consistentes sem dor de cabeça. Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</p>
+                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3>
+                        <p><span class="subtitle">Para quem quer resultados consistentes sem dor de cabeça.</span>Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</p>
                     </div>
                     <div class="solution-card">
-                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3><p>Para quem está pronto para acelerar e escalar. Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</p>
+                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3>
+                        <p><span class="subtitle">Para quem está pronto para acelerar e escalar.</span>Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</p>
                     </div>
                 </div>
             </div>
@@ -215,7 +183,7 @@
         <section class="final-cta">
             <div class="container">
                 <h2 class="section-title" style="color:white;">Pronto para despertar o potencial da sua marca?</h2>
-                <p>Chega de se sentir invisível no digital. Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar. Sem compromisso, sem pressão.</p>
+                <p>Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar.<br>Sem compromisso, sem pressão.</p>
                 <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20quero%20despertar%20o%20potencial%20da%20minha%20marca.%20Vamos%20conversar%3F" target="_blank" class="cta-button">Vamos Conversar no WhatsApp</a>
             </div>
         </section>
@@ -251,7 +219,6 @@
             mobileNav.classList.toggle('active');
         });
 
-        // Opcional: Fechar o menu ao clicar em um link
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
