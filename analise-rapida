@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Rápido de Marca - Wake Up Vision</title>
+    <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
+    <style>
+        :root {
+            --turquesa-principal: #20B2AA;
+            --preto-elegante: #1a1a1a;
+            --off-white: #F9F9F9;
+            --dourado-premium: #FFD43B;
+            --cinza-claro: #f0f0f0;
+            --cinza-texto: #4A4A4A;
+            --cinza-estrela: #ccc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'dita', sans-serif;
+            line-height: 1.6;
+            color: var(--preto-elegante);
+            background: var(--off-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .site-header {
+            background: #fff; padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center; border-bottom: 1px solid #eee;
+        }
+        .site-header a {
+            color: var(--turquesa-principal); text-decoration: none;
+            font-weight: 700; font-size: 1rem;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+        .header { text-align: center; margin-bottom: 3rem; }
+        .header h1 { font-size: 2.5rem; color: var(--preto-elegante); margin-bottom: 0.5rem; font-weight: 700; text-wrap: balance; }
+        .header p { font-size: 1.1rem; color: var(--cinza-texto); text-wrap: balance; }
+        
+        .pillar-section {
+            background: #fff; border-radius: 15px;
+            padding: 2rem; margin-bottom: 2rem;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+        }
+        .pillar-title {
+            font-size: 1.8rem; color: var(--turquesa-principal);
+            margin-bottom: 1.5rem; font-weight: 700;
+            border-bottom: 2px solid #eee; padding-bottom: 1rem;
+        }
+        .question {
+            display: flex; align-items: flex-start;
+            margin-bottom: 1.5rem; font-size: 1.1rem;
+        }
+        .question:last-child { margin-bottom: 0; }
+        .question input[type="checkbox"] { display: none; }
+        .question label {
+            cursor: pointer; display: flex;
+            align-items: center; width: 100%;
+        }
+        .question .checkbox-custom {
+            width: 24px; height: 24px; border: 2px solid #ccc;
+            border-radius: 5px; margin-right: 1rem;
+            flex-shrink: 0; transition: all 0.2s ease;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .question input:checked + label .checkbox-custom {
+            background: var(--turquesa-principal);
+            border-color: var(--turquesa-principal);
+        }
+        .question .checkbox-custom svg {
+            width: 16px; height: 16px; stroke: white;
+            stroke-width: 3; display: none;
+        }
+        .question input:checked + label .checkbox-custom svg { display: block; }
+        
+        .submit-button {
+            display: block; width: 100%; padding: 1rem;
+            background: var(--preto-elegante); color: white;
+            border: none; border-radius: 10px; font-size: 1.2rem;
+            font-family: 'dita', sans-serif; font-weight: 700;
+            cursor: pointer; transition: background 0.3s ease;
+        }
+        .submit-button:hover { background: #333; }
+
+        #results { display: none; }
+        .results-header { text-align: center; margin-bottom: 2rem; }
+        .score-summary {
+            background: var(--preto-elegante); color: white;
+            padding: 2.5rem; border-radius: 15px; text-align: center;
+            margin-bottom: 2rem;
+        }
+        .score-summary h3 { font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 400; }
+        .score-summary .stars-container { font-size: 2.5rem; color: var(--dourado-premium); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.2rem; }
+        .score-summary .numeric-score { font-weight: 700; margin-right: 0.5rem; }
+        .score-summary p { font-size: 1.1rem; opacity: 0.9; max-width: 90%; margin: 0 auto 1.5rem auto; }
+        .score-summary .cta-button {
+            display: inline-block; background: var(--turquesa-principal); color: white;
+            padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;
+        }
+        .score-summary .cta-button:hover { background: #25c4be; transform: translateY(-2px); }
+
+        .pillar-result {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 0; border-bottom: 1px solid #eee;
+        }
+        .pillar-result:last-child { border-bottom: none; }
+        .pillar-result .pillar-name { font-size: 1.2rem; font-weight: 700; }
+        .pillar-result .stars-container { font-size: 1.5rem; color: var(--dourado-premium); display: flex; align-items: center; justify-content: center; gap: 0.1rem; }
+        
+        .star-icon { width: 1em; height: 1em; fill: currentColor; }
+        
+        #answers-summary ul { list-style-type: none; padding-left: 0; }
+        #answers-summary li { background: var(--off-white); padding: 0.8rem 1rem; border-radius: 5px; margin-bottom: 0.5rem; }
+
+        .print-button {
+            display: block; width: 100%; padding: 1rem;
+            background: var(--cinza-texto); color: white;
+            border: none; border-radius: 10px; font-size: 1.2rem;
+            font-family: 'dita', sans-serif; font-weight: 700;
+            cursor: pointer; transition: background 0.3s ease; margin-top: 2rem;
+        }
+        .print-button:hover { background: #666; }
+
+        @media print {
+            body { background: #fff; }
+            .site-header, #checklist, .print-button, .score-summary .cta-button { display: none; }
+            .container { padding: 0; }
+            #results { display: block !important; }
+            .pillar-section, .score-summary {
+                box-shadow: none; border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html">← Voltar para o Site Principal da Wake Up Vision</a>
+    </header>
+
+    <div class="container">
+        <div id="checklist">
+            <div class="header">
+                <h1>Diagnóstico Rápido de Marca</h1>
+                <p>Marque as afirmações que se aplicam à sua marca e veja a saúde da sua presença digital.</p>
+            </div>
+
+            <form id="analysis-form">
+                <!-- Pilar 1: Branding & Estrutura -->
+                <div class="pillar-section">
+                    <h2 class="pillar-title">Branding & Estrutura</h2>
+                    <div class="question">
+                        <input type="checkbox" id="q1" data-pillar="branding">
+                        <label for="q1">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Tenho clareza sobre o propósito e os valores da minha marca.</span>
+                        </label>
+                    </div>
+                    <div class="question">
+                        <input type="checkbox" id="q2" data-pillar="branding">
+                        <label for="q2">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Sei exatamente quem é meu público-alvo e o que ele precisa.</span>
+                        </label>
+                    </div>
+                    <div class="question">
+                        <input type="checkbox" id="q3" data-pillar="branding">
+                        <label for="q3">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Meus produtos/serviços têm nomes e preços definidos e claros.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pilar 2: Identidade Visual -->
+                <div class="pillar-section">
+                    <h2 class="pillar-title">Identidade Visual</h2>
+                    <div class="question">
+                        <input type="checkbox" id="q4" data-pillar="visual">
+                        <label for="q4">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Meu logo é profissional e funciona bem em diferentes formatos.</span>
+                        </label>
+                    </div>
+                    <div class="question">
+                        <input type="checkbox" id="q5" data-pillar="visual">
+                        <label for="q5">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Uso uma paleta de cores e fontes de forma consistente.</span>
+                        </label>
+                    </div>
+                    <div class="question">
+                        <input type="checkbox" id="q6" data-pillar="visual">
+                        <label for="q6">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">O visual das minhas redes sociais é coeso e profissional.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pilar 3: Presença Digital -->
+                <div class="pillar-section">
+                    <h2 class="pillar-title">Presença Digital (Redes Sociais)</h2>
+                    <div class="question">
+                        <input type="checkbox" id="q7" data-pillar="digital">
+                        <label for="q7">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Minha bio no Instagram é clara e tem uma chamada para ação (link).</span>
+                        </label>
+                    </div>
+                    <div class="question">
+                        <input type="checkbox" id="q8" data-pillar="digital">
+                        <label for="q8">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Posto conteúdo de valor (dicas, soluções) pelo menos 2x por semana.</span>
+                        </label>
+                    </div>
+                    <div class="question">
+                        <input type="checkbox" id="q9" data-pillar="digital">
+                        <label for="q9">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Uso os stories para me conectar com meu público regularmente.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pilar 4: Presença Local (Google) -->
+                <div class="pillar-section">
+                    <h2 class="pillar-title">Presença Local (Google)</h2>
+                    <div class="question">
+                        <input type="checkbox" id="q10" data-pillar="local">
+                        <label for="q10">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Meu Perfil de Empresa no Google está completo e otimizado (fotos, horário, telefone).</span>
+                        </label>
+                    </div>
+                    <div class="question">
+                        <input type="checkbox" id="q11" data-pillar="local">
+                        <label for="q11">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Respondo às avaliações (positivas e negativas) que recebo no Google.</span>
+                        </label>
+                    </div>
+                    <div class="question">
+                        <input type="checkbox" id="q12" data-pillar="local">
+                        <label for="q12">
+                            <span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="question-text">Publico "postagens" ou "atualizações" no meu perfil do Google regularmente.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">Ver Meu Diagnóstico</button>
+            </form>
+        </div>
+
+        <div id="results">
+            <div class="header results-header">
+                <h1>Resultado do Diagnóstico</h1>
+                <p>Esta é a pontuação da sua marca com base nas suas respostas.</p>
+            </div>
+
+            <div class="score-summary">
+                <h3>Pontuação Geral da Marca</h3>
+                <div class="stars-container" id="total-stars"></div>
+                <p id="total-feedback"></p>
+                <a id="cta-link" class="cta-button" href="#" target="_blank"></a>
+            </div>
+            
+            <div class="pillar-section" id="answers-summary">
+                <h2 class="pillar-title">Seus Pontos Fortes</h2>
+                <ul id="answers-list"></ul>
+            </div>
+
+            <div class="pillar-section">
+                <h2 class="pillar-title">Pontuação por Pilar</h2>
+                <div class="pillar-result">
+                    <span class="pillar-name">Branding & Estrutura</span>
+                    <span class="stars-container" id="branding-stars"></span>
+                </div>
+                <div class="pillar-result">
+                    <span class="pillar-name">Identidade Visual</span>
+                    <span class="stars-container" id="visual-stars"></span>
+                </div>
+                <div class="pillar-result">
+                    <span class="pillar-name">Presença Digital</span>
+                    <span class="stars-container" id="digital-stars"></span>
+                </div>
+                <div class="pillar-result">
+                    <span class="pillar-name">Presença Local (Google)</span>
+                    <span class="stars-container" id="local-stars"></span>
+                </div>
+            </div>
+
+            <button onclick="window.print()" class="print-button">Salvar Relatório em PDF</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('analysis-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const pillars = {
+                branding: { score: 0, total: 3, name: 'Branding & Estrutura', answers: [] },
+                visual: { score: 0, total: 3, name: 'Identidade Visual', answers: [] },
+                digital: { score: 0, total: 3, name: 'Presença Digital', answers: [] },
+                local: { score: 0, total: 3, name: 'Presença Local (Google)', answers: [] }
+            };
+
+            const inputs = this.querySelectorAll('input[type="checkbox"]');
+            const answersList = document.getElementById('answers-list');
+            answersList.innerHTML = ''; 
+
+            inputs.forEach(input => {
+                if (input.checked) {
+                    const pillar = input.getAttribute('data-pillar');
+                    const questionText = input.nextElementSibling.querySelector('.question-text').textContent;
+                    if (pillars[pillar]) {
+                        pillars[pillar].score++;
+                        pillars[pillar].answers.push(questionText);
+                    }
+                }
+            });
+            
+            let hasAnswers = false;
+            for (const pillarKey in pillars) {
+                const pillarData = pillars[pillarKey];
+                if (pillarData.answers.length > 0) {
+                    hasAnswers = true;
+                    const pillarTitle = document.createElement('h3');
+                    pillarTitle.textContent = pillarData.name;
+                    pillarTitle.style.fontWeight = '700';
+                    pillarTitle.style.marginTop = '1rem';
+                    answersList.appendChild(pillarTitle);
+                    pillarData.answers.forEach(answer => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `✓ ${answer}`;
+                        answersList.appendChild(listItem);
+                    });
+                }
+            }
+            if (!hasAnswers) {
+                answersList.innerHTML = '<li>Nenhum ponto forte foi marcado. Esta é uma oportunidade incrível para começar a construir uma base sólida!</li>';
+            }
+
+            const getStarsData = (score, total) => {
+                const numericScore = total > 0 ? (score / total) * 5 : 0;
+                const roundedScore = Math.round(numericScore * 2) / 2;
+                
+                // --- SVGs DAS ESTRELAS CORRIGIDOS ---
+                const starFull = `<svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+                const starHalf = `<svg class="star-icon" viewBox="0 0 24 24"><path d="M12 15.4V6.1l-3.29 2.73-3.89.34 2.83 2.5-1.09 3.86L12 15.4z"/></svg>`; // Metade esquerda
+                const starEmpty = `<svg class="star-icon" style="color: var(--cinza-estrela);" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`; // Cinza sólido
+
+                let html = '';
+                const fullStars = Math.floor(roundedScore);
+                const halfStar = (roundedScore % 1 !== 0);
+
+                for (let i = 0; i < fullStars; i++) { html += starFull; }
+                if (halfStar) { html += starHalf; }
+                for (let i = 0; i < 5 - fullStars - (halfStar ? 1 : 0); i++) { html += starEmpty; }
+                
+                return {
+                    numeric: roundedScore.toFixed(1),
+                    html: `<span class="numeric-score">${roundedScore.toFixed(1)}</span> ${html}`
+                };
+            };
+
+            const pillarScores = {};
+            for (const key in pillars) {
+                pillarScores[key] = getStarsData(pillars[key].score, pillars[key].total);
+            }
+
+            const totalScore = Object.values(pillars).reduce((sum, p) => sum + p.score, 0);
+            const totalQuestions = Object.values(pillars).reduce((sum, p) => sum + p.total, 0);
+            const totalStarsData = getStarsData(totalScore, totalQuestions);
+
+            document.getElementById('branding-stars').innerHTML = pillarScores.branding.html;
+            document.getElementById('visual-stars').innerHTML = pillarScores.visual.html;
+            document.getElementById('digital-stars').innerHTML = pillarScores.digital.html;
+            document.getElementById('local-stars').innerHTML = pillarScores.local.html;
+            document.getElementById('total-stars').innerHTML = totalStarsData.html;
+
+            let feedbackText = '';
+            const ctaLink = document.getElementById('cta-link');
+            const myNumber = '5548991099068';
+
+            if (parseFloat(totalStarsData.numeric) >= 4.0) {
+                feedbackText = 'Excelente! Sua marca tem uma base sólida e profissional. O próximo passo é acelerar o crescimento e alcançar ainda mais clientes.';
+                ctaLink.textContent = 'Conversar sobre Tráfego Pago';
+                const message = `Olá, Lucas! Fiz o diagnóstico no site da WUV e tive uma pontuação alta (${totalStarsData.numeric}/5.0). Gostaria de conversar sobre como otimizar meus resultados com tráfego pago.`;
+                ctaLink.href = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
+            } else {
+                feedbackText = 'Bom trabalho! Você está no caminho certo, mas existem oportunidades claras para fortalecer sua presença e conversão. Vamos conversar?';
+                ctaLink.textContent = 'Receber Análise pelo WhatsApp';
+                const message = `Olá, Lucas!\n\nFiz o diagnóstico rápido no site e gostaria de uma análise mais detalhada.\n\n*Minha pontuação foi:*\n- Geral: ${totalStarsData.numeric}/5.0\n- Branding: ${pillarScores.branding.numeric}/5.0\n- Identidade Visual: ${pillarScores.visual.numeric}/5.0\n- Presença Digital: ${pillarScores.digital.numeric}/5.0\n- Presença Local: ${pillarScores.local.numeric}/5.0\n\nAguardo seu contato.`;
+                ctaLink.href = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
+            }
+            document.getElementById('total-feedback').textContent = feedbackText;
+
+            document.getElementById('checklist').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+            window.scrollTo(0, 0);
+        });
+    </script>
+
+</body>
+</html>
