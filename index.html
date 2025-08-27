@@ -7,27 +7,16 @@
     <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
 
     <style>
-        /* O bloco @font-face foi REMOVIDO daqui */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            /* --- NOME DA FONTE AJUSTADO PARA O PADRÃO ADOBE FONTS --- */
             font-family: 'dita', sans-serif; 
             line-height: 1.7;
             color: #1a1a1a;
             background-color: #F9F9F9;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
-        /* O restante do CSS permanece exatamente o mesmo */
         header {
             position: fixed; top: 0; width: 100%;
             background: rgba(249, 249, 249, 0.85);
@@ -42,9 +31,7 @@
         .logo {
             font-size: 2.2rem; font-weight: 700; color: #20B2AA; text-decoration: none;
         }
-        .nav-links {
-            display: flex; list-style: none; gap: 2.5rem;
-        }
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
         .nav-links a {
             text-decoration: none; color: #1a1a1a; font-weight: 400;
             font-size: 1.1rem; transition: color 0.3s ease;
@@ -75,8 +62,8 @@
             transform: translateY(-5px); box-shadow: 0 15px 40px rgba(32, 178, 170, 0.4);
             background: #20B2AA; color: white; border: 2px solid white;
         }
-        section { padding: 6rem 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 6rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
         .section-title {
             text-align: center; font-size: 2.8rem; font-weight: 700;
             margin-bottom: 3.5rem; color: #1a1a1a;
@@ -94,7 +81,7 @@
         .solutions { background: #F9F9F9; }
         .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 3rem; }
         .solution-card {
-            background: white; border-radius: 20px; padding: 3rem 2rem; text-align: center;
+            background: white; border-radius: 20px; padding: 3rem 2.5rem; text-align: center;
             position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); border: 1px solid #eee;
         }
@@ -103,97 +90,29 @@
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
             background: linear-gradient(90deg, #20B2AA, #1a1a1a);
         }
-        .solution-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+        .solution-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
         .solution-card h3 { color: #1a1a1a; margin-bottom: 1rem; font-size: 1.6rem; font-weight: 700; }
         .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; }
         .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
-        footer { background: #1a1a1a; color: #F9F9F9; padding: 4rem 0 2rem 0; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem; text-align: left; }
-        .footer-section h3 { color: #20B2AA; margin-bottom: 1rem; font-weight: 700; }
+        footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
+        .footer-content { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 3rem; margin-bottom: 4rem; text-align: left;
+        }
+        .footer-section h3 { color: #20B2AA; margin-bottom: 1.5rem; font-weight: 700; }
+        .footer-section p { margin-bottom: 0.8rem; }
         .footer-section a { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
         .footer-section a:hover { color: #20B2AA; }
-        .footer-bottom { border-top: 1px solid #444; padding-top: 2rem; margin-top: 2rem; text-align: center; }
+        .footer-bottom { border-top: 1px solid #444; padding-top: 2.5rem; margin-top: 2.5rem; text-align: center; opacity: 0.8; }
         @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
             .hero p { font-size: 1.2rem; }
             .nav-links { display: none; }
-            .solutions-grid { grid-template-columns: 1fr; }
-            section { padding: 4rem 0; }
+            section { padding: 4rem 1rem; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo">WUV</a>
-            <ul class="nav-links">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Sua marca tem alma. Vamos mostrá-la pro mundo?</h1>
-                <p>Não criamos apenas posts bonitos. Descobrimos a personalidade única do seu negócio e transformamos isso em uma presença digital que gera resultados reais.</p>
-                <a href="#contato" class="cta-button">Quero Despertar Minha Marca</a>
-            </div>
-        </section>
-        <section id="sobre" class="philosophy">
-            <div class="container">
-                <div class="philosophy-content">
-                    <h2 class="section-title" style="color: white;">Cada negócio tem uma história. A nossa é contar a sua.</h2>
-                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas. Acreditamos em autenticidade.</p>
-                    <p>Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
-                    <div class="pillars">
-                        <div class="pillar"><h3>🤝 Parceria Acima do Pacote</h3><p>Somos parceiros do seu crescimento, não apenas fornecedores de posts.</p></div>
-                        <div class="pillar"><h3>💫 Estratégia com Alma</h3><p>Todo conteúdo carrega sua personalidade autêntica, criando conexões reais.</p></div>
-                        <div class="pillar"><h3>💎 Honestidade Radical</h3><p>Falamos a verdade, sempre. Sem enrolação, com foco no que realmente importa.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="servicos" class="solutions">
-            <div class="container">
-                <h2 class="section-title">Nossas Soluções</h2>
-                <div class="solutions-grid">
-                    <div class="solution-card">
-                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3><p>Para quem quer clareza total sobre os próximos passos.</p><div>Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</div>
-                    </div>
-                    <div class="solution-card">
-                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3><p>Para quem quer resultados consistentes sem dor de cabeça.</p><div>Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</div>
-                    </div>
-                    <div class="solution-card">
-                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3><p>Para quem está pronto para acelerar e escalar.</p><div>Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="final-cta">
-            <div class="container">
-                <h2 class="section-title" style="color:white; margin-bottom: 2rem;">Pronto para despertar o potencial da sua marca?</h2>
-                <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto;">Chega de se sentir invisível no digital. Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar. Sem compromisso, sem pressão.</p>
-                <a href="#contato" class="cta-button">Vamos Conversar no WhatsApp</a>
-            </div>
-        </section>
-    </main>
-    <footer id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Wake Up Vision</h3><p>Marketing com alma para negócios autênticos.</p><p>📍 Florianópolis/SC - Atendimento Nacional</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contato</h3><p><a href="mailto:contato@wakeupvision.com.br">📧 contato@wakeupvision.com.br</a></p><p><a href="https://wa.me/5548999999999" target="_blank">📱 WhatsApp: (48) 99999-9999</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Links Úteis</h3><p><a href="guia-de-marca.html" target="_blank">🎨 Nosso Guia de Marca</a></p><p style="color: #888;">💼 Portfólio (em breve)</p>
-                </div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2025 Wake Up Vision. Todos os direitos reservados.</p></div>
-        </div>
-    </footer>
-</body>
+    </body>
 </html>
