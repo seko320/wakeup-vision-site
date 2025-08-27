@@ -73,6 +73,22 @@
                         <tr>
                             <td class="p-3">Estrutura</td><td class="p-3">Internet + Celular</td><td id="internet" class="p-3 text-right">150,00</td>
                         </tr>
+                        <!-- NOVOS CUSTOS ADICIONADOS -->
+                        <tr>
+                            <td class="p-3">Estrutura</td>
+                            <td class="p-3">Água</td>
+                            <td class="p-3 text-right"><input id="agua" type="number" min="0" value="0" placeholder="0,00" class="w-24 text-right rounded border-gray-300 shadow-sm"></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3">Estrutura</td>
+                            <td class="p-3">Luz</td>
+                            <td class="p-3 text-right"><input id="luz" type="number" min="0" value="0" placeholder="0,00" class="w-24 text-right rounded border-gray-300 shadow-sm"></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3">Impostos</td>
+                            <td class="p-3">MEI (DAS Mensal)</td>
+                            <td id="mei" class="p-3 text-right">72,00</td>
+                        </tr>
                         <tr>
                             <td class="p-3">Reinvestimento</td><td class="p-3">Fundo de Depreciação (Hardware)</td><td id="depreciation" class="p-3 text-right font-semibold">220,00</td>
                         </tr>
@@ -83,7 +99,7 @@
                     <tfoot class="bg-[var(--cinza-sofisticado)] text-[var(--off-white)] font-bold">
                         <tr>
                             <td colspan="2" class="p-4 text-lg">PONTO DE EQUILÍBRIO</td>
-                            <td id="ponto-equilibrio" class="p-4 text-right text-lg">4.977,40</td>
+                            <td id="ponto-equilibrio" class="p-4 text-right text-lg">0,00</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -149,13 +165,13 @@
                     <tbody>
                         <tr class="bg-[var(--preto-elegante)] text-[var(--dourado-premium)] font-bold">
                             <td class="p-4 text-lg">FATURAMENTO TOTAL</td>
-                            <td id="faturamento-total" class="p-4 text-right text-lg">1.050,00</td>
+                            <td id="faturamento-total" class="p-4 text-right text-lg">0,00</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr id="resultado-row" class="font-bold">
                             <td class="p-6 text-base sm:text-xl">RESULTADO LÍQUIDO</td>
-                            <td id="resultado-liquido" class="p-6 text-right text-base sm:text-xl">-3.990,40</td>
+                            <td id="resultado-liquido" class="p-6 text-right text-base sm:text-xl">0,00</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -166,11 +182,16 @@
     <script>
         function formatCurrency(value) { return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
         function parseCurrency(value) { return parseFloat(String(value).replace(/\./g, '').replace(',', '.')) || 0; }
+        
+        // Selecionando todos os elementos do DOM
         const proLaboreEl = document.getElementById('pro-labore');
         const adobeEl = document.getElementById('adobe');
         const freepikEl = document.getElementById('freepik');
         const domainEl = document.getElementById('domain');
         const internetEl = document.getElementById('internet');
+        const aguaInput = document.getElementById('agua');
+        const luzInput = document.getElementById('luz');
+        const meiEl = document.getElementById('mei');
         const depreciationEl = document.getElementById('depreciation');
         const impostosEl = document.getElementById('impostos');
         const pontoEquilibrioEl = document.getElementById('ponto-equilibrio');
@@ -186,10 +207,12 @@
         const faturamentoTotalEl = document.getElementById('faturamento-total');
         const resultadoLiquidoEl = document.getElementById('resultado-liquido');
         const resultadoRowEl = document.getElementById('resultado-row');
+        
         const PRECO_DIAGNOSTICO = 450.00;
         const PRECO_PARCERIA = 850.00;
         const PRECO_MOTOR = 1200.00;
         const TAXA_IMPOSTO = 0.06;
+
         function updateDashboard() {
             const qtdDiagnostico = parseInt(qtdDiagnosticoInput.value) || 0;
             const qtdParceria = parseInt(qtdParceriaInput.value) || 0;
@@ -200,6 +223,7 @@
             subtotalDiagnosticoEl.textContent = formatCurrency(subtotalDiagnostico);
             subtotalParceriaEl.textContent = formatCurrency(subtotalParceria);
             subtotalMotorEl.textContent = formatCurrency(subtotalMotor);
+            
             const receitaSolucoes = subtotalDiagnostico + subtotalParceria + subtotalMotor;
             const receitaMercepecas = parseCurrency(clienteMercepecasEl.textContent);
             const receitaAlimentar = parseCurrency(clienteAlimentarEl.textContent);
@@ -207,13 +231,26 @@
             const receitaAdicional = receitaMercepecas + receitaAlimentar + receitaCustom;
             const faturamentoTotal = receitaSolucoes + receitaAdicional;
             faturamentoTotalEl.textContent = formatCurrency(faturamentoTotal);
+            
             const impostos = faturamentoTotal * TAXA_IMPOSTO;
             impostosEl.textContent = formatCurrency(impostos);
-            const custosFixosBase = parseCurrency(proLaboreEl.textContent) + parseCurrency(adobeEl.textContent) + parseCurrency(freepikEl.textContent) + parseCurrency(domainEl.textContent) + parseCurrency(internetEl.textContent) + parseCurrency(depreciationEl.textContent);
+            
+            const custosFixosBase = parseCurrency(proLaboreEl.textContent) + 
+                                  parseCurrency(adobeEl.textContent) + 
+                                  parseCurrency(freepikEl.textContent) + 
+                                  parseCurrency(domainEl.textContent) + 
+                                  parseCurrency(internetEl.textContent) + 
+                                  (parseFloat(aguaInput.value) || 0) + 
+                                  (parseFloat(luzInput.value) || 0) + 
+                                  parseCurrency(meiEl.textContent) + 
+                                  parseCurrency(depreciationEl.textContent);
+            
             const custoTotal = custosFixosBase + impostos;
             pontoEquilibrioEl.textContent = formatCurrency(custoTotal);
+            
             const resultadoLiquido = faturamentoTotal - custoTotal;
             resultadoLiquidoEl.textContent = formatCurrency(resultadoLiquido);
+            
             resultadoRowEl.classList.remove('bg-[var(--verde-sucesso)]', 'bg-[var(--vermelho-alerta)]', 'text-black', 'text-white');
             if (resultadoLiquido >= 0) {
                 resultadoRowEl.classList.add('bg-[var(--verde-sucesso)]', 'text-black');
@@ -221,10 +258,12 @@
                 resultadoRowEl.classList.add('bg-[var(--vermelho-alerta)]', 'text-white');
             }
         }
-        qtdDiagnosticoInput.addEventListener('input', updateDashboard);
-        qtdParceriaInput.addEventListener('input', updateDashboard);
-        qtdMotorInput.addEventListener('input', updateDashboard);
-        customRevenueInput.addEventListener('input', updateDashboard);
+        
+        // Adicionando listeners para todos os inputs
+        [qtdDiagnosticoInput, qtdParceriaInput, qtdMotorInput, customRevenueInput, aguaInput, luzInput].forEach(input => {
+            input.addEventListener('input', updateDashboard);
+        });
+
         document.addEventListener('DOMContentLoaded', updateDashboard);
     </script>
 </body>
