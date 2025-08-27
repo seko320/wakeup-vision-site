@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle Financeiro WUV</title>
+    <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --turquesa-principal: #20B2AA; --preto-elegante: #1a1a1a;
+            --off-white: #F9F9F9; --verde-sucesso: #51CF66; --vermelho-alerta: #E53E3E;
+        }
+        body {
+            font-family: 'dita', sans-serif;
+            background-color: var(--off-white); color: var(--preto-elegante);
+        }
+        .wuv-header { background-color: var(--turquesa-principal); color: var(--off-white); }
+        input[type="number"] { font-family: 'dita', sans-serif; }
+    </style>
+</head>
+<body class="antialiased p-4 sm:p-6 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800" style="font-weight: 700;">Painel de Controle Financeiro</h1>
+            <h2 class="text-xl font-semibold" style="color: var(--turquesa-principal); font-weight: 700;">WAKE UP VISION</h2>
+            <div class="mt-4"><a href="index.html" class="text-sm text-gray-500 hover:text-turquesa-principal">&larr; Voltar ao site</a></div>
+        </header>
+        </div>
+    </body>
+</html>
