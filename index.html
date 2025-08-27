@@ -38,8 +38,8 @@
             text-align: center; color: white; position: relative; overflow: hidden; padding: 80px 2rem 0;
         }
         .hero-content { max-width: 850px; z-index: 2; position: relative; }
-        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; }
-        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; }
+        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-wrap: balance; }
+        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; }
         .cta-button {
             display: inline-block; background: white; color: #1a1a1a; padding: 1rem 2.5rem;
             border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem;
@@ -52,7 +52,7 @@
         }
         section { padding: 6rem 2rem; }
         .container { max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; }
+        .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; text-wrap: balance; }
         .philosophy { background: #1a1a1a; color: #F9F9F9; }
         .philosophy-content { text-align: center; max-width: 800px; margin: 0 auto; }
         .philosophy p { font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.8; opacity: 0.9; text-align: center; text-wrap: balance; }
@@ -61,7 +61,7 @@
         .pillar { background: rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 15px; text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; }
         .pillar:hover { background: rgba(32, 178, 170, 0.2); }
         .pillar h3 { color: #20B2AA; margin-bottom: 1.5rem; font-size: 1.3rem; font-weight: 700; }
-        .pillar p { text-align: center; flex-grow: 1; }
+        .pillar p { text-align: center; flex-grow: 1; text-wrap: balance; }
 
         .solutions { background: #F9F9F9; }
         .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 3rem; align-items: stretch; }
@@ -84,11 +84,15 @@
         .footer-section a:hover { color: #20B2AA; }
         .footer-bottom { border-top: 1px solid #444; padding-top: 2.5rem; margin-top: 2.5rem; text-align: center; opacity: 0.8; }
         @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* --- REVISÃO COMPLETA DE RESPONSIVIDADE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.2rem; }
-            .nav-links { display: none; }
-            section { padding: 4rem 1rem; }
+            .nav-links { display: none; } /* Idealmente, substituir por um menu hambúrguer no futuro */
+            section { padding: 4rem 1.5rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+            .solution-card h3 { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -99,7 +103,8 @@
             <ul class="nav-links">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
-                <li><a href="analise-rapida.html">Diagnóstico Rápido</a></li>
+                <li><a href="analise-rapida.html" target="_blank">Diagnóstico Rápido</a></li>
+                <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
             </ul>
         </nav>
     </header>
@@ -168,7 +173,7 @@
                 </div>
                 <div class="footer-section">
                     <h3>Links Úteis</h3>
-                    <p><a href="analise-rapida.html">Diagnóstico Rápido</a></p>
+                    <p><a href="analise-rapida.html" target="_blank">Diagnóstico Rápido</a></p>
                     <p><a href="guia-de-marca.html" target="_blank">🎨 Nosso Guia de Marca</a></p>
                     <p style="color: #888;">💼 Portfólio (em breve)</p>
                 </div>
