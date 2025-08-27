@@ -6,20 +6,24 @@
     <title>Painel de Controle Financeiro WUV</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --turquesa-principal: #20B2AA; --preto-elegante: #1a1a1a;
-            --off-white: #F9F9F9; --dourado-premium: #FFD43B;
-            --cinza-sofisticado: #4A4A4A; --verde-sucesso: #51CF66;
+            --turquesa-principal: #20B2AA;
+            --preto-elegante: #1a1a1a;
+            --off-white: #F9F9F9;
+            --dourado-premium: #FFD43B;
+            --cinza-sofisticado: #4A4A4A;
+            --verde-sucesso: #51CF66;
             --vermelho-alerta: #E53E3E;
         }
+
         body {
+            /* FONTE APLICADA */
             font-family: 'dita', sans-serif;
             background-color: var(--off-white);
             color: var(--preto-elegante);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         .wuv-header { background-color: var(--turquesa-principal); color: var(--off-white); }
@@ -30,7 +34,7 @@
         .result-negative { background-color: var(--vermelho-alerta); color: var(--off-white); }
 
         input[type="number"] {
-            font-family: 'dita', sans-serif; /* Garante a mesma fonte nos inputs */
+            font-family: 'dita', sans-serif;
             -webkit-appearance: textfield; -moz-appearance: textfield; appearance: textfield;
             background-color: #fff; border: 1px solid #ccc; border-radius: 0.375rem;
             padding: 0.5rem 0.75rem; text-align: center; width: 80px;
@@ -43,13 +47,249 @@
 </head>
 <body class="antialiased p-4 sm:p-6 md:p-8">
     <div class="max-w-4xl mx-auto">
-        <header class="text-center mb-10"> <h1 class="text-3xl font-bold text-gray-800" style="font-weight: 700;">Painel de Controle Financeiro</h1>
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-gray-800" style="font-weight: 700;">Painel de Controle Financeiro</h1>
             <h2 class="text-xl font-semibold" style="color: var(--turquesa-principal); font-weight: 700;">WAKE UP VISION</h2>
             <div class="mt-4"><a href="index.html" class="text-sm text-gray-500 hover:text-turquesa-principal">&larr; Voltar ao site principal</a></div>
         </header>
 
         <div class="bg-white shadow-lg rounded-2xl overflow-hidden">
-            </div>
+            <table class="w-full text-sm sm:text-base">
+                <thead class="wuv-header">
+                    <tr>
+                        <th colspan="3" class="p-4 text-left font-bold text-lg">INVESTIMENTO OPERACIONAL (CUSTOS)</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="font-semibold bg-gray-50">
+                        <td class="p-3 w-1/3">CATEGORIA</td>
+                        <td class="p-3 w-1/3">ITEM</td>
+                        <td class="p-3 w-1/3 text-right">VALOR MENSAL (R$)</td>
+                    </tr>
+                    <tr class="pro-labore-highlight">
+                        <td class="p-3">Pró-Labore Lucas</td>
+                        <td class="p-3">Salário Estratégico</td>
+                        <td id="pro-labore" class="p-3 text-right font-semibold">4.500,00</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3">Ferramentas</td>
+                        <td class="p-3">Adobe Creative Cloud</td>
+                        <td id="adobe" class="p-3 text-right">69,90</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3">Ferramentas</td>
+                        <td class="p-3">Freepik (Anual)</td>
+                        <td id="freepik" class="p-3 text-right">25,00</td>
+                    </tr>
+                     <tr>
+                        <td class="p-3">Ferramentas</td>
+                        <td class="p-3">Domínio & Email (Anual)</td>
+                        <td id="domain" class="p-3 text-right">12,50</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3">Estrutura</td>
+                        <td class="p-3">Internet + Celular</td>
+                        <td id="internet" class="p-3 text-right">150,00</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3">Reinvestimento</td>
+                        <td class="p-3">Fundo de Depreciação (Hardware)</td>
+                        <td id="depreciation" class="p-3 text-right font-semibold">220,00</td>
+                    </tr>
+                     <tr>
+                        <td class="p-3">Impostos</td>
+                        <td class="p-3">Simples Nacional (6%)</td>
+                        <td id="impostos" class="p-3 text-right font-semibold">0,00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="wuv-subtotal font-bold">
+                        <td colspan="2" class="p-4 text-lg">PONTO DE EQUILÍBRIO</td>
+                        <td id="ponto-equilibrio" class="p-4 text-right text-lg">4.977,40</td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <div class="my-6"></div>
+
+            <table class="w-full text-sm sm:text-base">
+                <thead class="wuv-header">
+                    <tr>
+                        <th colspan="4" class="p-4 text-left font-bold text-lg">RECEITA (SOLUÇÕES WUV)</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="font-semibold bg-gray-50">
+                        <td class="p-3">SOLUÇÃO</td>
+                        <td class="p-3 text-right">VALOR UNIT. (R$)</td>
+                        <td class="p-3 text-center">QTD</td>
+                        <td class="p-3 text-right">SUBTOTAL (R$)</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold">Diagnóstico & Mapa</td>
+                        <td class="p-3 text-right">450,00</td>
+                        <td class="p-3 text-center"><input id="qtd-diagnostico" type="number" min="0" value="0" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></td>
+                        <td id="subtotal-diagnostico" class="p-3 text-right font-semibold">0,00</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold">Parceria Estratégica</td>
+                        <td class="p-3 text-right">850,00</td>
+                        <td class="p-3 text-center"><input id="qtd-parceria" type="number" min="0" value="0" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></td>
+                        <td id="subtotal-parceria" class="p-3 text-right font-semibold">0,00</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold">Motor de Crescimento</td>
+                        <td class="p-3 text-right">1.200,00</td>
+                        <td class="p-3 text-center"><input id="qtd-motor" type="number" min="0" value="0" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></td>
+                        <td id="subtotal-motor" class="p-3 text-right font-semibold">0,00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="my-6"></div>
+
+            <table class="w-full text-sm sm:text-base">
+                <thead class="wuv-header">
+                    <tr>
+                        <th colspan="2" class="p-4 text-left font-bold text-lg">RECEITAS ADICIONAIS</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="font-semibold bg-gray-50">
+                        <td class="p-3">CLIENTE / DESCRIÇÃO</td>
+                        <td class="p-3 text-right">VALOR (R$)</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold">Cliente Mercepeças</td>
+                        <td id="cliente-mercepecas" class="p-3 text-right font-semibold">400,00</td>
+                    </tr>
+                     <tr>
+                        <td class="p-3 font-semibold">Cliente Alimentar</td>
+                        <td id="cliente-alimentar" class="p-3 text-right font-semibold">650,00</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold">Outras Receitas (Personalizado)</td>
+                        <td class="p-3 text-right"><input id="custom-revenue" type="number" min="0" step="50" value="0" placeholder="0,00" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 custom-revenue"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="my-6"></div>
+            
+            <table class="w-full text-sm sm:text-base">
+                <thead class="wuv-header">
+                    <tr>
+                        <th colspan="2" class="p-4 text-left font-bold text-lg">BALANÇO FINAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="wuv-total-revenue font-bold">
+                        <td class="p-4 text-lg">FATURAMENTO TOTAL</td>
+                        <td id="faturamento-total" class="p-4 text-right text-lg">1.050,00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr id="resultado-row" class="font-bold result-negative">
+                        <td class="p-6 text-xl">RESULTADO LÍQUIDO (LUCRO / PREJUÍZO)</td>
+                        <td id="resultado-liquido" class="p-6 text-right text-xl">-3.990,40</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
-    </body>
+
+    <script>
+        // Função para formatar números como moeda brasileira (BRL)
+        function formatCurrency(value) {
+            return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+        
+        // Função para converter string de moeda para número
+        function parseCurrency(value) {
+            return parseFloat(value.replace(/\./g, '').replace(',', '.')) || 0;
+        }
+
+        // --- ELEMENTOS DO DOM ---
+        const proLaboreEl = document.getElementById('pro-labore');
+        const adobeEl = document.getElementById('adobe');
+        const freepikEl = document.getElementById('freepik');
+        const domainEl = document.getElementById('domain');
+        const internetEl = document.getElementById('internet');
+        const depreciationEl = document.getElementById('depreciation');
+        const impostosEl = document.getElementById('impostos');
+        const pontoEquilibrioEl = document.getElementById('ponto-equilibrio');
+        const qtdDiagnosticoInput = document.getElementById('qtd-diagnostico');
+        const qtdParceriaInput = document.getElementById('qtd-parceria');
+        const qtdMotorInput = document.getElementById('qtd-motor');
+        const subtotalDiagnosticoEl = document.getElementById('subtotal-diagnostico');
+        const subtotalParceriaEl = document.getElementById('subtotal-parceria');
+        const subtotalMotorEl = document.getElementById('subtotal-motor');
+        const clienteMercepecasEl = document.getElementById('cliente-mercepecas');
+        const clienteAlimentarEl = document.getElementById('cliente-alimentar');
+        const customRevenueInput = document.getElementById('custom-revenue');
+        const faturamentoTotalEl = document.getElementById('faturamento-total');
+        const resultadoLiquidoEl = document.getElementById('resultado-liquido');
+        const resultadoRowEl = document.getElementById('resultado-row');
+
+        // --- VALORES CONSTANTES ---
+        const PRECO_DIAGNOSTICO = 450.00;
+        const PRECO_PARCERIA = 850.00;
+        const PRECO_MOTOR = 1200.00;
+        const TAXA_IMPOSTO = 0.06; // 6%
+
+        // --- FUNÇÃO PRINCIPAL DE CÁLCULO ---
+        function updateDashboard() {
+            const qtdDiagnostico = parseInt(qtdDiagnosticoInput.value) || 0;
+            const qtdParceria = parseInt(qtdParceriaInput.value) || 0;
+            const qtdMotor = parseInt(qtdMotorInput.value) || 0;
+            const subtotalDiagnostico = qtdDiagnostico * PRECO_DIAGNOSTICO;
+            const subtotalParceria = qtdParceria * PRECO_PARCERIA;
+            const subtotalMotor = qtdMotor * PRECO_MOTOR;
+            
+            subtotalDiagnosticoEl.textContent = formatCurrency(subtotalDiagnostico);
+            subtotalParceriaEl.textContent = formatCurrency(subtotalParceria);
+            subtotalMotorEl.textContent = formatCurrency(subtotalMotor);
+
+            const receitaSolucoes = subtotalDiagnostico + subtotalParceria + subtotalMotor;
+            const receitaMercepecas = parseCurrency(clienteMercepecasEl.textContent);
+            const receitaAlimentar = parseCurrency(clienteAlimentarEl.textContent);
+            const receitaCustom = parseFloat(customRevenueInput.value) || 0;
+            const receitaAdicional = receitaMercepecas + receitaAlimentar + receitaCustom;
+            const faturamentoTotal = receitaSolucoes + receitaAdicional;
+            faturamentoTotalEl.textContent = formatCurrency(faturamentoTotal);
+
+            const impostos = faturamentoTotal * TAXA_IMPOSTO;
+            impostosEl.textContent = formatCurrency(impostos);
+
+            const custosFixosBase = parseCurrency(proLaboreEl.textContent) +
+                                  parseCurrency(adobeEl.textContent) +
+                                  parseCurrency(freepikEl.textContent) +
+                                  parseCurrency(domainEl.textContent) +
+                                  parseCurrency(internetEl.textContent) +
+                                  parseCurrency(depreciationEl.textContent);
+            
+            const custoTotal = custosFixosBase + impostos;
+            pontoEquilibrioEl.textContent = formatCurrency(custoTotal);
+
+            const resultadoLiquido = faturamentoTotal - custoTotal;
+            resultadoLiquidoEl.textContent = formatCurrency(resultadoLiquido);
+
+            resultadoRowEl.classList.remove('result-positive', 'result-negative');
+            if (resultadoLiquido >= 0) {
+                resultadoRowEl.classList.add('result-positive');
+            } else {
+                resultadoRowEl.classList.add('result-negative');
+            }
+        }
+
+        // --- EVENT LISTENERS ---
+        qtdDiagnosticoInput.addEventListener('input', updateDashboard);
+        qtdParceriaInput.addEventListener('input', updateDashboard);
+        qtdMotorInput.addEventListener('input', updateDashboard);
+        customRevenueInput.addEventListener('input', updateDashboard);
+
+        // Chamar a função uma vez no início para inicializar os valores
+        document.addEventListener('DOMContentLoaded', updateDashboard);
+    </script>
+</body>
 </html>
