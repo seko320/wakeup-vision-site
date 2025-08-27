@@ -138,7 +138,13 @@
         .cta-venda { background: #20B2AA; color: white; }
         .cta-resultado { background: white; color: #51CF66; }
         
-        .story-examples { aspect-ratio: 9/16; max-width: 250px; margin: 0 auto; border-radius: 20px; padding: 2rem 1rem; display: flex; flex-direction: column; justify-content: space-between; text-align: center; color: white; position: relative; overflow: hidden; }
+        .story-examples {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+        .story-example { aspect-ratio: 9/16; border-radius: 20px; padding: 2rem 1rem; display: flex; flex-direction: column; justify-content: space-between; text-align: center; color: white; position: relative; overflow: hidden; }
         .story-example::before { content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: rgba(255, 255, 255, 0.3); border-radius: 2px; }
         .story-title { font-size: 1.1rem; font-weight: 700; }
         .story-content { font-size: 0.9rem; opacity: 0.9; }
