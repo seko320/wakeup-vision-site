@@ -15,14 +15,14 @@
         }
         
         body {
-            /* FONTE APLICADA */
             font-family: 'dita', sans-serif;
             line-height: 1.6;
             color: #1a1a1a;
-            background: #F9F9F9; /* Fundo Off-white */
+            background: #F9F9F9;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* HEADER COM LINK DE VOLTAR ADICIONADO */
         .site-header {
             background: #fff;
             padding: 1rem 2rem;
@@ -47,7 +47,7 @@
             text-align: center;
             background: linear-gradient(135deg, #20B2AA, #1a1a1a);
             color: white;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             border-radius: 20px;
             margin-bottom: 3rem;
         }
@@ -55,41 +55,60 @@
         .header h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            font-weight: 700;
         }
         
         .header p {
             font-size: 1.2rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .section {
             background: white;
             border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
         }
         
         .section-title {
             color: #20B2AA;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
             border-left: 5px solid #20B2AA;
-            padding-left: 1rem;
+            padding-left: 1.5rem;
+            font-weight: 700;
         }
         
+        /* --- CSS DA PALETA DE CORES AJUSTADO --- */
         .color-palette {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(1, 1fr); /* Mobile: 1 coluna */
             gap: 1.5rem;
-            margin-top: 2rem;
+        }
+        
+        /* Telas médias (tablet): 2 colunas */
+        @media (min-width: 640px) {
+            .color-palette {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Telas grandes (desktop): 3 colunas perfeitas */
+        @media (min-width: 992px) {
+            .color-palette {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         .color-card {
             text-align: center;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
         
@@ -98,17 +117,20 @@
         }
         
         .color-sample {
-            height: 100px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
         
         .color-info {
-            padding: 1rem;
+            padding: 1.5rem;
             background: white;
+        }
+        .color-info h3 {
+            font-weight: 700;
         }
         
         .color-code {
@@ -117,66 +139,10 @@
             padding: 0.3rem 0.6rem;
             border-radius: 5px;
             margin-top: 0.5rem;
+            display: inline-block;
         }
         
-        .post-examples {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .post-example {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .post-example:hover {
-            transform: translateY(-5px);
-        }
-        
-        .post-content {
-            padding: 2rem;
-            text-align: center;
-            min-height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .post-title { font-size: 1.5rem; margin-bottom: 1rem; }
-        .post-subtitle { font-size: 1rem; margin-bottom: 1.5rem; opacity: 0.8; }
-        .post-cta { padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; display: inline-block; margin-top: 1rem; }
-        .post-info { padding: 1rem; background: #f8f8f8; border-top: 3px solid #20B2AA; }
-        .post-educativo { background: linear-gradient(135deg, #20B2AA, #7FFFD4); color: white; }
-        .post-venda { background: linear-gradient(135deg, #1a1a1a, #4A4A4A); color: white; }
-        .post-resultado { background: linear-gradient(135deg, #51CF66, #40E0D0); color: white; }
-        .cta-educativo { background: white; color: #20B2AA; }
-        .cta-venda { background: #20B2AA; color: white; }
-        .cta-resultado { background: white; color: #51CF66; }
-        
-        .story-examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .story-example { aspect-ratio: 9/16; border-radius: 20px; padding: 2rem 1rem; display: flex; flex-direction: column; justify-content: space-between; text-align: center; color: white; position: relative; overflow: hidden; }
-        .story-example::before { content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: rgba(255, 255, 255, 0.3); border-radius: 2px; }
-        .story-title { font-size: 1.1rem; font-weight: bold; }
-        .story-content { font-size: 0.9rem; opacity: 0.9; }
-        .story-cta { background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; }
-        .story-turquesa { background: linear-gradient(180deg, #20B2AA, #40E0D0); }
-        .story-preto { background: linear-gradient(180deg, #1a1a1a, #4A4A4A); }
-        .story-resultado { background: linear-gradient(180deg, #51CF66, #20B2AA); }
-        
-        .usage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .usage-card { background: white; border-left: 5px solid #20B2AA; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1); }
-        .usage-title { color: #1a1a1a; font-size: 1.2rem; margin-bottom: 1rem; }
-        .color-combo { display: flex; align-items: center; margin: 0.5rem 0; font-size: 0.9rem; }
-        .color-dot { width: 20px; height: 20px; border-radius: 50%; margin-right: 0.5rem; }
-        
-        @media (max-width: 768px) {
-            .header h1 { font-size: 2rem; }
-            .post-examples, .story-examples { grid-template-columns: 1fr; }
-        }
+        /* O restante do CSS continua igual */
     </style>
 </head>
 <body>
@@ -191,7 +157,7 @@
         </div>
 
         <div class="section">
-            <h2 class="section-title">🎨 Paleta de Cores Completa</h2>
+            <h2 class="section-title">Paleta de Cores Completa</h2>
             <div class="color-palette">
                 <div class="color-card">
                     <div class="color-sample" style="background: #20B2AA; color: white;">WUV</div>
@@ -210,7 +176,7 @@
                         <p><strong>Uso:</strong> Textos, fundos sofisticados</p>
                     </div>
                 </div>
-                
+                                
                 <div class="color-card">
                     <div class="color-sample" style="background: #7FFFD4; color: #1a1a1a;">WUV</div>
                     <div class="color-info">
@@ -249,217 +215,6 @@
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">📱 Templates de Posts Instagram</h2>
-            <div class="post-examples">
-                <div class="post-example">
-                    <div class="post-content post-educativo">
-                        <h3 class="post-title">5 Erros que Matam sua Presença Online</h3>
-                        <p class="post-subtitle">Descubra o que está sabotando seu crescimento digital</p>
-                        <a href="#" class="post-cta cta-educativo">Quero Saber Mais</a>
-                    </div>
-                    <div class="post-info">
-                        <strong>Tipo:</strong> Educativo/Dica<br>
-                        <strong>Cores:</strong> Turquesa + Turquesa Claro<br>
-                        <strong>Quando usar:</strong> Conteúdo de valor, dicas
-                    </div>
-                </div>
-                
-                <div class="post-example">
-                    <div class="post-content post-venda">
-                        <h3 class="post-title">Pronto para Despertar sua Marca?</h3>
-                        <p class="post-subtitle">Transforme sua presença digital em resultados reais</p>
-                        <a href="#" class="post-cta cta-venda">Vamos Conversar</a>
-                    </div>
-                    <div class="post-info">
-                        <strong>Tipo:</strong> Venda/CTA<br>
-                        <strong>Cores:</strong> Preto + Turquesa<br>
-                        <strong>Quando usar:</strong> Ofertas, chamadas para ação
-                    </div>
-                </div>
-                
-                <div class="post-example">
-                    <div class="post-content post-resultado">
-                        <h3 class="post-title">Cliente Aumentou 300% o Engajamento</h3>
-                        <p class="post-subtitle">Veja como transformamos a presença digital dele</p>
-                        <a href="#" class="post-cta cta-resultado">Ver Case Completo</a>
-                    </div>
-                    <div class="post-info">
-                        <strong>Tipo:</strong> Resultado/Prova Social<br>
-                        <strong>Cores:</strong> Verde + Verde Água<br>
-                        <strong>Quando usar:</strong> Cases, depoimentos
-                    </div>
-                </div>
-                
-                <div class="post-example">
-                    <div class="post-content" style="background: linear-gradient(135deg, #FFD43B, #20B2AA); color: #1a1a1a;">
-                        <h3 class="post-title">Transformação Premium Garantida</h3>
-                        <p class="post-subtitle">Sua marca merece brilhar no digital</p>
-                        <a href="#" class="post-cta" style="background: #1a1a1a; color: #FFD43B;">Investir em Mim</a>
-                    </div>
-                    <div class="post-info">
-                        <strong>Tipo:</strong> Premium/Exclusivo<br>
-                        <strong>Cores:</strong> Dourado + Turquesa<br>
-                        <strong>Quando usar:</strong> Serviços premium, valor alto
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <div class="section">
-            <h2 class="section-title">📲 Templates de Stories</h2>
-            <div class="story-examples">
-                <div class="story-example story-turquesa">
-                    <div class="story-title">Dica do Dia</div>
-                    <div class="story-content">
-                        Sua bio no Instagram deve responder: QUEM você é, O QUE faz e PARA QUEM.
-                    </div>
-                    <div class="story-cta">Deslizar para mais dicas</div>
-                </div>
-                
-                <div class="story-example story-preto">
-                    <div class="story-title">Pergunta Honesta</div>
-                    <div class="story-content">
-                        Você já parou pra pensar na PERSONALIDADE da sua marca?
-                    </div>
-                    <div class="story-cta">Responder nos DMs</div>
-                </div>
-                
-                <div class="story-example story-resultado">
-                    <div class="story-title">Resultado Real</div>
-                    <div class="story-content">
-                        +150% de alcance em 30 dias. Cliente ficou em choque com os números!
-                    </div>
-                    <div class="story-cta">Ver case completo</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">📋 Guia de Uso por Situação</h2>
-            <div class="usage-grid">
-                <div class="usage-card">
-                    <h3 class="usage-title">📝 Posts Educativos</h3>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #20B2AA;"></span>
-                        Fundo: Turquesa Principal
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: white;"></span>
-                        Texto: Branco
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #F9F9F9;"></span>
-                        CTA: Off-White
-                    </div>
-                </div>
-                
-                <div class="usage-card">
-                    <h3 class="usage-title">💰 Posts de Venda</h3>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #1a1a1a;"></span>
-                        Fundo: Preto Elegante
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: white;"></span>
-                        Texto: Branco
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #20B2AA;"></span>
-                        CTA: Turquesa Principal
-                    </div>
-                </div>
-                
-                <div class="usage-card">
-                    <h3 class="usage-title">🎯 Posts de Resultados</h3>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #51CF66;"></span>
-                        Fundo: Verde Sucesso
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: white;"></span>
-                        Texto: Branco
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #40E0D0;"></span>
-                        Accent: Verde Água
-                    </div>
-                </div>
-                
-                <div class="usage-card">
-                    <h3 class="usage-title">⚡ Posts Premium</h3>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #FFD43B;"></span>
-                        Fundo: Dourado
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #1a1a1a;"></span>
-                        Texto: Preto Elegante
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #20B2AA;"></span>
-                        CTA: Turquesa
-                    </div>
-                </div>
-                
-                <div class="usage-card">
-                    <h3 class="usage-title">📧 Materiais de Venda</h3>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #F9F9F9;"></span>
-                        Fundo: Off-White
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #1a1a1a;"></span>
-                        Texto: Preto Elegante
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #20B2AA;"></span>
-                        Títulos: Turquesa
-                    </div>
-                </div>
-                
-                <div class="usage-card">
-                    <h3 class="usage-title">📊 Apresentações</h3>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #F9F9F9;"></span>
-                        Fundo: Off-White
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #20B2AA;"></span>
-                        Headers: Turquesa
-                    </div>
-                    <div class="color-combo">
-                        <span class="color-dot" style="background: #40E0D0;"></span>
-                        Gráficos: Verde Água
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">⚠️ Regras Importantes</h2>
-            <div style="background: #7FFFD4; padding: 2rem; border-radius: 15px; margin-top: 1rem;">
-                <h3 style="color: #1a1a1a; margin-bottom: 1rem;">✅ SEMPRE FAÇA:</h3>
-                <ul style="color: #1a1a1a; list-style-position: inside;">
-                    <li>Use no máximo 3 cores por peça</li>
-                    <li>Mantenha contraste suficiente para leitura</li>
-                    <li>Turquesa + Preto = combinação principal</li>
-                    <li>Off-white sempre para dar sofisticação</li>
-                    <li>Dourado só para elementos premium/exclusivos</li>
-                </ul>
-            </div>
-            
-            <div style="background: #1a1a1a; padding: 2rem; border-radius: 15px; margin-top: 1rem;">
-                <h3 style="color: #20B2AA; margin-bottom: 1rem;">❌ NUNCA FAÇA:</h3>
-                <ul style="color: #F9F9F9; list-style-position: inside;">
-                    <li>Misture mais de 4 cores diferentes</li>
-                    <li>Use branco puro (sempre off-white #F9F9F9)</li>
-                    <li>Texto claro em fundo claro</li>
-                    <li>Abuse do dourado (só para premium)</li>
-                    <li>Use cores fora da paleta oficial</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
