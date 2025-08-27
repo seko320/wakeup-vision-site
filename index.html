@@ -85,9 +85,10 @@
         .footer-bottom { border-top: 1px solid #444; padding-top: 2.5rem; margin-top: 2.5rem; text-align: center; opacity: 0.8; }
         @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* --- REVISÃO COMPLETA DE RESPONSIVIDADE --- */
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+        }
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Idealmente, substituir por um menu hambúrguer no futuro */
             section { padding: 4rem 1.5rem; }
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.1rem; }
@@ -103,7 +104,7 @@
             <ul class="nav-links">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
-                <li><a href="analise-rapida.html" target="_blank">Diagnóstico Rápido</a></li>
+                <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico Rápido</a></li>
                 <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
             </ul>
         </nav>
@@ -112,7 +113,7 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
-                <h1>Sua marca tem alma. Vamos mostrá-la pro mundo?</h1>
+                <h1>Sua marca tem alma.<br>Vamos mostrá-la pro mundo?</h1>
                 <p>Não criamos apenas posts bonitos. Descobrimos a personalidade única do seu negócio e transformamos isso em uma presença digital que gera resultados reais.</p>
                 <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20como%20despertar%20o%20potencial%20da%20minha%20marca." target="_blank" class="cta-button">Quero Despertar Minha Marca</a>
             </div>
@@ -173,7 +174,7 @@
                 </div>
                 <div class="footer-section">
                     <h3>Links Úteis</h3>
-                    <p><a href="analise-rapida.html" target="_blank">Diagnóstico Rápido</a></p>
+                    <p><a href="diagnostico-rapido.html" target="_blank">Diagnóstico Rápido</a></p>
                     <p><a href="guia-de-marca.html" target="_blank">🎨 Nosso Guia de Marca</a></p>
                     <p style="color: #888;">💼 Portfólio (em breve)</p>
                 </div>
