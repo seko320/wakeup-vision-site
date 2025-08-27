@@ -257,15 +257,18 @@
             const getStarsData = (score, total) => {
                 const numericScore = total > 0 ? (score / total) * 5 : 0;
                 const roundedScore = Math.round(numericScore * 2) / 2;
+                
                 const starFull = `<svg class="star-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
                 const starHalf = `<svg class="star-icon" viewBox="0 0 24 24"><defs><linearGradient id="grad_${Math.random()}"><stop offset="50%" stop-color="var(--dourado-premium)" /><stop offset="50%" stop-color="var(--cinza-estrela)" stop-opacity="1" /></linearGradient></defs><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#grad_${Math.random()})"/></svg>`;
                 const starEmpty = `<svg class="star-icon" viewBox="0 0 24 24" fill="var(--cinza-estrela)"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+
                 let html = '';
                 const fullStars = Math.floor(roundedScore);
                 const halfStar = (roundedScore % 1 !== 0);
                 for (let i = 0; i < fullStars; i++) { html += starFull; }
                 if (halfStar) { html += starHalf; }
                 for (let i = 0; i < 5 - fullStars - (halfStar ? 1 : 0); i++) { html += starEmpty; }
+                
                 return {
                     numeric: roundedScore.toFixed(1),
                     html: `<span class="numeric-score">${roundedScore.toFixed(1)}</span> ${html}`
