@@ -6,7 +6,6 @@
     <title>Wake Up Vision - Manual da Marca</title>
     
     <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
-    <!-- ÍCONE DO NAVEGADOR (FAVICON) ADICIONADO -->
     <link rel="icon" type="image/png" href="Logo-WUV-web.png">
     <link rel="apple-touch-icon" href="Logo-WUV-web.png">
 
@@ -46,14 +45,18 @@
             text-align: center;
             background: linear-gradient(135deg, #20B2AA, #1a1a1a);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem 4rem 2rem;
             border-radius: 20px;
             margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .header .logo-container img {
-            height: 60px;
-            margin-bottom: 1.5rem;
+            height: 280px;
+            margin-bottom: 2.5rem;
+            width: auto;
         }
 
         .header h1 {
@@ -89,6 +92,22 @@
         .intro-text p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; text-align: justify; text-wrap: balance; }
         .intro-text strong { color: #1a1a1a; }
         
+        /* --- AJUSTE NO FUNDO DO LOGO SHOWCASE --- */
+        .logo-showcase {
+            background: linear-gradient(135deg, #51CF66, #40E0D0); /* Aplicado degradê de resultados */
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .logo-showcase img {
+            max-width: 100%;
+            width: 700px;
+            height: auto;
+            border-radius: 10px;
+        }
+
         .color-palette {
             display: grid;
             gap: 1.5rem;
@@ -202,11 +221,13 @@
             border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem;
             transition: all 0.3s ease;
         }
-        .cta-button:hover { transform: translateY(-3px); }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
         @media (max-width: 768px) {
             .container { padding: 1.5rem; }
             .section { padding: 1.5rem; }
+            .header { padding-top: 3rem; }
+            .header .logo-container img { height: 200px; }
             .header h1 { font-size: 2.2rem; }
             .section-title { font-size: 1.8rem; }
         }
@@ -220,7 +241,6 @@
     <div class="container">
         <div class="header">
             <div class="logo-container">
-                <!-- CAMINHO DO LOGO CORRIGIDO -->
                 <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
             </div>
             <h1>Wake Up Vision</h1>
@@ -233,6 +253,19 @@
                 <p>Muitos pensam que se resume a um logo, mas a Identidade Visual é muito mais: <strong>é a linguagem visual completa de uma marca</strong>. É o conjunto estratégico de elementos como cores, fontes e estilo gráfico que, juntos, comunicam a personalidade, os valores e o propósito do negócio sem precisar de palavras.</p>
                 <p>A identidade da <strong>Wake Up Vision</strong>, por exemplo, não foi criada ao acaso. O <strong>Turquesa Principal (#20B2AA)</strong> foi escolhido por transmitir clareza, confiança e criatividade, enquanto o <strong>Preto Elegante (#1a1a1a)</strong> ancora a marca com sofisticação e seriedade. A fonte <strong>Dita</strong>, com sua personalidade única, reforça nossa abordagem autêntica e diferenciada.</p>
                 <p>Cada elemento que você verá a seguir é uma peça desse quebra-cabeça, desenhado para criar uma presença digital consistente, memorável e, acima de tudo, <strong>que gera conexão e resultados</strong>.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">O Nosso Símbolo: A Jornada WUV</h2>
+            <div class="logo-showcase">
+                <img src="Logo-WUV-Grid.png" alt="Logotipo WUV com Grid de Construção">
+            </div>
+            <div class="intro-text">
+                <p>O logotipo da Wake Up Vision é mais do que um design; <strong>é o nosso manifesto visual</strong>. Ele representa a jornada de transformação que oferecemos a cada parceiro, conectando diretamente à nossa missão e valores.</p>
+                <p>A onda simboliza o percurso do cliente, que se inicia na incerteza e na confusão. As letras "WUV" são a nossa estrutura sólida, a nossa promessa de <strong>"Parceria Acima do Pacote"</strong>. Mas, se observado de perto, a própria onda, em seu fluxo, sutilmente desenha as letras. Isso revela a nossa crença fundamental: a estratégia não é algo que aplicamos ao seu negócio; ela <strong>é o próprio caminho</strong> que construímos juntos.</p>
+                <p>Esse fluxo é a materialização da nossa missão de "transmitir a visão única de cada cliente". A iluminação turquesa que emana da onda é o momento "Wake Up", onde a clareza substitui a dúvida. Este detalhe representa a nossa <strong>"Estratégia com Alma"</strong>: um guia que não apenas aponta a direção, mas que se molda e se torna a própria jornada de crescimento.</p>
+                <p>Finalmente, a onda não apenas continua: <strong>ela ascende</strong>. A linha que se projeta para o infinito simboliza os resultados e a transformação que entregamos: levar nossos parceiros da "invisibilidade" para a "confiança", o "orgulho" e o "controle".</p>
             </div>
         </div>
 
@@ -313,4 +346,3 @@
     </div>
 </body>
 </html>
-
