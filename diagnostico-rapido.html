@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnóstico Rápido de Marca - Wake Up Vision</title>
     <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
+    <!-- ÍCONE DO NAVEGADOR (FAVICON) ADICIONADO -->
+    <link rel="icon" type="image/png" href="Logo-WUV-web.png">
+    <link rel="apple-touch-icon" href="Logo-WUV-web.png">
+
     <style>
         :root {
             --turquesa-principal: #20B2AA;
@@ -34,6 +38,10 @@
         }
         .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
         .header { text-align: center; margin-bottom: 3rem; }
+        .header .logo-container img {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
         .header h1 { font-size: 2.2rem; color: var(--preto-elegante); margin-bottom: 0.5rem; font-weight: 700; text-wrap: balance; }
         .header p { font-size: 1.1rem; color: var(--cinza-texto); text-wrap: balance; }
         
@@ -122,7 +130,6 @@
         }
         .print-button:hover { background: #666; }
         
-        /* --- MODAL DE CAPTURA DE LEAD --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
@@ -162,7 +169,7 @@
             #results { display: block !important; }
             .pillar-section, .score-summary {
                 box-shadow: none; border: 1px solid #ccc;
-                page-break-inside: avoid; /* Tenta não quebrar a seção no meio */
+                page-break-inside: avoid;
             }
             .header h1 { font-size: 18pt; }
             .header p { font-size: 11pt; }
@@ -178,12 +185,15 @@
     <div class="container">
         <div id="checklist">
             <div class="header">
+                <div class="logo-container">
+                    <!-- CAMINHO DO LOGO CORRIGIDO -->
+                    <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
+                </div>
                 <h1>Diagnóstico Rápido de Marca</h1>
                 <p>Marque as afirmações que se aplicam à sua marca e veja a saúde da sua presença digital.</p>
             </div>
 
             <form id="analysis-form">
-                <!-- Formulário com os 4 pilares -->
                 <div class="pillar-section">
                     <h2 class="pillar-title">Branding & Estrutura</h2>
                     <div class="question"><input type="checkbox" id="q1" data-pillar="branding"><label for="q1"><span class="checkbox-custom"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="question-text">Tenho clareza sobre o propósito e os valores da minha marca.</span></label></div>
@@ -257,64 +267,55 @@
             event.preventDefault();
             leadModal.style.display = 'flex';
         });
-
+        
         leadForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
             const leadName = document.getElementById('lead-name').value;
             const leadPhone = document.getElementById('lead-phone').value;
-
+        
             const pillars = {
-                branding: { score: 0, total: 3, name: 'Branding & Estrutura', answers: [] },
-                visual: { score: 0, total: 3, name: 'Identidade Visual', answers: [] },
-                digital: { score: 0, total: 3, name: 'Presença Digital', answers: [] },
-                local: { score: 0, total: 3, name: 'Presença Local (Google)', answers: [] }
+                branding: { score: 0, total: 3, name: 'Branding & Estrutura' },
+                visual: { score: 0, total: 3, name: 'Identidade Visual' },
+                digital: { score: 0, total: 3, name: 'Presença Digital' },
+                local: { score: 0, total: 3, name: 'Presença Local (Google)' }
             };
-
+        
             const inputs = analysisForm.querySelectorAll('input[type="checkbox"]');
             const answersList = document.getElementById('answers-list');
             answersList.innerHTML = ''; 
 
+            let allAnswers = [];
             inputs.forEach(input => {
                 if (input.checked) {
                     const pillar = input.getAttribute('data-pillar');
                     const questionText = input.nextElementSibling.querySelector('.question-text').textContent;
                     if (pillars[pillar]) {
                         pillars[pillar].score++;
-                        pillars[pillar].answers.push(questionText);
+                        allAnswers.push(questionText);
                     }
                 }
             });
             
-            let hasAnswers = false;
-            for (const pillarKey in pillars) {
-                const pillarData = pillars[pillarKey];
-                if (pillarData.answers.length > 0) {
-                    hasAnswers = true;
-                    const pillarTitle = document.createElement('h3');
-                    pillarTitle.textContent = pillarData.name;
-                    pillarTitle.style.fontWeight = '700';
-                    pillarTitle.style.marginTop = '1rem';
-                    answersList.appendChild(pillarTitle);
-                    pillarData.answers.forEach(answer => {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = `✓ ${answer}`;
-                        answersList.appendChild(listItem);
-                    });
-                }
-            }
-            if (!hasAnswers) {
+            if (allAnswers.length > 0) {
+                 allAnswers.forEach(answer => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `✓ ${answer}`;
+                    answersList.appendChild(listItem);
+                });
+            } else {
                 answersList.innerHTML = '<li>Nenhum ponto forte foi marcado. Esta é uma oportunidade incrível para começar a construir uma base sólida!</li>';
             }
-
+        
             const getStarsData = (score, total) => {
                 const numericScore = total > 0 ? (score / total) * 5 : 0;
                 const roundedScore = Math.round(numericScore * 2) / 2;
                 
                 const starFull = `<svg class="star-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-                const starHalf = `<svg class="star-icon" viewBox="0 0 24 24"><defs><linearGradient id="grad_${Math.random().toString(36).substr(2, 9)}"><stop offset="50%" stop-color="var(--dourado-premium)" /><stop offset="50%" stop-color="var(--cinza-estrela)" stop-opacity="1" /></linearGradient></defs><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#grad_${Math.random().toString(36).substr(2, 9)})"/></svg>`;
+                const starHalfId = `grad_${Math.random().toString(36).substr(2, 9)}`;
+                const starHalf = `<svg class="star-icon" viewBox="0 0 24 24"><defs><linearGradient id="${starHalfId}"><stop offset="50%" stop-color="var(--dourado-premium)" /><stop offset="50%" stop-color="var(--cinza-estrela)" stop-opacity="1" /></linearGradient></defs><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#${starHalfId})"/></svg>`;
                 const starEmpty = `<svg class="star-icon" viewBox="0 0 24 24" fill="var(--cinza-estrela)"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-
+        
                 let html = '';
                 const fullStars = Math.floor(roundedScore);
                 const halfStar = (roundedScore % 1 !== 0);
@@ -327,56 +328,51 @@
                     html: `<span class="numeric-score">${roundedScore.toFixed(1)}</span> ${html}`
                 };
             };
-
+        
             const pillarScores = {};
             for (const key in pillars) {
                 pillarScores[key] = getStarsData(pillars[key].score, pillars[key].total);
             }
-
+        
             const totalScore = Object.values(pillars).reduce((sum, p) => sum + p.score, 0);
             const totalQuestions = Object.values(pillars).reduce((sum, p) => sum + p.total, 0);
             const totalStarsData = getStarsData(totalScore, totalQuestions);
-
+        
             document.getElementById('branding-stars').innerHTML = pillarScores.branding.html;
             document.getElementById('visual-stars').innerHTML = pillarScores.visual.html;
             document.getElementById('digital-stars').innerHTML = pillarScores.digital.html;
             document.getElementById('local-stars').innerHTML = pillarScores.local.html;
             document.getElementById('total-stars').innerHTML = totalStarsData.html;
-
+        
             let feedbackText = '';
             const ctaLink = document.getElementById('cta-link');
             const myNumber = '5548991099068';
-
+        
             if (parseFloat(totalStarsData.numeric) >= 4.0) {
                 feedbackText = 'Excelente! Sua marca tem uma base sólida e profissional. O próximo passo é acelerar o crescimento e alcançar ainda mais clientes.';
                 ctaLink.textContent = 'Conversar sobre Tráfego Pago';
-                const message = `Olá, Lucas! Fiz o diagnóstico no site da WUV e tive uma pontuação alta (${totalStarsData.numeric}/5.0). Gostaria de conversar sobre como otimizar meus resultados com tráfego pago.`;
+                const message = `Olá, Lucas! Fiz o diagnóstico no site da WUV e tive uma pontuação alta (${totalStarsData.numeric}/5.0). Gostaria de conversar sobre como otimizar meus resultados com tráfego pago. Meu nome é ${leadName}.`;
                 ctaLink.href = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
             } else {
                 feedbackText = 'Bom trabalho! Você está no caminho certo, mas existem oportunidades claras para fortalecer sua presença e conversão. Vamos conversar?';
                 ctaLink.textContent = 'Receber Análise pelo WhatsApp';
-                const message = `Olá, Lucas!\n\nFiz o diagnóstico rápido no site e gostaria de uma análise mais detalhada.\n\n*Minha pontuação foi:*\n- Geral: ${totalStarsData.numeric}/5.0\n- Branding: ${pillarScores.branding.numeric}/5.0\n- Identidade Visual: ${pillarScores.visual.numeric}/5.0\n- Presença Digital: ${pillarScores.digital.numeric}/5.0\n- Presença Local: ${pillarScores.local.numeric}/5.0\n\nAguardo seu contato.`;
+                const message = `Olá, Lucas!\n\nFiz o diagnóstico rápido no site e gostaria de uma análise mais detalhada.\n\n*Meu nome:* ${leadName}\n*Minha pontuação geral foi:* ${totalStarsData.numeric}/5.0\n\nAguardo seu contato.`;
                 ctaLink.href = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
             }
             document.getElementById('total-feedback').textContent = feedbackText;
             
-            // Enviar dados para a Planilha Google
-            const scriptURL = 'COLE_A_URL_DO_SEU_WEB_APP_AQUI'; // IMPORTANTE!
+            const scriptURL = 'COLE_A_URL_DO_SEU_WEB_APP_AQUI';
             const formData = new FormData();
             formData.append('timestamp', new Date().toLocaleString('pt-BR'));
             formData.append('nome', leadName);
             formData.append('telefone', leadPhone);
             formData.append('pontuacao_geral', totalStarsData.numeric);
-            formData.append('pontuacao_branding', pillarScores.branding.numeric);
-            formData.append('pontuacao_visual', pillarScores.visual.numeric);
-            formData.append('pontuacao_digital', pillarScores.digital.numeric);
-            formData.append('pontuacao_local', pillarScores.local.numeric);
+            formData.append('respostas', allAnswers.join('; '));
 
             fetch(scriptURL, { method: 'POST', body: formData})
               .then(response => console.log('Success!', response))
               .catch(error => console.error('Error!', error.message));
-
-            // Mostrar resultados e esconder checklist/modal
+        
             leadModal.style.display = 'none';
             document.getElementById('checklist').style.display = 'none';
             document.getElementById('results').style.display = 'block';
@@ -386,3 +382,4 @@
 
 </body>
 </html>
+
