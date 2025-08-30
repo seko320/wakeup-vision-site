@@ -34,6 +34,10 @@
         }
         .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
         .header { text-align: center; margin-bottom: 3rem; }
+        .header .logo-container img {
+            height: 50px; /* Altura do logo no header */
+            margin-bottom: 1rem;
+        }
         .header h1 { font-size: 2.2rem; color: var(--preto-elegante); margin-bottom: 0.5rem; font-weight: 700; text-wrap: balance; }
         .header p { font-size: 1.1rem; color: var(--cinza-texto); text-wrap: balance; }
         
@@ -122,7 +126,6 @@
         }
         .print-button:hover { background: #666; }
         
-        /* --- MODAL DE CAPTURA DE LEAD --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
@@ -162,7 +165,7 @@
             #results { display: block !important; }
             .pillar-section, .score-summary {
                 box-shadow: none; border: 1px solid #ccc;
-                page-break-inside: avoid; /* Tenta não quebrar a seção no meio */
+                page-break-inside: avoid;
             }
             .header h1 { font-size: 18pt; }
             .header p { font-size: 11pt; }
@@ -178,6 +181,9 @@
     <div class="container">
         <div id="checklist">
             <div class="header">
+                <div class="logo-container">
+                    <img src="images/WUV.png" alt="Wake Up Vision Logo">
+                </div>
                 <h1>Diagnóstico Rápido de Marca</h1>
                 <p>Marque as afirmações que se aplicam à sua marca e veja a saúde da sua presença digital.</p>
             </div>
@@ -234,6 +240,7 @@
         </div>
     </div>
 
+    <!-- Modal para Captura de Leads -->
     <div class="modal-overlay" id="lead-modal">
         <div class="modal-content">
             <h2>Quase lá!</h2>
@@ -256,54 +263,42 @@
             leadModal.style.display = 'flex';
         });
         
-        // CÓDIGO JAVASCRIPT CORRIGIDO E ATUALIZADO
         leadForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
             const leadName = document.getElementById('lead-name').value;
             const leadPhone = document.getElementById('lead-phone').value;
         
-            // --- LÓGICA DE CÁLCULO (permanece a mesma) ---
             const pillars = {
-                branding: { score: 0, total: 3, name: 'Branding & Estrutura', answers: [] },
-                visual: { score: 0, total: 3, name: 'Identidade Visual', answers: [] },
-                digital: { score: 0, total: 3, name: 'Presença Digital', answers: [] },
-                local: { score: 0, total: 3, name: 'Presença Local (Google)', answers: [] }
+                branding: { score: 0, total: 3, name: 'Branding & Estrutura' },
+                visual: { score: 0, total: 3, name: 'Identidade Visual' },
+                digital: { score: 0, total: 3, name: 'Presença Digital' },
+                local: { score: 0, total: 3, name: 'Presença Local (Google)' }
             };
         
             const inputs = analysisForm.querySelectorAll('input[type="checkbox"]');
             const answersList = document.getElementById('answers-list');
             answersList.innerHTML = ''; 
-        
+
+            let allAnswers = [];
             inputs.forEach(input => {
                 if (input.checked) {
                     const pillar = input.getAttribute('data-pillar');
                     const questionText = input.nextElementSibling.querySelector('.question-text').textContent;
                     if (pillars[pillar]) {
                         pillars[pillar].score++;
-                        pillars[pillar].answers.push(questionText);
+                        allAnswers.push(questionText);
                     }
                 }
             });
             
-            let hasAnswers = false;
-            for (const pillarKey in pillars) {
-                const pillarData = pillars[pillarKey];
-                if (pillarData.answers.length > 0) {
-                    hasAnswers = true;
-                    const pillarTitle = document.createElement('h3');
-                    pillarTitle.textContent = pillarData.name;
-                    pillarTitle.style.fontWeight = '700';
-                    pillarTitle.style.marginTop = '1rem';
-                    answersList.appendChild(pillarTitle);
-                    pillarData.answers.forEach(answer => {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = `✓ ${answer}`;
-                        answersList.appendChild(listItem);
-                    });
-                }
-            }
-            if (!hasAnswers) {
+            if (allAnswers.length > 0) {
+                 allAnswers.forEach(answer => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `✓ ${answer}`;
+                    answersList.appendChild(listItem);
+                });
+            } else {
                 answersList.innerHTML = '<li>Nenhum ponto forte foi marcado. Esta é uma oportunidade incrível para começar a construir uma base sólida!</li>';
             }
         
@@ -346,7 +341,7 @@
         
             let feedbackText = '';
             const ctaLink = document.getElementById('cta-link');
-            const myNumber = '5548991099068'; // Seu número de WhatsApp aqui
+            const myNumber = '5548991099068';
         
             if (parseFloat(totalStarsData.numeric) >= 4.0) {
                 feedbackText = 'Excelente! Sua marca tem uma base sólida e profissional. O próximo passo é acelerar o crescimento e alcançar ainda mais clientes.';
@@ -356,35 +351,23 @@
             } else {
                 feedbackText = 'Bom trabalho! Você está no caminho certo, mas existem oportunidades claras para fortalecer sua presença e conversão. Vamos conversar?';
                 ctaLink.textContent = 'Receber Análise pelo WhatsApp';
-                const message = `Olá, Lucas!\n\nFiz o diagnóstico rápido no site e gostaria de uma análise mais detalhada.\n\n*Meu nome:* ${leadName}\n*Minha pontuação foi:*\n- Geral: ${totalStarsData.numeric}/5.0\n- Branding: ${pillarScores.branding.numeric}/5.0\n- Identidade Visual: ${pillarScores.visual.numeric}/5.0\n- Presença Digital: ${pillarScores.digital.numeric}/5.0\n- Presença Local: ${pillarScores.local.numeric}/5.0\n\nAguardo seu contato.`;
+                const message = `Olá, Lucas!\n\nFiz o diagnóstico rápido no site e gostaria de uma análise mais detalhada.\n\n*Meu nome:* ${leadName}\n*Minha pontuação geral foi:* ${totalStarsData.numeric}/5.0\n\nAguardo seu contato.`;
                 ctaLink.href = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
             }
             document.getElementById('total-feedback').textContent = feedbackText;
             
-            // --- LÓGICA DE ENVIO PARA A PLANILHA (com as melhorias) ---
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyVxtqQGHKKddbL7Bur7AkSgVxbJO9iK_5DvYQSe-N6CchOC4C0j7jFkTBHCBE660zh/exec'; // ⚠️ IMPORTANTE! SUBSTITUA PELA SUA URL
+            const scriptURL = 'COLE_A_URL_DO_SEU_WEB_APP_AQUI';
             const formData = new FormData();
             formData.append('timestamp', new Date().toLocaleString('pt-BR'));
             formData.append('nome', leadName);
             formData.append('telefone', leadPhone);
             formData.append('pontuacao_geral', totalStarsData.numeric);
-            formData.append('pontuacao_branding', pillarScores.branding.numeric);
-            formData.append('pontuacao_visual', pillarScores.visual.numeric);
-            formData.append('pontuacao_digital', pillarScores.digital.numeric);
-            formData.append('pontuacao_local', pillarScores.local.numeric);
-        
-            // **Adiciona a resposta de cada pergunta**
-            inputs.forEach(input => {
-                const questionId = input.id; // Será 'q1', 'q2', etc.
-                const isChecked = input.checked ? 'Sim' : 'Não';
-                formData.append(questionId, isChecked);
-            });
-        
+            formData.append('respostas', allAnswers.join('; '));
+
             fetch(scriptURL, { method: 'POST', body: formData})
-                .then(response => console.log('Success!', response))
-                .catch(error => console.error('Error!', error.message));
+              .then(response => console.log('Success!', response))
+              .catch(error => console.error('Error!', error.message));
         
-            // Mostrar resultados e esconder checklist/modal
             leadModal.style.display = 'none';
             document.getElementById('checklist').style.display = 'none';
             document.getElementById('results').style.display = 'block';
@@ -394,3 +377,4 @@
 
 </body>
 </html>
+
