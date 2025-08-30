@@ -21,15 +21,20 @@
             position: fixed; top: 0; width: 100%;
             background: rgba(249, 249, 249, 0.85);
             backdrop-filter: blur(10px); z-index: 1000;
-            padding: 1rem 0; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            padding: 0.8rem 0; /* Ajuste de padding para o logo */
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
         nav {
             display: flex; justify-content: space-between; align-items: center;
             max-width: 1200px; margin: 0 auto; padding: 0 2rem;
         }
-        .logo { font-size: 2.2rem; font-weight: 700; color: #20B2AA; text-decoration: none; }
-        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
+        .logo img {
+            height: 45px; /* Altura do seu logo */
+            width: auto;
+            display: block;
+        }
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
         .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: #20B2AA; }
         
@@ -111,7 +116,9 @@
 <body>
     <header>
         <nav>
-            <a href="#" class="logo">WUV</a>
+            <a href="#" class="logo">
+                <img src="images/WUV.png" alt="Wake Up Vision Logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
@@ -227,3 +234,4 @@
     </script>
 </body>
 </html>
+
