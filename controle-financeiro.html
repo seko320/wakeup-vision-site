@@ -21,6 +21,10 @@
             background-color: var(--off-white);
             color: var(--preto-elegante);
         }
+        .logo-container img {
+            height: 40px; /* Altura do logo */
+            margin-bottom: 0.5rem;
+        }
         .table-container {
             overflow-x: auto; /* Permite scroll horizontal em telas pequenas */
         }
@@ -39,8 +43,10 @@
 <body class="antialiased p-4 sm:p-6 md:p-8">
     <div class="max-w-4xl mx-auto">
         <header class="text-center mb-8">
+            <div class="logo-container mx-auto w-fit">
+                <img src="images/WUV.png" alt="Wake Up Vision Logo">
+            </div>
             <h1 class="text-2xl sm:text-3xl font-bold text-gray-800" style="font-weight: 700;">Painel de Controle Financeiro</h1>
-            <h2 class="text-lg sm:text-xl font-semibold" style="color: var(--turquesa-principal); font-weight: 700;">WAKE UP VISION</h2>
             <div class="mt-4"><a href="index.html" class="text-sm text-gray-500 hover:text-turquesa-principal">&larr; Voltar ao site principal</a></div>
         </header>
 
@@ -73,7 +79,6 @@
                         <tr>
                             <td class="p-3">Estrutura</td><td class="p-3">Internet + Celular</td><td id="internet" class="p-3 text-right">150,00</td>
                         </tr>
-                        <!-- NOVOS CUSTOS ADICIONADOS -->
                         <tr>
                             <td class="p-3">Estrutura</td>
                             <td class="p-3">Água</td>
@@ -183,7 +188,6 @@
         function formatCurrency(value) { return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
         function parseCurrency(value) { return parseFloat(String(value).replace(/\./g, '').replace(',', '.')) || 0; }
         
-        // Selecionando todos os elementos do DOM
         const proLaboreEl = document.getElementById('pro-labore');
         const adobeEl = document.getElementById('adobe');
         const freepikEl = document.getElementById('freepik');
@@ -259,7 +263,6 @@
             }
         }
         
-        // Adicionando listeners para todos os inputs
         [qtdDiagnosticoInput, qtdParceriaInput, qtdMotorInput, customRevenueInput, aguaInput, luzInput].forEach(input => {
             input.addEventListener('input', updateDashboard);
         });
@@ -268,3 +271,4 @@
     </script>
 </body>
 </html>
+
