@@ -20,72 +20,67 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        /* ===== INÍCIO DAS NOVAS IMPLEMENTAÇÕES ===== */
+        
         header {
             position: fixed; top: 0; width: 100%;
             background: rgba(249, 249, 249, 0.85);
             backdrop-filter: blur(10px); z-index: 1000;
-            padding: 1rem 0; /* Padding inicial */
+            padding: 1rem 0;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            transition: padding 0.3s ease; /* Transição suave */
+            transition: padding 0.3s ease;
         }
         header.scrolled {
-            padding: 0.5rem 0; /* Padding menor ao rolar */
+            padding: 0.5rem 0;
         }
-        .logo img {
-            height: 65px; /* Tamanho inicial da logo */
-            width: auto;
-            display: block;
-            transition: height 0.3s ease; /* Transição suave */
-        }
-        header.scrolled .logo img {
-            height: 50px; /* Tamanho da logo ao rolar */
-        }
-        
-        .mobile-menu-icon { display: none; cursor: pointer; z-index: 1001; }
-        .mobile-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transition: 0.4s; }
-        
-        /* Animação do ícone para "X" */
-        .mobile-menu-icon.open div:nth-child(1) { transform: rotate(-45deg) translate(-7px, 7px); }
-        .mobile-menu-icon.open div:nth-child(2) { opacity: 0; }
-        .mobile-menu-icon.open div:nth-child(3) { transform: rotate(45deg) translate(-7px, -7px); }
-
-        /* Ícones sociais no menu mobile */
-        .mobile-socials { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; }
-        .mobile-socials a { display: inline-block; margin: 0 1rem; }
-        .mobile-socials svg { width: 30px; height: 30px; fill: #1a1a1a; transition: fill 0.3s ease; }
-        .mobile-socials a:hover svg { fill: #20B2AA; }
-
-        /* Ícones sociais no rodapé */
-        .footer-socials { display: flex; gap: 1.5rem; }
-        .footer-socials a { color: #ccc; }
-        .footer-socials svg { width: 24px; height: 24px; fill: currentColor; transition: color 0.3s ease; }
-        .footer-socials a:hover { color: #20B2AA; }
-        /* ===== FIM DAS NOVAS IMPLEMENTAÇÕES ===== */
-
-        /* CÓDIGO ORIGINAL RESTAURADO ABAIXO */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             max-width: 1200px; margin: 0 auto; padding: 0 2rem;
         }
+        .logo img {
+            height: 65px;
+            width: auto;
+            display: block;
+            transition: height 0.3s ease;
+        }
+        header.scrolled .logo img {
+            height: 50px;
+        }
+        
         .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
         .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: #20B2AA; }
         
+        .mobile-menu-icon { display: none; cursor: pointer; z-index: 1001; }
+        .mobile-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transition: transform 0.4s, opacity 0.4s, width 0.4s; transform-origin: center; }
+        
+        /* NOVO: Animação para Seta Esquerda (<) */
+        .mobile-menu-icon.open div:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .mobile-menu-icon.open div:nth-child(2) { width: 30px; /* Mantém a barra central */ }
+        .mobile-menu-icon.open div:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
         .mobile-nav { position: fixed; top: 0; right: -100%; width: 70%; max-width: 300px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.5s ease; padding-top: 100px; z-index: 1000; }
         .mobile-nav.active { right: 0; }
         .mobile-nav ul { list-style: none; padding: 0; text-align: center; }
         .mobile-nav li { margin-bottom: 2rem; }
         .mobile-nav a { text-decoration: none; color: #1a1a1a; font-size: 1.5rem; font-weight: 700; }
 
+        .mobile-socials { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; }
+        .mobile-socials a { display: inline-block; margin: 0 1rem; }
+        .mobile-socials svg { width: 30px; height: 30px; fill: #1a1a1a; transition: fill 0.3s ease; }
+        .mobile-socials a:hover svg { fill: #20B2AA; }
+
+        .footer-socials { display: flex; gap: 1.5rem; }
+        .footer-socials a { color: #ccc; }
+        .footer-socials svg { width: 24px; height: 24px; fill: currentColor; transition: color 0.3s ease; }
+        .footer-socials a:hover { color: #20B2AA; }
+        
         .hero {
             background: linear-gradient(135deg, #20B2AA 0%, #1a1a1a 70%, #000 100%);
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; position: relative; overflow: hidden;
-            padding-top: 110px; /* Espaço para o header inicial maior */
+            padding-top: 110px; padding-left: 2rem; padding-right: 2rem;
         }
-        .hero-content { max-width: 850px; z-index: 2; position: relative; padding: 0 2rem;}
+        .hero-content { max-width: 850px; z-index: 2; position: relative; }
         .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-wrap: balance; }
         .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; }
         .cta-button {
@@ -123,7 +118,7 @@
         
         .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
         .final-cta .section-title { margin-bottom: 2rem; }
-        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; text-wrap: balance; }
+        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; }
         
         footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
@@ -140,8 +135,10 @@
         }
         @media (max-width: 768px) {
             section { padding: 4rem 1.5rem; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
+            /* MUDANÇA: Centralizando textos no celular para um layout mais balanceado */
+            .hero h1, .hero p { text-align: center; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.2rem; }
             .section-title { font-size: 2rem; }
             .solution-card h3 { font-size: 1.4rem; }
         }
@@ -276,17 +273,17 @@
         const mobileNav = document.getElementById('mobile-nav');
         const mainHeader = document.getElementById('main-header'); 
 
-        // Lógica para abrir/fechar menu e animar ícone para "X"
+        // Lógica para abrir/fechar menu e animar ícone
         mobileMenuIcon.addEventListener('click', () => {
             mobileNav.classList.toggle('active');
-            mobileMenuIcon.classList.toggle('open');
+            mobileMenuIcon.classList.toggle('open'); // CORREÇÃO: Adiciona a classe 'open'
         });
 
         // Lógica para fechar menu ao clicar em um link
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
-                mobileMenuIcon.classList.remove('open');
+                mobileMenuIcon.classList.remove('open'); // CORREÇÃO: Remove a classe 'open'
             });
         });
 
