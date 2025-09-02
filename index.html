@@ -26,14 +26,14 @@
             position: fixed; top: 0; width: 100%;
             background: rgba(249, 249, 249, 0.85);
             backdrop-filter: blur(10px); z-index: 1000;
-            padding: 1rem 0; /* Padding inicial maior */
+            padding: 1rem 0;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            transition: padding 0.3s ease, height 0.3s ease; /* Transição suave */
-            height: 100px; /* Altura inicial */
+            transition: padding 0.3s ease, height 0.3s ease;
+            height: 100px;
         }
         header.scrolled {
-            padding: 0.5rem 0; /* Padding menor ao rolar */
-            height: 70px; /* Altura menor ao rolar */
+            padding: 0.5rem 0;
+            height: 70px;
         }
         nav {
             display: flex; justify-content: space-between; align-items: center;
@@ -41,21 +41,20 @@
             height: 100%;
         }
         .logo img {
-            height: 80px; /* Tamanho inicial da logo */
+            height: 80px;
             width: auto;
             display: block;
-            transition: height 0.3s ease; /* Transição suave */
+            transition: height 0.3s ease;
         }
         header.scrolled .logo img {
-            height: 50px; /* Tamanho menor da logo ao rolar */
+            height: 50px;
         }
-        /* ======== FIM HEADER DINÂMICO ======== */
         
         .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
         .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: #20B2AA; }
         
-        .mobile-menu-icon { display: none; cursor: pointer; z-index: 1001; }
+        .mobile-menu-icon { display: none; cursor: pointer; z-index: 1002; }
         .mobile-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transition: 0.4s; }
         
         /* Animação do ícone para "X" */
@@ -65,35 +64,43 @@
 
         .mobile-nav { 
             position: fixed; top: 0; right: -100%; 
-            width: 70%; max-width: 300px; height: 100vh; 
+            width: 80%; max-width: 320px; height: 100vh; 
             background-color: white; 
             box-shadow: -5px 0 15px rgba(0,0,0,0.1); 
             transition: right 0.5s ease; 
-            padding: 100px 2rem 2rem 2rem; 
-            z-index: 1000;
-            display: flex; flex-direction: column; justify-content: space-between;
+            padding: 2rem; 
+            z-index: 1001;
+            display: flex; flex-direction: column; 
+            text-align: center;
         }
         .mobile-nav.active { right: 0; }
-        .mobile-nav ul { list-style: none; padding: 0; text-align: center; }
+        
+        .mobile-menu-logo { margin-bottom: 3rem; margin-top: 4rem; }
+        .mobile-menu-logo img { height: 60px; margin: 0 auto; }
+
+        .mobile-nav ul { list-style: none; padding: 0; }
         .mobile-nav li { margin-bottom: 2rem; }
         .mobile-nav a { text-decoration: none; color: #1a1a1a; font-size: 1.5rem; font-weight: 700; }
         
         /* Ícones sociais no menu mobile */
-        .mobile-socials { text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee; }
+        .mobile-socials { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; }
         .mobile-socials a { display: inline-block; margin: 0 1rem; }
         .mobile-socials svg { width: 30px; height: 30px; fill: #1a1a1a; transition: fill 0.3s ease; }
         .mobile-socials a:hover svg { fill: #20B2AA; }
 
-        /* Estilos do restante da página */
         .hero {
-            padding-top: 100px; /* Garante que o conteúdo não comece embaixo do header */
+            padding-top: 100px;
             background: linear-gradient(135deg, #20B2AA 0%, #1a1a1a 70%, #000 100%);
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; color: white; position: relative; overflow: hidden;
+            position: relative; overflow: hidden;
         }
         .hero-content { max-width: 850px; z-index: 2; position: relative; padding: 2rem; }
-        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-wrap: balance; }
-        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; }
+        /* AJUSTE DE TEXTO: Título centralizado */
+        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-align: center; }
+        /* AJUSTE DE TEXTO: Parágrafo justificado para melhor leitura */
+        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-align: justify; }
+        .hero .cta-button-container { text-align: center; } /* Container para centralizar o botão */
+
         .cta-button {
             display: inline-block; background: white; color: #1a1a1a; padding: 1rem 2.5rem;
             border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem;
@@ -109,7 +116,7 @@
         .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; text-wrap: balance; }
         .philosophy { background: #1a1a1a; color: #F9F9F9; }
         .philosophy-content { text-align: center; max-width: 800px; margin: 0 auto; }
-        .philosophy p { font-size: 1.25rem; margin-bottom: 1rem; line-height: 1.8; opacity: 0.9; text-align: center; text-wrap: balance; }
+        .philosophy p { font-size: 1.25rem; margin-bottom: 1rem; line-height: 1.8; opacity: 0.9; text-align: justify; }
         
         .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; align-items: stretch; }
         .pillar { background: rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 15px; text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; }
@@ -127,9 +134,12 @@
         .solution-card .subtitle { font-weight: 700; color: #1a1a1a; display: block; margin-bottom: 1rem; text-align: left; }
         .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; flex-grow: 1; text-align: justify; text-wrap: balance; }
         
-        .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
-        .final-cta .section-title { margin-bottom: 2rem; }
-        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; text-wrap: balance; }
+        .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; }
+        /* AJUSTE DE TEXTO: Título centralizado */
+        .final-cta .section-title { margin-bottom: 2rem; text-align: center;}
+        /* AJUSTE DE TEXTO: Parágrafo justificado para melhor leitura */
+        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: justify;}
+        .final-cta .cta-button-container { text-align: center; } /* Container para centralizar o botão */
         
         footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
@@ -138,7 +148,6 @@
         .footer-section a { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
         .footer-section a:hover { color: #20B2AA; }
         
-        /* Ícones sociais no rodapé */
         .footer-socials { display: flex; gap: 1.5rem; }
         .footer-socials a { color: #ccc; }
         .footer-socials svg { width: 24px; height: 24px; fill: currentColor; transition: color 0.3s ease; }
@@ -181,12 +190,17 @@
     </header>
 
     <div class="mobile-nav" id="mobile-nav">
-        <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico</a></li>
-            <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
-        </ul>
+        <div>
+            <div class="mobile-menu-logo">
+                <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
+            </div>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico</a></li>
+                <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
+            </ul>
+        </div>
         <div class="mobile-socials">
             <a href="https://instagram.com/wuv.mkt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.359 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
@@ -202,7 +216,9 @@
             <div class="hero-content">
                 <h1>Sua marca tem alma.<br>Vamos mostrá-la pro mundo?</h1>
                 <p>Não criamos apenas posts bonitos. Descobrimos a personalidade única do seu negócio e transformamos isso em uma presença digital que gera resultados reais.</p>
-                <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20como%20despertar%20o%20potencial%20da%20minha%20marca." target="_blank" class="cta-button">Quero Despertar Minha Marca</a>
+                <div class="cta-button-container">
+                    <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20como%20despertar%20o%20potencial%20da%20minha%20marca." target="_blank" class="cta-button">Quero Despertar Minha Marca</a>
+                </div>
             </div>
         </section>
 
@@ -210,14 +226,8 @@
             <div class="container">
                 <div class="philosophy-content">
                     <h2 class="section-title" style="color: white;">Cada negócio tem uma história.<br>A nossa é contar a SUA.</h2>
-                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas.<br>Acreditamos em autenticidade.</p>
-                    <p style="text-align: justify; margin-top: 2rem;">Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
-                    <div class="pillars">
-                        <div class="pillar"><h3>🤝 Parceria Acima do Pacote</h3><p>Somos parceiros do seu crescimento, não apenas fornecedores de posts.</p></div>
-                        <div class="pillar"><h3>💫 Estratégia com Alma</h3><p>Todo conteúdo carrega sua personalidade autêntica, criando conexões reais.</p></div>
-                        <div class="pillar"><h3>💎 Honestidade Radical</h3><p>Falamos a verdade, sempre. Sem enrolação, com foco no que realmente importa.</p></div>
-                        <div class="pillar"><h3>🎯 Foco em Resultados</h3><p>Não estamos aqui para fazer posts bonitos. Cada ação é medida e otimizada para atingir seus objetivos de crescimento.</p></div>
-                    </div>
+                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas. Acreditamos em autenticidade.</p>
+                    <p style="margin-top: 2rem;">Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
                 </div>
             </div>
         </section>
@@ -245,8 +255,10 @@
         <section class="final-cta">
             <div class="container">
                 <h2 class="section-title" style="color:white;">Pronto para despertar o potencial da sua marca?</h2>
-                <p>Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar.<br>Sem compromisso, sem pressão.</p>
-                <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20quero%20despertar%20o%20potencial%20da%20minha%20marca.%20Vamos%20conversar%3F" target="_blank" class="cta-button">Vamos Conversar no WhatsApp</a>
+                <p>Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar. Sem compromisso, sem pressão.</p>
+                <div class="cta-button-container">
+                    <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20quero%20despertar%20o%20potencial%20da%20minha%20marca.%20Vamos%20conversar%3F" target="_blank" class="cta-button">Vamos Conversar no WhatsApp</a>
+                </div>
             </div>
         </section>
     </main>
@@ -289,7 +301,7 @@
         const mobileNav = document.getElementById('mobile-nav');
         const mainHeader = document.getElementById('main-header');
 
-        // Lógica para abrir/fechar menu e animar ícone
+        // Lógica para abrir/fechar menu e animar ícone para "X"
         mobileMenuIcon.addEventListener('click', () => {
             mobileNav.classList.toggle('active');
             mobileMenuIcon.classList.toggle('open');
