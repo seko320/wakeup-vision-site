@@ -21,7 +21,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* NOVO: Esconde o header quando o menu está aberto */
         body.mobile-menu-open header {
             display: none;
         }
@@ -61,7 +60,6 @@
         .mobile-nav { position: fixed; top: 0; right: -100%; width: 85%; max-width: 340px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.5s ease; padding: 2rem; z-index: 1002; }
         .mobile-nav.active { right: 0; }
         
-        /* NOVO: Estilo do novo botão de fechar */
         .close-menu-icon {
             position: absolute;
             top: 2rem;
@@ -92,13 +90,11 @@
             background: linear-gradient(135deg, #20B2AA 0%, #1a1a1a 70%, #000 100%);
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; position: relative; overflow: hidden;
-            padding-top: 110px; padding-left: 2rem; padding-right: 2rem;
+            padding-top: 110px;
         }
-        .hero-content { max-width: 850px; z-index: 2; position: relative; }
+        .hero-content { max-width: 850px; z-index: 2; position: relative; padding: 0 2rem; }
         .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-wrap: balance; }
-        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; }
-        /* AUMENTADO: Espaçamento entre linhas no desktop */
-        .hero p { line-height: 1.9; }
+        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; line-height: 1.8; }
 
         .cta-button {
             display: inline-block; background: white; color: #1a1a1a; padding: 1rem 2.5rem;
@@ -117,221 +113,4 @@
         .philosophy-content { text-align: center; max-width: 800px; margin: 0 auto; }
         .philosophy p { font-size: 1.25rem; margin-bottom: 1rem; line-height: 1.8; opacity: 0.9; text-align: center; text-wrap: balance; }
         
-        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; align-items: stretch; }
-        .pillar { background: rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 15px; text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; }
-        .pillar:hover { background: rgba(32, 178, 170, 0.2); }
-        .pillar h3 { color: #20B2AA; margin-bottom: 1.5rem; font-size: 1.3rem; font-weight: 700; }
-        .pillar p { text-align: left; flex-grow: 1; text-wrap: balance; }
-
-        .solutions { background: #F9F9F9; }
-        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 3rem; align-items: stretch; }
-        .solution-card { background: white; border-radius: 20px; padding: 3rem 2.5rem; text-align: center; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); border: 1px solid #eee; display: flex; flex-direction: column; }
-        .solution-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
-        .solution-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #20B2AA, #1a1a1a); }
-        .solution-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
-        .solution-card h3 { color: #1a1a1a; margin-bottom: 1.5rem; font-size: 1.6rem; font-weight: 700; min-height: 3.2em; }
-        .solution-card .subtitle { font-weight: 700; color: #1a1a1a; display: block; margin-bottom: 1rem; text-align: left; }
-        .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; flex-grow: 1; text-align: justify; text-wrap: balance; }
-        
-        .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
-        .final-cta .section-title { margin-bottom: 2rem; }
-        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; }
-        /* AUMENTADO: Espaçamento entre linhas no desktop */
-        .final-cta p { line-height: 1.9; }
-        
-        footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
-        .footer-section h3 { color: #20B2AA; margin-bottom: 1.5rem; font-weight: 700; }
-        .footer-section p { margin-bottom: 0.8rem; }
-        .footer-section a { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
-        .footer-section a:hover { color: #20B2AA; }
-        .footer-bottom { border-top: 1px solid #444; padding-top: 2.5rem; margin-top: 2.5rem; text-align: center; opacity: 0.8; }
-        @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        
-        @media (max-width: 992px) {
-            .nav-links { display: none; }
-            .mobile-menu-icon { display: block; }
-        }
-        @media (max-width: 768px) {
-            section { padding: 4rem 1.5rem; }
-            .hero h1 { font-size: 2.8rem; text-align: center; }
-            .hero p, .philosophy p, .final-cta p {
-                /* MUDANÇA: Parágrafos justificados no celular para um look uniforme */
-                text-align: justify;
-                hyphens: auto; /* Ajuda a evitar espaços grandes no justificado */
-            }
-            .hero p { font-size: 1.2rem; }
-            .section-title { font-size: 2rem; }
-            .solution-card h3 { font-size: 1.4rem; }
-            .pillar p { text-align: justify; }
-        }
-    </style>
-</head>
-<body id="page-body">
-    <header id="main-header">
-        <nav>
-            <a href="#" class="logo">
-                <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico Rápido</a></li>
-                <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
-            </ul>
-            <div class="mobile-menu-icon" id="mobile-menu-icon">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="mobile-nav" id="mobile-nav">
-        <div class="close-menu-icon" id="close-menu-icon">
-            <div></div>
-            <div></div>
-        </div>
-        <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico</a></li>
-            <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
-        </ul>
-        <div class="mobile-socials">
-            <a href="https://instagram.com/wuv.mkt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.359 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61580291724188" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-            </a>
-        </div>
-    </div>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Sua marca tem ALMA.<br>Vamos mostrá-la pro MUNDO?</h1>
-                <br><br><p>Não criamos apenas posts bonitos.<br>Descobrimos a personalidade única do seu negócio! Transformando isso em uma presença digital que gera resultados reais.</p>
-                <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20como%20despertar%20o%20potencial%20da%20minha%20marca." target="_blank" class="cta-button">Quero Despertar Minha Marca</a>
-            </div>
-        </section>
-
-        <section id="sobre" class="philosophy">
-            <div class="container">
-                <div class="philosophy-content">
-                    <h2 class="section-title" style="color: white;">Cada negócio tem uma história.<br>A nossa é contar a SUA.</h2>
-                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas.<br>Acreditamos em autenticidade.</p>
-                    <p style="text-align: justify; margin-top: 2rem;">Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
-                    <div class="pillars">
-                        <div class="pillar"><h3>🤝 Parceria Acima do Pacote</h3><p>Somos parceiros do seu crescimento, não apenas fornecedores de posts.</p></div>
-                        <div class="pillar"><h3>💫 Estratégia com Alma</h3><p>Todo conteúdo carrega sua personalidade autêntica, criando conexões reais.</p></div>
-                        <div class="pillar"><h3>💎 Honestidade Radical</h3><p>Falamos a verdade, sempre. Sem enrolação, com foco no que realmente importa.</p></div>
-                        <div class="pillar"><h3>🎯 Foco em Resultados</h3><p>Não estamos aqui para fazer posts bonitos. Cada ação é medida e otimizada para atingir seus objetivos de crescimento.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="servicos" class="solutions">
-            <div class="container">
-                <h2 class="section-title">Nossas Soluções</h2>
-                <div class="solutions-grid">
-                    <div class="solution-card">
-                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3>
-                        <p><span class="subtitle">Para quem quer clareza total sobre os próximos passos.</span>Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</p>
-                    </div>
-                    <div class="solution-card">
-                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3>
-                        <p><span class="subtitle">Para quem quer resultados consistentes sem dor de cabeça.</span>Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</p>
-                    </div>
-                    <div class="solution-card">
-                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3>
-                        <p><span class="subtitle">Para quem está pronto para acelerar e escalar.</span>Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="final-cta">
-            <div class="container">
-                <h2 class="section-title" style="color:white;">Pronto para despertar o potencial da sua marca?</h2>
-                <p>Se você acredita no seu negócio e quer uma parceria que jogue junto.<br>Vamos conversar! Sem compromisso, sem pressão.</p>
-                <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20quero%20despertar%20o%20potencial%20da%20minha%20marca.%20Vamos%20conversar%3F" target="_blank" class="cta-button">Vamos Conversar no WhatsApp</a>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Wake Up Vision</h3><p>Marketing com alma para negócios autênticos.</p><p>📍 Florianópolis/SC - Atendimento Nacional</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contato</h3>
-                    <p><a href="mailto:contato@wakeupvision.com.br">📧 contato@wakeupvision.com.br</a></p>
-                    <p><a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Encontrei%20seu%20contato%20pelo%20site." target="_blank">📱 WhatsApp: (48) 99109-9068</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Links Úteis</h3>
-                    <p><a href="diagnostico-rapido.html" target="_blank">Diagnóstico Rápido</a></p>
-                    <p><a href="guia-de-marca.html" target="_blank">🎨 Nosso Guia de Marca</a></p>
-                    <p style="color: #888;">💼 Portfólio (em breve)</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Siga-nos</h3>
-                    <div class="footer-socials">
-                        <a href="https://instagram.com/wuv.mkt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.359 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=61580291724188" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2025 Wake Up Vision. Todos os direitos reservados.</p></div>
-        </div>
-    </footer>
-
-    <script>
-        // Seletores dos elementos
-        const body = document.getElementById('page-body');
-        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
-        const mobileNav = document.getElementById('mobile-nav');
-        const mainHeader = document.getElementById('main-header'); 
-        const closeMenuIcon = document.getElementById('close-menu-icon'); // NOVO: Seletor do botão de fechar
-
-        function openMenu() {
-            mobileNav.classList.add('active');
-            body.classList.add('mobile-menu-open');
-        }
-
-        function closeMenu() {
-            mobileNav.classList.remove('active');
-            body.classList.remove('mobile-menu-open');
-        }
-
-        // Evento de clique para ABRIR o menu
-        mobileMenuIcon.addEventListener('click', openMenu);
-
-        // NOVO: Evento de clique para FECHAR o menu
-        closeMenuIcon.addEventListener('click', closeMenu);
-
-        // Lógica para fechar menu ao clicar em um link
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
-        // Lógica para encolher o header ao rolar
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { 
-                mainHeader.classList.add('scrolled');
-            } else {
-                mainHeader.classList.remove('scrolled');
-            }
-        });
-    </script>
-</body>
-</html>
+        .pillars { display
