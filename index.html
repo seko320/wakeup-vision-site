@@ -21,40 +21,33 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* ======== HEADER DINÂMICO ======== */
+        /* ===== INÍCIO DAS NOVAS IMPLEMENTAÇÕES ===== */
         header {
             position: fixed; top: 0; width: 100%;
             background: rgba(249, 249, 249, 0.85);
             backdrop-filter: blur(10px); z-index: 1000;
-            padding: 1rem 0;
+            padding: 1rem 0; /* Padding inicial */
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            transition: padding 0.3s ease, height 0.3s ease;
-            height: 100px;
+            transition: padding 0.3s ease; /* Transição suave */
         }
         header.scrolled {
-            padding: 0.5rem 0;
-            height: 70px;
+            padding: 0.5rem 0; /* Padding menor ao rolar */
         }
         nav {
             display: flex; justify-content: space-between; align-items: center;
             max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-            height: 100%;
         }
         .logo img {
-            height: 80px;
+            height: 65px; /* Tamanho inicial da logo */
             width: auto;
             display: block;
-            transition: height 0.3s ease;
+            transition: height 0.3s ease; /* Transição suave */
         }
         header.scrolled .logo img {
-            height: 50px;
+            height: 50px; /* Tamanho da logo ao rolar */
         }
         
-        .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
-        .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
-        .nav-links a:hover { color: #20B2AA; }
-        
-        .mobile-menu-icon { display: none; cursor: pointer; z-index: 1002; }
+        .mobile-menu-icon { display: none; cursor: pointer; z-index: 1001; }
         .mobile-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transition: 0.4s; }
         
         /* Animação do ícone para "X" */
@@ -64,43 +57,46 @@
 
         .mobile-nav { 
             position: fixed; top: 0; right: -100%; 
-            width: 80%; max-width: 320px; height: 100vh; 
+            width: 70%; max-width: 300px; height: 100vh; 
             background-color: white; 
             box-shadow: -5px 0 15px rgba(0,0,0,0.1); 
             transition: right 0.5s ease; 
-            padding: 2rem; 
-            z-index: 1001;
-            display: flex; flex-direction: column; 
-            text-align: center;
+            padding-top: 100px; 
+            z-index: 1000; 
         }
-        .mobile-nav.active { right: 0; }
-        
-        .mobile-menu-logo { margin-bottom: 3rem; margin-top: 4rem; }
-        .mobile-menu-logo img { height: 60px; margin: 0 auto; }
 
-        .mobile-nav ul { list-style: none; padding: 0; }
-        .mobile-nav li { margin-bottom: 2rem; }
-        .mobile-nav a { text-decoration: none; color: #1a1a1a; font-size: 1.5rem; font-weight: 700; }
-        
         /* Ícones sociais no menu mobile */
         .mobile-socials { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; }
         .mobile-socials a { display: inline-block; margin: 0 1rem; }
         .mobile-socials svg { width: 30px; height: 30px; fill: #1a1a1a; transition: fill 0.3s ease; }
         .mobile-socials a:hover svg { fill: #20B2AA; }
 
+        /* Ícones sociais no rodapé */
+        .footer-socials { display: flex; gap: 1.5rem; margin-top:1rem; }
+        .footer-socials a { color: #ccc; }
+        .footer-socials svg { width: 24px; height: 24px; fill: currentColor; transition: color 0.3s ease; }
+        .footer-socials a:hover { color: #20B2AA; }
+        /* ===== FIM DAS NOVAS IMPLEMENTAÇÕES ===== */
+
+        /* CÓDIGO ORIGINAL RESTAURADO ABAIXO */
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #20B2AA; }
+        
+        .mobile-nav.active { right: 0; }
+        .mobile-nav ul { list-style: none; padding: 0; text-align: center; }
+        .mobile-nav li { margin-bottom: 2rem; }
+        .mobile-nav a { text-decoration: none; color: #1a1a1a; font-size: 1.5rem; font-weight: 700; }
+
         .hero {
-            padding-top: 100px;
             background: linear-gradient(135deg, #20B2AA 0%, #1a1a1a 70%, #000 100%);
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden;
+            text-align: center; color: white; position: relative; overflow: hidden; padding: 80px 2rem 0;
+            padding-top: 110px; /* Espaço para o header inicial maior */
         }
-        .hero-content { max-width: 850px; z-index: 2; position: relative; padding: 2rem; }
-        /* AJUSTE DE TEXTO: Título centralizado */
-        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-align: center; }
-        /* AJUSTE DE TEXTO: Parágrafo justificado para melhor leitura */
-        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-align: justify; }
-        .hero .cta-button-container { text-align: center; } /* Container para centralizar o botão */
-
+        .hero-content { max-width: 850px; z-index: 2; position: relative; }
+        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-wrap: balance; }
+        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; }
         .cta-button {
             display: inline-block; background: white; color: #1a1a1a; padding: 1rem 2.5rem;
             border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem;
@@ -116,7 +112,7 @@
         .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; text-wrap: balance; }
         .philosophy { background: #1a1a1a; color: #F9F9F9; }
         .philosophy-content { text-align: center; max-width: 800px; margin: 0 auto; }
-        .philosophy p { font-size: 1.25rem; margin-bottom: 1rem; line-height: 1.8; opacity: 0.9; text-align: justify; }
+        .philosophy p { font-size: 1.25rem; margin-bottom: 1rem; line-height: 1.8; opacity: 0.9; text-align: center; text-wrap: balance; }
         
         .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; align-items: stretch; }
         .pillar { background: rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 15px; text-align: center; transition: background 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; }
@@ -134,25 +130,16 @@
         .solution-card .subtitle { font-weight: 700; color: #1a1a1a; display: block; margin-bottom: 1rem; text-align: left; }
         .solution-card p { margin-bottom: 1.5rem; color: #666; font-size: 1.1rem; flex-grow: 1; text-align: justify; text-wrap: balance; }
         
-        .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; }
-        /* AJUSTE DE TEXTO: Título centralizado */
-        .final-cta .section-title { margin-bottom: 2rem; text-align: center;}
-        /* AJUSTE DE TEXTO: Parágrafo justificado para melhor leitura */
-        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: justify;}
-        .final-cta .cta-button-container { text-align: center; } /* Container para centralizar o botão */
+        .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
+        .final-cta .section-title { margin-bottom: 2rem; }
+        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; text-wrap: balance; }
         
         footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
         .footer-section h3 { color: #20B2AA; margin-bottom: 1.5rem; font-weight: 700; }
         .footer-section p { margin-bottom: 0.8rem; }
         .footer-section a { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
         .footer-section a:hover { color: #20B2AA; }
-        
-        .footer-socials { display: flex; gap: 1.5rem; }
-        .footer-socials a { color: #ccc; }
-        .footer-socials svg { width: 24px; height: 24px; fill: currentColor; transition: color 0.3s ease; }
-        .footer-socials a:hover { color: #20B2AA; }
-
         .footer-bottom { border-top: 1px solid #444; padding-top: 2.5rem; margin-top: 2.5rem; text-align: center; opacity: 0.8; }
         @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
         
@@ -190,17 +177,12 @@
     </header>
 
     <div class="mobile-nav" id="mobile-nav">
-        <div>
-            <div class="mobile-menu-logo">
-                <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
-            </div>
-            <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico</a></li>
-                <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico</a></li>
+            <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
+        </ul>
         <div class="mobile-socials">
             <a href="https://instagram.com/wuv.mkt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.359 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
@@ -212,55 +194,7 @@
     </div>
 
     <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Sua marca tem alma.<br>Vamos mostrá-la pro mundo?</h1>
-                <p>Não criamos apenas posts bonitos. Descobrimos a personalidade única do seu negócio e transformamos isso em uma presença digital que gera resultados reais.</p>
-                <div class="cta-button-container">
-                    <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20como%20despertar%20o%20potencial%20da%20minha%20marca." target="_blank" class="cta-button">Quero Despertar Minha Marca</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="sobre" class="philosophy">
-            <div class="container">
-                <div class="philosophy-content">
-                    <h2 class="section-title" style="color: white;">Cada negócio tem uma história.<br>A nossa é contar a SUA.</h2>
-                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas. Acreditamos em autenticidade.</p>
-                    <p style="margin-top: 2rem;">Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="servicos" class="solutions">
-            <div class="container">
-                <h2 class="section-title">Nossas Soluções</h2>
-                <div class="solutions-grid">
-                    <div class="solution-card">
-                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3>
-                        <p><span class="subtitle">Para quem quer clareza total sobre os próximos passos.</span>Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</p>
-                    </div>
-                    <div class="solution-card">
-                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3>
-                        <p><span class="subtitle">Para quem quer resultados consistentes sem dor de cabeça.</span>Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</p>
-                    </div>
-                    <div class="solution-card">
-                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3>
-                        <p><span class="subtitle">Para quem está pronto para acelerar e escalar.</span>Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="final-cta">
-            <div class="container">
-                <h2 class="section-title" style="color:white;">Pronto para despertar o potencial da sua marca?</h2>
-                <p>Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar. Sem compromisso, sem pressão.</p>
-                <div class="cta-button-container">
-                    <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20quero%20despertar%20o%20potencial%20da%20minha%20marca.%20Vamos%20conversar%3F" target="_blank" class="cta-button">Vamos Conversar no WhatsApp</a>
-                </div>
-            </div>
-        </section>
+        ...
     </main>
 
     <footer id="contato">
@@ -299,30 +233,6 @@
     <script>
         const mobileMenuIcon = document.getElementById('mobile-menu-icon');
         const mobileNav = document.getElementById('mobile-nav');
-        const mainHeader = document.getElementById('main-header');
+        const mainHeader = document.getElementById('main-header'); // Adicionado seletor do header
 
-        // Lógica para abrir/fechar menu e animar ícone para "X"
-        mobileMenuIcon.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
-            mobileMenuIcon.classList.toggle('open');
-        });
-
-        // Lógica para fechar menu ao clicar em um link
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                mobileMenuIcon.classList.remove('open');
-            });
-        });
-
-        // Lógica para encolher o header ao rolar
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                mainHeader.classList.add('scrolled');
-            } else {
-                mainHeader.classList.remove('scrolled');
-            }
-        });
-    </script>
-</body>
-</html>
+        //
