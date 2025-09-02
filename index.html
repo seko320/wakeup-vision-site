@@ -21,6 +21,11 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
+        /* NOVO: Esconde o header quando o menu está aberto */
+        body.mobile-menu-open header {
+            display: none;
+        }
+        
         header {
             position: fixed; top: 0; width: 100%;
             background: rgba(249, 249, 249, 0.85);
@@ -51,16 +56,25 @@
         .nav-links a:hover { color: #20B2AA; }
         
         .mobile-menu-icon { display: none; cursor: pointer; z-index: 1001; }
-        .mobile-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transition: transform 0.4s, opacity 0.4s, width 0.4s; transform-origin: center; }
+        .mobile-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transition: 0.4s; }
         
-        /* NOVO: Animação para Seta Esquerda (<) */
-        .mobile-menu-icon.open div:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
-        .mobile-menu-icon.open div:nth-child(2) { width: 30px; /* Mantém a barra central */ }
-        .mobile-menu-icon.open div:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
-
-        .mobile-nav { position: fixed; top: 0; right: -100%; width: 70%; max-width: 300px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.5s ease; padding-top: 100px; z-index: 1000; }
+        .mobile-nav { position: fixed; top: 0; right: -100%; width: 85%; max-width: 340px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.5s ease; padding: 2rem; z-index: 1002; }
         .mobile-nav.active { right: 0; }
-        .mobile-nav ul { list-style: none; padding: 0; text-align: center; }
+        
+        /* NOVO: Estilo do novo botão de fechar */
+        .close-menu-icon {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+        }
+        .close-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transform-origin: center; }
+        .close-menu-icon div:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .close-menu-icon div:nth-child(2) { transform: rotate(-45deg) translate(4px, -4px); }
+        
+        .mobile-nav ul { list-style: none; padding: 0; text-align: center; margin-top: 80px; }
         .mobile-nav li { margin-bottom: 2rem; }
         .mobile-nav a { text-decoration: none; color: #1a1a1a; font-size: 1.5rem; font-weight: 700; }
 
@@ -83,6 +97,9 @@
         .hero-content { max-width: 850px; z-index: 2; position: relative; }
         .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-wrap: balance; }
         .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; }
+        /* AUMENTADO: Espaçamento entre linhas no desktop */
+        .hero p { line-height: 1.9; }
+
         .cta-button {
             display: inline-block; background: white; color: #1a1a1a; padding: 1rem 2.5rem;
             border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem;
@@ -119,6 +136,8 @@
         .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
         .final-cta .section-title { margin-bottom: 2rem; }
         .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; }
+        /* AUMENTADO: Espaçamento entre linhas no desktop */
+        .final-cta p { line-height: 1.9; }
         
         footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
@@ -135,16 +154,20 @@
         }
         @media (max-width: 768px) {
             section { padding: 4rem 1.5rem; }
-            /* MUDANÇA: Centralizando textos no celular para um layout mais balanceado */
-            .hero h1, .hero p { text-align: center; }
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.8rem; text-align: center; }
+            .hero p, .philosophy p, .final-cta p {
+                /* MUDANÇA: Parágrafos justificados no celular para um look uniforme */
+                text-align: justify;
+                hyphens: auto; /* Ajuda a evitar espaços grandes no justificado */
+            }
             .hero p { font-size: 1.2rem; }
             .section-title { font-size: 2rem; }
             .solution-card h3 { font-size: 1.4rem; }
+            .pillar p { text-align: justify; }
         }
     </style>
 </head>
-<body>
+<body id="page-body">
     <header id="main-header">
         <nav>
             <a href="#" class="logo">
@@ -165,6 +188,10 @@
     </header>
 
     <div class="mobile-nav" id="mobile-nav">
+        <div class="close-menu-icon" id="close-menu-icon">
+            <div></div>
+            <div></div>
+        </div>
         <ul>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#servicos">Serviços</a></li>
@@ -269,22 +296,32 @@
     </footer>
 
     <script>
+        // Seletores dos elementos
+        const body = document.getElementById('page-body');
         const mobileMenuIcon = document.getElementById('mobile-menu-icon');
         const mobileNav = document.getElementById('mobile-nav');
         const mainHeader = document.getElementById('main-header'); 
+        const closeMenuIcon = document.getElementById('close-menu-icon'); // NOVO: Seletor do botão de fechar
 
-        // Lógica para abrir/fechar menu e animar ícone
-        mobileMenuIcon.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
-            mobileMenuIcon.classList.toggle('open'); // CORREÇÃO: Adiciona a classe 'open'
-        });
+        function openMenu() {
+            mobileNav.classList.add('active');
+            body.classList.add('mobile-menu-open');
+        }
+
+        function closeMenu() {
+            mobileNav.classList.remove('active');
+            body.classList.remove('mobile-menu-open');
+        }
+
+        // Evento de clique para ABRIR o menu
+        mobileMenuIcon.addEventListener('click', openMenu);
+
+        // NOVO: Evento de clique para FECHAR o menu
+        closeMenuIcon.addEventListener('click', closeMenu);
 
         // Lógica para fechar menu ao clicar em um link
         document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                mobileMenuIcon.classList.remove('open'); // CORREÇÃO: Remove a classe 'open'
-            });
+            link.addEventListener('click', closeMenu);
         });
 
         // Lógica para encolher o header ao rolar
