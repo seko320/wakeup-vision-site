@@ -20,7 +20,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
+
         /* ===== INÍCIO DAS NOVAS IMPLEMENTAÇÕES ===== */
         header {
             position: fixed; top: 0; width: 100%;
@@ -32,10 +32,6 @@
         }
         header.scrolled {
             padding: 0.5rem 0; /* Padding menor ao rolar */
-        }
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
         }
         .logo img {
             height: 65px; /* Tamanho inicial da logo */
@@ -55,16 +51,6 @@
         .mobile-menu-icon.open div:nth-child(2) { opacity: 0; }
         .mobile-menu-icon.open div:nth-child(3) { transform: rotate(45deg) translate(-7px, -7px); }
 
-        .mobile-nav { 
-            position: fixed; top: 0; right: -100%; 
-            width: 70%; max-width: 300px; height: 100vh; 
-            background-color: white; 
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1); 
-            transition: right 0.5s ease; 
-            padding-top: 100px; 
-            z-index: 1000; 
-        }
-
         /* Ícones sociais no menu mobile */
         .mobile-socials { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; }
         .mobile-socials a { display: inline-block; margin: 0 1rem; }
@@ -72,17 +58,22 @@
         .mobile-socials a:hover svg { fill: #20B2AA; }
 
         /* Ícones sociais no rodapé */
-        .footer-socials { display: flex; gap: 1.5rem; margin-top:1rem; }
+        .footer-socials { display: flex; gap: 1.5rem; }
         .footer-socials a { color: #ccc; }
         .footer-socials svg { width: 24px; height: 24px; fill: currentColor; transition: color 0.3s ease; }
         .footer-socials a:hover { color: #20B2AA; }
         /* ===== FIM DAS NOVAS IMPLEMENTAÇÕES ===== */
 
         /* CÓDIGO ORIGINAL RESTAURADO ABAIXO */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+        }
         .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
         .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: #20B2AA; }
         
+        .mobile-nav { position: fixed; top: 0; right: -100%; width: 70%; max-width: 300px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.5s ease; padding-top: 100px; z-index: 1000; }
         .mobile-nav.active { right: 0; }
         .mobile-nav ul { list-style: none; padding: 0; text-align: center; }
         .mobile-nav li { margin-bottom: 2rem; }
@@ -91,10 +82,10 @@
         .hero {
             background: linear-gradient(135deg, #20B2AA 0%, #1a1a1a 70%, #000 100%);
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; color: white; position: relative; overflow: hidden; padding: 80px 2rem 0;
+            text-align: center; color: white; position: relative; overflow: hidden;
             padding-top: 110px; /* Espaço para o header inicial maior */
         }
-        .hero-content { max-width: 850px; z-index: 2; position: relative; }
+        .hero-content { max-width: 850px; z-index: 2; position: relative; padding: 0 2rem;}
         .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-wrap: balance; }
         .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; }
         .cta-button {
@@ -194,7 +185,57 @@
     </div>
 
     <main>
-        ...
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Sua marca tem alma.<br>Vamos mostrá-la pro mundo?</h1>
+                <p>Não criamos apenas posts bonitos. Descobrimos a personalidade única do seu negócio e transformamos isso em uma presença digital que gera resultados reais.</p>
+                <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20como%20despertar%20o%20potencial%20da%20minha%20marca." target="_blank" class="cta-button">Quero Despertar Minha Marca</a>
+            </div>
+        </section>
+
+        <section id="sobre" class="philosophy">
+            <div class="container">
+                <div class="philosophy-content">
+                    <h2 class="section-title" style="color: white;">Cada negócio tem uma história.<br>A nossa é contar a SUA.</h2>
+                    <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas.<br>Acreditamos em autenticidade.</p>
+                    <p style="text-align: justify; margin-top: 2rem;">Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
+                    <div class="pillars">
+                        <div class="pillar"><h3>🤝 Parceria Acima do Pacote</h3><p>Somos parceiros do seu crescimento, não apenas fornecedores de posts.</p></div>
+                        <div class="pillar"><h3>💫 Estratégia com Alma</h3><p>Todo conteúdo carrega sua personalidade autêntica, criando conexões reais.</p></div>
+                        <div class="pillar"><h3>💎 Honestidade Radical</h3><p>Falamos a verdade, sempre. Sem enrolação, com foco no que realmente importa.</p></div>
+                        <div class="pillar"><h3>🎯 Foco em Resultados</h3><p>Não estamos aqui para fazer posts bonitos. Cada ação é medida e otimizada para atingir seus objetivos de crescimento.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="solutions">
+            <div class="container">
+                <h2 class="section-title">Nossas Soluções</h2>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">🗺️</div><h3>Diagnóstico e Mapa Estratégico</h3>
+                        <p><span class="subtitle">Para quem quer clareza total sobre os próximos passos.</span>Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3>
+                        <p><span class="subtitle">Para quem quer resultados consistentes sem dor de cabeça.</span>Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">📈</div><h3>Motor de Crescimento</h3>
+                        <p><span class="subtitle">Para quem está pronto para acelerar e escalar.</span>Estratégia + execução + gestão de tráfego pago. A combinação ideal para um crescimento sustentável e previsível.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <h2 class="section-title" style="color:white;">Pronto para despertar o potencial da sua marca?</h2>
+                <p>Se você acredita no seu negócio e quer uma parceria que jogue junto, vamos conversar.<br>Sem compromisso, sem pressão.</p>
+                <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20quero%20despertar%20o%20potencial%20da%20minha%20marca.%20Vamos%20conversar%3F" target="_blank" class="cta-button">Vamos Conversar no WhatsApp</a>
+            </div>
+        </section>
     </main>
 
     <footer id="contato">
@@ -233,7 +274,7 @@
     <script>
         const mobileMenuIcon = document.getElementById('mobile-menu-icon');
         const mobileNav = document.getElementById('mobile-nav');
-        const mainHeader = document.getElementById('main-header'); // Adicionado seletor do header
+        const mainHeader = document.getElementById('main-header'); 
 
         // Lógica para abrir/fechar menu e animar ícone para "X"
         mobileMenuIcon.addEventListener('click', () => {
@@ -251,7 +292,7 @@
 
         // Lógica para encolher o header ao rolar
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { // a partir de 50px de rolagem
+            if (window.scrollY > 50) { 
                 mainHeader.classList.add('scrolled');
             } else {
                 mainHeader.classList.remove('scrolled');
