@@ -6,9 +6,9 @@
     <title>Painel de Controle Financeiro WUV</title>
     <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- ÍCONE DO NAVEGADOR (FAVICON) ADICIONADO -->
     <link rel="icon" type="image/png" href="Logo-WUV-Guia-Pagina.png">
     <link rel="apple-touch-icon" href="Logo-WUV-Guia-Pagina.png">
+    <meta name="robots" content="noindex, nofollow"> <!-- Evita que o Google indexe esta página -->
 
     <style>
         :root {
@@ -42,154 +42,233 @@
         }
         input[type=number]::-webkit-inner-spin-button, 
         input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+        /* Estilos para o tradutor no cabeçalho */
+        .header-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
     </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HG7Q34XC4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-5HG7Q34XC4');
+    </script>
 </head>
-<body class="antialiased p-4 sm:p-6 md:p-8">
-    <div class="max-w-4xl mx-auto">
-        <header class="text-center mb-8">
-            <div class="logo-container mx-auto w-fit">
-                <!-- CAMINHO DO LOGO CORRIGIDO -->
-                <img src="Logo WUV.png" alt="Wake Up Vision Logo">
-            </div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-gray-800" style="font-weight: 700;">Painel de Controle Financeiro</h1>
-            <div class="mt-4"><a href="index.html" class="text-sm text-gray-500 hover:text-turquesa-principal">&larr; Voltar ao site principal</a></div>
-        </header>
+<body class="antialiased">
 
-        <div class="bg-white shadow-lg rounded-2xl overflow-hidden">
-            <div class="table-container">
-                <table class="text-sm sm:text-base">
-                    <thead class="bg-[var(--turquesa-principal)] text-[var(--off-white)]">
-                        <tr><th colspan="3" class="p-4 text-left font-bold text-lg">INVESTIMENTO OPERACIONAL (CUSTOS)</th></tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="font-semibold bg-gray-50">
-                            <td class="p-3 w-1/3">CATEGORIA</td>
-                            <td class="p-3 w-1/3">ITEM</td>
-                            <td class="p-3 w-1/3 text-right">VALOR MENSAL (R$)</td>
-                        </tr>
-                        <tr class="bg-yellow-100">
-                            <td class="p-3">Pró-Labore Lucas</td>
-                            <td class="p-3">Salário Estratégico</td>
-                            <td id="pro-labore" class="p-3 text-right font-semibold">4.500,00</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Ferramentas</td><td class="p-3">Adobe Creative Cloud</td><td id="adobe" class="p-3 text-right">69,90</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Ferramentas</td><td class="p-3">Freepik (Anual)</td><td id="freepik" class="p-3 text-right">25,00</td>
-                        </tr>
-                         <tr>
-                            <td class="p-3">Ferramentas</td><td class="p-3">Domínio & Email (Anual)</td><td id="domain" class="p-3 text-right">12,50</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Estrutura</td><td class="p-3">Internet + Celular</td><td id="internet" class="p-3 text-right">150,00</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Estrutura</td>
-                            <td class="p-3">Água</td>
-                            <td class="p-3 text-right"><input id="agua" type="number" min="0" value="0" placeholder="0,00" class="w-24 text-right rounded border-gray-300 shadow-sm"></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Estrutura</td>
-                            <td class="p-3">Luz</td>
-                            <td class="p-3 text-right"><input id="luz" type="number" min="0" value="0" placeholder="0,00" class="w-24 text-right rounded border-gray-300 shadow-sm"></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Impostos</td>
-                            <td class="p-3">MEI (DAS Mensal)</td>
-                            <td id="mei" class="p-3 text-right">72,00</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Reinvestimento</td><td class="p-3">Fundo de Depreciação (Hardware)</td><td id="depreciation" class="p-3 text-right font-semibold">220,00</td>
-                        </tr>
-                         <tr>
-                            <td class="p-3">Impostos</td><td class="p-3">Simples Nacional (6%)</td><td id="impostos" class="p-3 text-right font-semibold">0,00</td>
-                        </tr>
-                    </tbody>
-                    <tfoot class="bg-[var(--cinza-sofisticado)] text-[var(--off-white)] font-bold">
-                        <tr>
-                            <td colspan="2" class="p-4 text-lg">PONTO DE EQUILÍBRIO</td>
-                            <td id="ponto-equilibrio" class="p-4 text-right text-lg">0,00</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            
-            <div class="my-6"></div>
+    <!-- TELA DE LOGIN -->
+    <div id="login-container" class="fixed inset-0 bg-gray-800 bg-opacity-90 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl text-center w-full max-w-sm">
+            <img src="Logo-WUV-web.png" alt="Logo" class="mx-auto h-20 mb-4">
+            <h2 class="text-2xl font-bold text-[var(--preto-elegante)] mb-2">Acesso Restrito</h2>
+            <p class="text-[var(--cinza-sofisticado)] mb-6">Insira a senha para acessar o painel.</p>
+            <input type="password" id="password-input" class="w-full p-3 border-2 border-gray-300 rounded-lg text-center text-lg tracking-widest focus:border-[var(--turquesa-principal)] focus:ring-0" placeholder="••••">
+            <p id="error-message" class="text-red-600 text-sm mt-2 h-5"></p>
+            <button id="login-button" class="w-full bg-[var(--turquesa-principal)] text-white font-bold py-3 rounded-lg mt-4 hover:opacity-90 transition-opacity">Entrar</button>
+        </div>
+    </div>
 
-            <div class="table-container">
-                <table>
-                    <thead class="bg-[var(--turquesa-principal)] text-[var(--off-white)]">
-                        <tr><th colspan="4" class="p-4 text-left font-bold text-lg">RECEITA (SOLUÇÕES WUV)</th></tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="font-semibold bg-gray-50">
-                            <td class="p-3">SOLUÇÃO</td>
-                            <td class="p-3 text-right">VALOR UNIT. (R$)</td>
-                            <td class="p-3 text-center">QTD</td>
-                            <td class="p-3 text-right">SUBTOTAL (R$)</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-semibold">Diagnóstico & Mapa</td>
-                            <td class="p-3 text-right">450,00</td>
-                            <td class="p-3 text-center"><input id="qtd-diagnostico" type="number" min="0" value="0" class="w-20 text-center rounded border-gray-300 shadow-sm"></td>
-                            <td id="subtotal-diagnostico" class="p-3 text-right font-semibold">0,00</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-semibold">Parceria Estratégica</td>
-                            <td class="p-3 text-right">850,00</td>
-                            <td class="p-3 text-center"><input id="qtd-parceria" type="number" min="0" value="0" class="w-20 text-center rounded border-gray-300 shadow-sm"></td>
-                            <td id="subtotal-parceria" class="p-3 text-right font-semibold">0,00</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-semibold">Motor de Crescimento</td>
-                            <td class="p-3 text-right">1.200,00</td>
-                            <td class="p-3 text-center"><input id="qtd-motor" type="number" min="0" value="0" class="w-20 text-center rounded border-gray-300 shadow-sm"></td>
-                            <td id="subtotal-motor" class="p-3 text-right font-semibold">0,00</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <!-- CONTEÚDO PROTEGIDO -->
+    <div id="protected-content" style="display: none;" class="p-4 sm:p-6 md:p-8">
+        <div class="max-w-4xl mx-auto">
+            <header class="text-center mb-8">
+                <div class="logo-container mx-auto w-fit">
+                    <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
+                </div>
+                <div class="header-controls">
+                    <a href="index.html" class="text-sm text-gray-500 hover:text-[var(--turquesa-principal)]">&larr; Voltar ao site principal</a>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800" style="font-weight: 700;">Painel de Controle Financeiro</h1>
+                    <div id="google_translate_element"></div>
+                </div>
+            </header>
 
-            <div class="my-6"></div>
+            <div class="bg-white shadow-lg rounded-2xl overflow-hidden">
+                <div class="table-container">
+                    <table class="text-sm sm:text-base">
+                        <thead class="bg-[var(--turquesa-principal)] text-[var(--off-white)]">
+                            <tr><th colspan="3" class="p-4 text-left font-bold text-lg">INVESTIMENTO OPERACIONAL (CUSTOS)</th></tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="font-semibold bg-gray-50">
+                                <td class="p-3 w-1/3">CATEGORIA</td>
+                                <td class="p-3 w-1/3">ITEM</td>
+                                <td class="p-3 w-1/3 text-right">VALOR MENSAL (R$)</td>
+                            </tr>
+                            <tr class="bg-yellow-100">
+                                <td class="p-3">Pró-Labore Lucas</td>
+                                <td class="p-3">Salário Estratégico</td>
+                                <td id="pro-labore" class="p-3 text-right font-semibold">4.500,00</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Ferramentas</td><td class="p-3">Adobe Creative Cloud</td><td id="adobe" class="p-3 text-right">69,90</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Ferramentas</td><td class="p-3">Freepik (Anual)</td><td id="freepik" class="p-3 text-right">25,00</td>
+                            </tr>
+                             <tr>
+                                <td class="p-3">Ferramentas</td><td class="p-3">Domínio & Email (Anual)</td><td id="domain" class="p-3 text-right">12,50</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Estrutura</td><td class="p-3">Internet + Celular</td><td id="internet" class="p-3 text-right">150,00</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Estrutura</td>
+                                <td class="p-3">Água</td>
+                                <td class="p-3 text-right"><input id="agua" type="number" min="0" value="0" placeholder="0,00" class="w-24 text-right rounded border-gray-300 shadow-sm"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Estrutura</td>
+                                <td class="p-3">Luz</td>
+                                <td class="p-3 text-right"><input id="luz" type="number" min="0" value="0" placeholder="0,00" class="w-24 text-right rounded border-gray-300 shadow-sm"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Impostos</td>
+                                <td class="p-3">MEI (DAS Mensal)</td>
+                                <td id="mei" class="p-3 text-right">72,00</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Reinvestimento</td><td class="p-3">Fundo de Depreciação (Hardware)</td><td id="depreciation" class="p-3 text-right font-semibold">220,00</td>
+                            </tr>
+                             <tr>
+                                <td class="p-3">Impostos</td><td class="p-3">Simples Nacional (6%)</td><td id="impostos" class="p-3 text-right font-semibold">0,00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="bg-[var(--cinza-sofisticado)] text-[var(--off-white)] font-bold">
+                            <tr>
+                                <td colspan="2" class="p-4 text-lg">PONTO DE EQUILÍBRIO</td>
+                                <td id="ponto-equilibrio" class="p-4 text-right text-lg">0,00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+                <div class="my-6"></div>
 
-            <div class="table-container">
-                <table>
-                    <thead class="bg-[var(--turquesa-principal)] text-[var(--off-white)]">
-                        <tr><th colspan="2" class="p-4 text-left font-bold text-lg">RECEITAS ADICIONAIS</th></tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="font-semibold bg-gray-50"><td class="p-3">CLIENTE / DESCRIÇÃO</td><td class="p-3 text-right">VALOR (R$)</td></tr>
-                        <tr><td class="p-3 font-semibold">Cliente Mercepeças</td><td id="cliente-mercepecas" class="p-3 text-right font-semibold">400,00</td></tr>
-                         <tr><td class="p-3 font-semibold">Cliente Alimentar</td><td id="cliente-alimentar" class="p-3 text-right font-semibold">650,00</td></tr>
-                        <tr><td class="p-3 font-semibold">Outras Receitas</td><td class="p-3 text-right"><input id="custom-revenue" type="number" min="0" step="50" value="0" placeholder="0,00" class="w-32 text-right rounded border-gray-300 shadow-sm"></td></tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="my-6"></div>
-            
-            <div class="table-container">
-                <table>
-                    <thead class="bg-[var(--turquesa-principal)] text-[var(--off-white)]"><tr><th colspan="2" class="p-4 text-left font-bold text-lg">BALANÇO FINAL</th></tr></thead>
-                    <tbody>
-                        <tr class="bg-[var(--preto-elegante)] text-[var(--dourado-premium)] font-bold">
-                            <td class="p-4 text-lg">FATURAMENTO TOTAL</td>
-                            <td id="faturamento-total" class="p-4 text-right text-lg">0,00</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr id="resultado-row" class="font-bold">
-                            <td class="p-6 text-base sm:text-xl">RESULTADO LÍQUIDO</td>
-                            <td id="resultado-liquido" class="p-6 text-right text-base sm:text-xl">0,00</td>
-                        </tr>
-                    </tfoot>
-                </table>
+                <div class="table-container">
+                    <table>
+                        <thead class="bg-[var(--turquesa-principal)] text-[var(--off-white)]">
+                            <tr><th colspan="4" class="p-4 text-left font-bold text-lg">RECEITA (SOLUÇÕES WUV)</th></tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="font-semibold bg-gray-50">
+                                <td class="p-3">SOLUÇÃO</td>
+                                <td class="p-3 text-right">VALOR UNIT. (R$)</td>
+                                <td class="p-3 text-center">QTD</td>
+                                <td class="p-3 text-right">SUBTOTAL (R$)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Diagnóstico & Mapa</td>
+                                <td class="p-3 text-right">450,00</td>
+                                <td class="p-3 text-center"><input id="qtd-diagnostico" type="number" min="0" value="0" class="w-20 text-center rounded border-gray-300 shadow-sm"></td>
+                                <td id="subtotal-diagnostico" class="p-3 text-right font-semibold">0,00</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Parceria Estratégica</td>
+                                <td class="p-3 text-right">850,00</td>
+                                <td class="p-3 text-center"><input id="qtd-parceria" type="number" min="0" value="0" class="w-20 text-center rounded border-gray-300 shadow-sm"></td>
+                                <td id="subtotal-parceria" class="p-3 text-right font-semibold">0,00</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Motor de Crescimento</td>
+                                <td class="p-3 text-right">1.200,00</td>
+                                <td class="p-3 text-center"><input id="qtd-motor" type="number" min="0" value="0" class="w-20 text-center rounded border-gray-300 shadow-sm"></td>
+                                <td id="subtotal-motor" class="p-3 text-right font-semibold">0,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="my-6"></div>
+
+                <div class="table-container">
+                    <table>
+                        <thead class="bg-[var(--turquesa-principal)] text-[var(--off-white)]">
+                            <tr><th colspan="2" class="p-4 text-left font-bold text-lg">RECEITAS ADICIONAIS</th></tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="font-semibold bg-gray-50"><td class="p-3">CLIENTE / DESCRIÇÃO</td><td class="p-3 text-right">VALOR (R$)</td></tr>
+                            <tr><td class="p-3 font-semibold">Cliente Mercepeças</td><td id="cliente-mercepecas" class="p-3 text-right font-semibold">400,00</td></tr>
+                             <tr><td class="p-3 font-semibold">Cliente Alimentar</td><td id="cliente-alimentar" class="p-3 text-right font-semibold">650,00</td></tr>
+                            <tr><td class="p-3 font-semibold">Outras Receitas</td><td class="p-3 text-right"><input id="custom-revenue" type="number" min="0" step="50" value="0" placeholder="0,00" class="w-32 text-right rounded border-gray-300 shadow-sm"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="my-6"></div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead class="bg-[var(--turquesa-principal)] text-[var(--off-white)]"><tr><th colspan="2" class="p-4 text-left font-bold text-lg">BALANÇO FINAL</th></tr></thead>
+                        <tbody>
+                            <tr class="bg-[var(--preto-elegante)] text-[var(--dourado-premium)] font-bold">
+                                <td class="p-4 text-lg">FATURAMENTO TOTAL</td>
+                                <td id="faturamento-total" class="p-4 text-right text-lg">0,00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr id="resultado-row" class="font-bold">
+                                <td class="p-6 text-base sm:text-xl">RESULTADO LÍQUIDO</td>
+                                <td id="resultado-liquido" class="p-6 text-right text-base sm:text-xl">0,00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- CÓDIGO DO GOOGLE TRADUTOR -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script>
+        // LÓGICA DE LOGIN
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginContainer = document.getElementById('login-container');
+            const protectedContent = document.getElementById('protected-content');
+            const passwordInput = document.getElementById('password-input');
+            const loginButton = document.getElementById('login-button');
+            const errorMessage = document.getElementById('error-message');
+            const correctPassword = '6990';
+
+            function attemptLogin() {
+                if (passwordInput.value === correctPassword) {
+                    loginContainer.style.display = 'none';
+                    protectedContent.style.display = 'block';
+                } else {
+                    errorMessage.textContent = 'Senha incorreta. Tente novamente.';
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                    loginContainer.classList.add('animate-shake');
+                    setTimeout(() => {
+                        loginContainer.classList.remove('animate-shake');
+                    }, 500);
+                }
+            }
+
+            loginButton.addEventListener('click', attemptLogin);
+            passwordInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    attemptLogin();
+                }
+            });
+            passwordInput.focus();
+        });
+
+
+        // LÓGICA DA PLANILHA
         function formatCurrency(value) { return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
         function parseCurrency(value) { return parseFloat(String(value).replace(/\./g, '').replace(',', '.')) || 0; }
         
@@ -276,4 +355,3 @@
     </script>
 </body>
 </html>
-
