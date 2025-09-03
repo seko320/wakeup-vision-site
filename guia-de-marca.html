@@ -28,7 +28,10 @@
         .site-header {
             background: #fff; padding: 1rem 2rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center; border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .site-header a {
             color: #20B2AA; text-decoration: none;
@@ -92,9 +95,8 @@
         .intro-text p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; text-align: justify; text-wrap: balance; }
         .intro-text strong { color: #1a1a1a; }
         
-        /* --- AJUSTE NO FUNDO DO LOGO SHOWCASE --- */
         .logo-showcase {
-            background: linear-gradient(135deg, #51CF66, #40E0D0); /* Aplicado degradê de resultados */
+            background: linear-gradient(135deg, #51CF66, #40E0D0);
             padding: 2.5rem;
             border-radius: 15px;
             text-align: center;
@@ -227,15 +229,27 @@
             .container { padding: 1.5rem; }
             .section { padding: 1.5rem; }
             .header { padding-top: 3rem; }
-            .header .logo-container img { height: 200px; }
+            .header .logo-container img { height: 120px; }
             .header h1 { font-size: 2.2rem; }
             .section-title { font-size: 1.8rem; }
         }
     </style>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HG7Q34XC4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-5HG7Q34XC4');
+    </script>
+
 </head>
 <body>
     <header class="site-header">
         <a href="index.html">← Voltar para o Site Principal</a>
+        <div id="google_translate_element"></div>
     </header>
 
     <div class="container">
@@ -344,5 +358,14 @@
             <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20o%20Guia%20de%20Marca%20no%20site%20e%20gostaria%20de%20saber%20mais." target="_blank" class="cta-button">Conversar no WhatsApp</a>
         </div>
     </div>
+
+    <!-- CÓDIGO DO GOOGLE TRADUTOR -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
