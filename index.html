@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wake Up Vision - Marketing com Alma para Negócios Autênticos</title>
     <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
@@ -17,11 +17,6 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="pt_BR">
-    <title>Wake Up Vision - Marketing com Alma para Negócios Autênticos</title>
-    <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
-    
-    <link rel="icon" type="image/png" href="Logo-WUV-Guia-Pagina.png">
-    <link rel="apple-touch-icon" href="Logo-WUV-Guia-Pagina.png">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,10 +63,13 @@
         .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: #20B2AA; }
         
+        /* NOVO: Estilo para o container do tradutor no desktop */
+        #google_translate_element_desktop { margin-left: 1.5rem; }
+
         .mobile-menu-icon { display: none; cursor: pointer; z-index: 1001; }
         .mobile-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transition: 0.4s; }
         
-        .mobile-nav { position: fixed; top: 0; right: -100%; width: 85%; max-width: 340px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.5s ease; padding: 2rem; z-index: 1002; }
+        .mobile-nav { position: fixed; top: 0; right: -100%; width: 85%; max-width: 340px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.5s ease; padding: 2rem; z-index: 1002; display: flex; flex-direction: column; justify-content: space-between; }
         .mobile-nav.active { right: 0; }
         
         .close-menu-icon {
@@ -86,14 +84,18 @@
         .close-menu-icon div:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
         .close-menu-icon div:nth-child(2) { transform: rotate(-45deg) translate(4px, -4px); }
         
-        .mobile-nav ul { list-style: none; padding: 0; text-align: center; margin-top: 80px; }
+        .mobile-nav-top { text-align: center; margin-top: 80px; }
+        .mobile-nav ul { list-style: none; padding: 0; }
         .mobile-nav li { margin-bottom: 2rem; }
         .mobile-nav a { text-decoration: none; color: #1a1a1a; font-size: 1.5rem; font-weight: 700; }
 
-        .mobile-socials { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; }
+        .mobile-socials { text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee; }
         .mobile-socials a { display: inline-block; margin: 0 1rem; }
         .mobile-socials svg { width: 30px; height: 30px; fill: #1a1a1a; transition: fill 0.3s ease; }
         .mobile-socials a:hover svg { fill: #20B2AA; }
+        
+        /* NOVO: Estilo para o container do tradutor no mobile */
+        #google_translate_element_mobile { margin-top: 2rem; }
 
         .footer-socials { display: flex; gap: 1.5rem; }
         .footer-socials a { color: #ccc; }
@@ -108,8 +110,7 @@
         }
         .hero-content { max-width: 850px; z-index: 2; position: relative; }
         .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; animation: slideInUp 1s ease-out; text-wrap: balance; }
-        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; }
-        .hero p { line-height: 1.9; }
+        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.9; animation: slideInUp 1s ease-out 0.3s both; text-wrap: balance; line-height: 1.9; }
 
         .cta-button {
             display: inline-block; background: white; color: #1a1a1a; padding: 1rem 2.5rem;
@@ -126,7 +127,6 @@
         .container { max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; text-wrap: balance; }
         
-        /* NOVO: Para alinhar o título de duas linhas perfeitamente */
         .aligned-title {
             display: inline-block;
             text-align: left;
@@ -154,8 +154,7 @@
         
         .final-cta { background: linear-gradient(135deg, #1a1a1a, #20B2AA); color: white; text-align: center; }
         .final-cta .section-title { margin-bottom: 2rem; }
-        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; }
-        .final-cta p { line-height: 1.9; }
+        .final-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; line-height: 1.9; }
         
         footer { background: #1a1a1a; color: #F9F9F9; padding: 5rem 2rem 2.5rem; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-bottom: 4rem; text-align: left; }
@@ -169,9 +168,10 @@
         @media (max-width: 992px) {
             .nav-links { display: none; }
             .mobile-menu-icon { display: block; }
+            /* Esconde o tradutor do desktop em telas menores */
+            #google_translate_element_desktop { display: none; }
         }
         
-        /* OTIMIZAÇÕES MOBILE MELHORADAS */
         @media (max-width: 768px) {
             section { padding: 3rem 1.2rem; }
             
@@ -193,7 +193,6 @@
                 font-size: 1.1rem;
                 margin-bottom: 1.8rem;
                 text-align: justify;
-                /* REMOVIDO: hyphens: auto; para não quebrar palavras */
                 line-height: 1.6;
             }
             
@@ -212,7 +211,6 @@
             .philosophy-content p {
                 font-size: 1.1rem;
                 text-align: justify;
-                /* REMOVIDO: hyphens: auto; */
                 line-height: 1.6;
                 margin-bottom: 1.2rem;
             }
@@ -270,7 +268,6 @@
             .final-cta p {
                 font-size: 1.1rem;
                 text-align: justify;
-                /* REMOVIDO: hyphens: auto; */
                 line-height: 1.6;
                 margin-bottom: 2rem;
             }
@@ -312,19 +309,31 @@
             .solution-card { padding: 1.8rem 1.2rem; }
         }
     </style>
-</head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HG7Q34XC4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-5HG7Q34XC4');
+    </script>
+    </head>
 <body id="page-body">
     <header id="main-header">
         <nav>
             <a href="#" class="logo">
                 <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
             </a>
-            <ul class="nav-links">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico Rápido</a></li>
-                <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
-            </ul>
+            <div style="display: flex; align-items: center;">
+                <ul class="nav-links">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico Rápido</a></li>
+                    <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
+                </ul>
+                <div id="google_translate_element_desktop"></div>
+            </div>
             <div class="mobile-menu-icon" id="mobile-menu-icon">
                 <div></div>
                 <div></div>
@@ -334,23 +343,28 @@
     </header>
 
     <div class="mobile-nav" id="mobile-nav">
-        <div class="close-menu-icon" id="close-menu-icon">
-            <div></div>
-            <div></div>
+        <div>
+            <div class="close-menu-icon" id="close-menu-icon">
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico</a></li>
+                <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
+            </ul>
         </div>
-        <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico</a></li>
-            <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
-        </ul>
-        <div class="mobile-socials">
-            <a href="https://instagram.com/wuv.mkt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.359 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61580291724188" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-            </a>
+        <div>
+            <div class="mobile-socials">
+                <a href="https://instagram.com/wuv.mkt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.359 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61580291724188" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                </a>
+            </div>
+            <div id="google_translate_element_mobile"></div>
         </div>
     </div>
 
@@ -441,6 +455,13 @@
         </div>
     </footer>
 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element_desktop');
+          new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element_mobile');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
         // Seletores dos elementos
         const body = document.getElementById('page-body');
