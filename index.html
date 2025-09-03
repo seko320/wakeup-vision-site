@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="Logo-WUV-Guia-Pagina.png">
     <link rel="apple-touch-icon" href="Logo-WUV-Guia-Pagina.png">
 
+    <!-- Tags de Preview para Redes Sociais (Open Graph) -->
     <meta property="og:title" content="Wake Up Vision - Marketing com Alma">
     <meta property="og:description" content="Descobrimos a personalidade única do seu negócio e a transformamos em uma presença digital que gera resultados reais.">
     <meta property="og:type" content="website">
@@ -63,9 +64,6 @@
         .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 400; font-size: 1.1rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: #20B2AA; }
         
-        /* NOVO: Estilo para o container do tradutor no desktop */
-        #google_translate_element_desktop { margin-left: 1.5rem; }
-
         .mobile-menu-icon { display: none; cursor: pointer; z-index: 1001; }
         .mobile-menu-icon div { width: 30px; height: 3px; background-color: #1a1a1a; margin: 6px 0; transition: 0.4s; }
         
@@ -89,12 +87,11 @@
         .mobile-nav li { margin-bottom: 2rem; }
         .mobile-nav a { text-decoration: none; color: #1a1a1a; font-size: 1.5rem; font-weight: 700; }
 
-        .mobile-socials { text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee; }
+        .mobile-socials { text-align: center; padding-top: 2rem; border-top: 1px solid #eee; }
         .mobile-socials a { display: inline-block; margin: 0 1rem; }
         .mobile-socials svg { width: 30px; height: 30px; fill: #1a1a1a; transition: fill 0.3s ease; }
         .mobile-socials a:hover svg { fill: #20B2AA; }
         
-        /* NOVO: Estilo para o container do tradutor no mobile */
         #google_translate_element_mobile { margin-top: 2rem; }
 
         .footer-socials { display: flex; gap: 1.5rem; }
@@ -122,7 +119,6 @@
             transform: translateY(-5px); box-shadow: 0 15px 40px rgba(32, 178, 170, 0.4);
             background: #20B2AA; color: white; border: 2px solid white;
         }
-        
         section { padding: 6rem 2rem; }
         .container { max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 3.5rem; color: #1a1a1a; text-wrap: balance; }
@@ -168,172 +164,100 @@
         @media (max-width: 992px) {
             .nav-links { display: none; }
             .mobile-menu-icon { display: block; }
-            /* Esconde o tradutor do desktop em telas menores */
-            #google_translate_element_desktop { display: none; }
         }
         
         @media (max-width: 768px) {
             section { padding: 3rem 1.2rem; }
-            
-            .hero {
-                padding-top: 90px;
-                padding-left: 1.2rem;
-                padding-right: 1.2rem;
-                min-height: 85vh;
-            }
-            
-            .hero h1 { 
-                font-size: 2.2rem;
-                text-align: center;
-                margin-bottom: 1rem;
-                line-height: 1.3;
-            }
-            
-            .hero p { 
-                font-size: 1.1rem;
-                margin-bottom: 1.8rem;
-                text-align: justify;
-                line-height: 1.6;
-            }
-            
-            .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 1.1rem;
-                margin-top: 1rem;
-            }
-            
-            .section-title { 
-                font-size: 1.8rem;
-                margin-bottom: 2.5rem;
-                line-height: 1.3;
-            }
-            
-            .philosophy-content p {
-                font-size: 1.1rem;
-                text-align: justify;
-                line-height: 1.6;
-                margin-bottom: 1.2rem;
-            }
-            
-            .pillars {
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-            
-            .pillar {
-                padding: 1.8rem 1.5rem;
-            }
-            
-            .pillar h3 {
-                font-size: 1.2rem;
-                margin-bottom: 1rem;
-            }
-            
-            .pillar p { 
-                text-align: justify;
-                font-size: 1rem;
-                line-height: 1.5;
-            }
-            
-            .solutions-grid {
-                gap: 2rem;
-                margin-top: 2rem;
-            }
-            
-            .solution-card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .solution-card h3 { 
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-                min-height: auto;
-            }
-            
-            .solution-card p {
-                font-size: 1rem;
-                line-height: 1.5;
-                margin-bottom: 1rem;
-            }
-            
-            .solution-icon {
-                font-size: 2.8rem;
-                margin-bottom: 1rem;
-            }
-            
-            .final-cta .section-title {
-                margin-bottom: 1.5rem;
-            }
-            
-            .final-cta p {
-                font-size: 1.1rem;
-                text-align: justify;
-                line-height: 1.6;
-                margin-bottom: 2rem;
-            }
-            
-            footer {
-                padding: 3rem 1.2rem 2rem;
-            }
-            
-            .footer-content {
-                gap: 2rem;
-                margin-bottom: 2.5rem;
-            }
-            
-            .footer-section h3 {
-                margin-bottom: 1rem;
-                font-size: 1.1rem;
-            }
-            
-            .footer-section p {
-                font-size: 0.95rem;
-                margin-bottom: 0.6rem;
-            }
+            .hero { padding-top: 90px; padding-left: 1.2rem; padding-right: 1.2rem; min-height: 85vh; }
+            .hero h1 { font-size: 2.2rem; text-align: center; margin-bottom: 1rem; line-height: 1.3; }
+            .hero p { font-size: 1.1rem; margin-bottom: 1.8rem; text-align: justify; line-height: 1.6; }
+            .cta-button { padding: 0.8rem 2rem; font-size: 1.1rem; margin-top: 1rem; }
+            .section-title { font-size: 1.8rem; margin-bottom: 2.5rem; line-height: 1.3; }
+            .philosophy-content p { font-size: 1.1rem; text-align: justify; line-height: 1.6; margin-bottom: 1.2rem; }
+            .pillars { gap: 1.5rem; margin-top: 2rem; }
+            .pillar { padding: 1.8rem 1.5rem; }
+            .pillar h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+            .pillar p { text-align: justify; font-size: 1rem; line-height: 1.5; }
+            .solutions-grid { gap: 2rem; margin-top: 2rem; }
+            .solution-card { padding: 2rem 1.5rem; }
+            .solution-card h3 { font-size: 1.3rem; margin-bottom: 1rem; min-height: auto; }
+            .solution-card p { font-size: 1rem; line-height: 1.5; margin-bottom: 1rem; }
+            .solution-icon { font-size: 2.8rem; margin-bottom: 1rem; }
+            .final-cta .section-title { margin-bottom: 1.5rem; }
+            .final-cta p { font-size: 1.1rem; text-align: justify; line-height: 1.6; margin-bottom: 2rem; }
+            footer { padding: 3rem 1.2rem 2rem; }
+            .footer-content { gap: 2rem; margin-bottom: 2.5rem; }
+            .footer-section h3 { margin-bottom: 1rem; font-size: 1.1rem; }
+            .footer-section p { font-size: 0.95rem; margin-bottom: 0.6rem; }
         }
         
         @media (max-width: 480px) {
             section { padding: 2.5rem 1rem; }
-            
-            .hero {
-                padding-left: 1rem;
-                padding-right: 1rem;
-                padding-top: 80px;
-            }
-            
+            .hero { padding-left: 1rem; padding-right: 1rem; padding-top: 80px; }
             .hero h1 { font-size: 2rem; }
             .hero p { font-size: 1rem; }
             .section-title { font-size: 1.6rem; }
-            
             .pillar { padding: 1.5rem 1.2rem; }
             .solution-card { padding: 1.8rem 1.2rem; }
         }
+
+        /* ===== ESTILOS PARA DEIXAR O TRADUTOR BONITO ===== */
+        .nav-links .translator-wrapper {
+            position: relative;
+            top: 2px;
+        }
+        #google_translate_element_desktop .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: 1.1rem !important; /* Mesmo tamanho dos outros links */
+            font-family: 'dita', sans-serif !important;
+            font-weight: 400;
+        }
+        #google_translate_element_desktop .goog-te-gadget-icon {
+            display: none !important; /* Esconde o ícone feio do Google */
+        }
+        #google_translate_element_desktop .goog-te-menu-value span {
+            color: #1a1a1a !important; /* Mesma cor dos outros links */
+        }
+        #google_translate_element_desktop .goog-te-menu-value:hover span,
+        #google_translate_element_desktop .goog-te-menu-value a:hover {
+             color: #20B2AA !important; /* Efeito hover igual aos outros links */
+        }
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        } 
+        body {
+            top: 0px !important; 
+        }
     </style>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HG7Q34XC4"></script>
+    <!-- Google tag (gtag.js) - CÓDIGO DO GOOGLE ANALYTICS ATUALIZADO -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLRDRPS8JM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     
-      gtag('config', 'G-5HG7Q34XC4');
+      gtag('config', 'G-PLRDRPS8JM');
     </script>
-    </head>
+    <!-- FIM DO CÓDIGO DO GOOGLE ANALYTICS -->
+
+</head>
 <body id="page-body">
     <header id="main-header">
         <nav>
             <a href="#" class="logo">
                 <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
             </a>
-            <div style="display: flex; align-items: center;">
-                <ul class="nav-links">
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico Rápido</a></li>
-                    <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
-                </ul>
-                <div id="google_translate_element_desktop"></div>
-            </div>
+            <ul class="nav-links">
+                <!-- TRADUTOR REPOSICIONADO AQUI -->
+                <li class="translator-wrapper"><div id="google_translate_element_desktop"></div></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico Rápido</a></li>
+                <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
+            </ul>
             <div class="mobile-menu-icon" id="mobile-menu-icon">
                 <div></div>
                 <div></div>
@@ -343,11 +267,11 @@
     </header>
 
     <div class="mobile-nav" id="mobile-nav">
-        <div>
-            <div class="close-menu-icon" id="close-menu-icon">
-                <div></div>
-                <div></div>
-            </div>
+        <div class="close-menu-icon" id="close-menu-icon">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="mobile-nav-top">
             <ul>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
@@ -455,6 +379,7 @@
         </div>
     </footer>
 
+    <!-- CÓDIGO DO GOOGLE TRADUTOR -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
           new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element_desktop');
@@ -462,6 +387,8 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- FIM DO CÓDIGO DO GOOGLE TRADUTOR -->
+
     <script>
         // Seletores dos elementos
         const body = document.getElementById('page-body');
