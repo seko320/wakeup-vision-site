@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnóstico Rápido de Marca - Wake Up Vision</title>
     <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
-    <!-- ÍCONE DO NAVEGADOR (FAVICON) ADICIONADO -->
     <link rel="icon" type="image/png" href="Logo-WUV-Guia-Pagina.png">
     <link rel="apple-touch-icon" href="Logo-WUV-Guia-Pagina.png">
 
@@ -30,7 +29,10 @@
         .site-header {
             background: #fff; padding: 1rem 1.5rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center; border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .site-header a {
             color: var(--turquesa-principal); text-decoration: none;
@@ -164,7 +166,7 @@
         @media print {
             @page { size: A4; margin: 1cm; }
             body { background: #fff; font-size: 10pt; }
-            .site-header, #checklist, .print-button, .score-summary .cta-button, .modal-overlay { display: none; }
+            .site-header, #checklist, .print-button, .score-summary .cta-button, .modal-overlay, #google_translate_element { display: none; }
             .container { padding: 0; max-width: 100%; }
             #results { display: block !important; }
             .pillar-section, .score-summary {
@@ -176,17 +178,27 @@
             .pillar-title { font-size: 14pt; }
         }
     </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HG7Q34XC4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-5HG7Q34XC4');
+    </script>
 </head>
 <body>
     <header class="site-header">
         <a href="index.html">← Voltar para o Site Principal</a>
+        <div id="google_translate_element"></div>
     </header>
 
     <div class="container">
         <div id="checklist">
             <div class="header">
                 <div class="logo-container">
-                    <!-- CAMINHO DO LOGO CORRIGIDO -->
                     <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
                 </div>
                 <h1>Diagnóstico Rápido de Marca</h1>
@@ -257,6 +269,14 @@
             </form>
         </div>
     </div>
+    
+    <!-- CÓDIGO DO GOOGLE TRADUTOR -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
         const analysisForm = document.getElementById('analysis-form');
@@ -382,4 +402,3 @@
 
 </body>
 </html>
-
