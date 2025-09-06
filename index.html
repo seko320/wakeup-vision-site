@@ -180,11 +180,11 @@
             padding: 1.5rem 0;
             white-space: nowrap;
             overflow: hidden;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
+            position: relative;
         }
         .marquee-content {
             display: flex;
+            position: absolute;
             animation: marquee-animation 30s linear infinite;
         }
         .marquee-item {
@@ -215,7 +215,10 @@
         }
 
         .clients {
-            background-color: white;
+            background-color: #1a1a1a;
+        }
+        .clients .section-title {
+            color: var(--off-white);
         }
         .clients-grid {
             display: grid;
@@ -229,7 +232,7 @@
             padding: 2rem;
             text-decoration: none;
             color: #1a1a1a;
-            border: 1px solid #eee;
+            border: 1px solid #333;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             opacity: 0;
             transform: translateY(30px);
@@ -240,13 +243,13 @@
         }
         .client-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
-        .client-card.promus { background: linear-gradient(135deg, #ffffff, #e0e0e0); }
-        .client-card.alimentar { background: linear-gradient(135deg, #ffffff, #eaf5e5); }
-        .client-card.mercepecas { background: linear-gradient(135deg, #ffffff, #e6f7ff); }
-        .client-card.saideira { background: linear-gradient(135deg, #ffffff, #fff8e1); }
+        .client-card.promus { background: linear-gradient(135deg, #f0f8ff, #cce4ff); } /* Degradê de azul */
+        .client-card.alimentar { background: linear-gradient(135deg, #f8fff6, #d9eecb); }
+        .client-card.mercepecas { background: linear-gradient(135deg, #fff9e1, #ffe79e); } /* Degradê de amarelo mais forte */
+        .client-card.saideira { background: linear-gradient(135deg, #fff9e1, #ffe79e); }
 
         .client-pfp {
             width: 100px;
@@ -281,6 +284,34 @@
             line-height: 1.5;
             text-align: justify;
         }
+
+        /* Estilos para o tradutor discreto */
+        .nav-links .translator-wrapper, .nav-links .translator-wrapper div {
+            display: flex;
+            align-items: center;
+        }
+        #google_translate_element_desktop .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: 1.1rem !important;
+            font-family: 'dita', sans-serif !important;
+            font-weight: 400;
+        }
+        #google_translate_element_desktop .goog-te-gadget-icon {
+            display: none !important;
+        }
+        #google_translate_element_desktop .goog-te-menu-value span,
+        #google_translate_element_desktop .goog-te-menu-value span:hover,
+        #google_translate_element_desktop .goog-te-menu-value a {
+            color: #1a1a1a !important;
+            text-decoration: none !important;
+        }
+        #google_translate_element_desktop .goog-te-menu-value:hover span {
+             color: #20B2AA !important;
+        }
+        .goog-te-banner-frame.skiptranslate { display: none !important; } 
+        body { top: 0px !important; }
 
         @media (max-width: 992px) {
             .nav-links { display: none; }
@@ -341,6 +372,7 @@
                 <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
             </a>
             <ul class="nav-links">
+                <li class="translator-wrapper"><div id="google_translate_element_desktop"></div></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#portfolio">Clientes</a></li>
@@ -360,20 +392,25 @@
             <div></div>
             <div></div>
         </div>
-        <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#portfolio">Clientes</a></li>
-            <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico</a></li>
-            <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
-        </ul>
-        <div class="mobile-socials">
-            <a href="https://instagram.com/wuv.mkt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.359 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61580291724188" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-            </a>
+        <div>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Clientes</a></li>
+                <li><a href="diagnostico-rapido.html" target="_blank">Diagnóstico</a></li>
+                <li><a href="guia-de-marca.html" target="_blank">Guia de Marca</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="mobile-socials">
+                <a href="https://instagram.com/wuv.mkt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.359 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61580291724188" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                </a>
+            </div>
+            <div id="google_translate_element_mobile"></div>
         </div>
     </div>
 
@@ -381,7 +418,7 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <h1>Sua marca tem ALMA.<br>Vamos mostrá-la pro MUNDO?</h1>
-                <p>Não criamos apenas posts bonitos. Descobrimos a personalidade única do seu negócio! Transformando isso em uma presença digital que gera resultados reais.</p>
+                <p>Não criamos apenas posts bonitos.<br>Descobrimos a personalidade única do seu negócio! Transformando isso em uma presença digital que gera resultados reais.</p>
                 <a href="https://wa.me/5548991099068?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20como%20despertar%20o%20potencial%20da%20minha%20marca." target="_blank" class="cta-button">Quero Despertar Minha Marca</a>
             </div>
         </section>
@@ -389,10 +426,10 @@
         <div class="marquee">
             <div class="marquee-content">
                 <div class="marquee-item">
-                    <span class="font-dita">ESTRATÉGIA</span><span class="font-neue">Conteúdo</span><span class="font-dita">BRANDING</span><span class="font-neue">Inteligência Digital</span><span class="font-dita">RESULTADOS</span><span class="font-neue">Despertar Digital</span>
+                    <span class="font-dita">BRANDING</span><span class="font-neue">Conteúdo</span><span class="font-dita">RESULTADOS</span><span class="font-neue">Despertar Digital</span><span class="font-dita">ESTRATÉGIA</span><span class="font-neue">Inteligência Digital</span>
                 </div>
                 <div class="marquee-item" aria-hidden="true">
-                    <span class="font-dita">ESTRATÉGIA</span><span class="font-neue">Conteúdo</span><span class="font-dita">BRANDING</span><span class="font-neue">Inteligência Digital</span><span class="font-dita">RESULTADOS</span><span class="font-neue">Despertar Digital</span>
+                    <span class="font-dita">BRANDING</span><span class="font-neue">Conteúdo</span><span class="font-dita">RESULTADOS</span><span class="font-neue">Despertar Digital</span><span class="font-dita">ESTRATÉGIA</span><span class="font-neue">Inteligência Digital</span>
                 </div>
             </div>
         </div>
@@ -400,7 +437,7 @@
         <section id="sobre" class="philosophy fade-in">
             <div class="container">
                 <div class="philosophy-content">
-                    <h2 class="section-title" style="color: white;">Cada negócio tem uma história.<br>A nossa é contar a SUA.</h2>
+                    <h2 class="section-title" style="color: white;"><span class="aligned-title">Cada negócio tem uma história.<br>A nossa é contar a SUA.</span></h2>
                     <p>Na Wake Up Vision, não acreditamos em fórmulas mágicas.<br>Acreditamos em autenticidade.</p>
                     <p style="text-align: justify; margin-top: 2rem;">Cada cliente tem uma personalidade, um ritmo, uma forma única de entregar valor. Nosso trabalho é descobrir essa essência e traduzi-la em uma presença digital que <strong>faz sentido</strong> para quem você é e <strong>funciona</strong> para quem você quer alcançar.</p>
                     <div class="pillars">
@@ -422,7 +459,7 @@
                         <p><span class="subtitle">Para quem quer clareza total sobre os próximos passos.</span>Análise completa do seu cenário digital + plano de ação detalhado para você mesmo executar ou guiar sua equipe.</p>
                     </div>
                     <div class="solution-card fade-in">
-                        <div class="solution-icon">🚀</div><h3>Parceria Estratégica</h3>
+                        <div class="solution-icon">🚀</div><h3>Parceria<br>Estratégica</h3>
                         <p><span class="subtitle">Para quem quer resultados consistentes sem dor de cabeça.</span>Nós cuidamos de toda a estratégia e execução do seu marketing digital, para você focar no que faz de melhor.</p>
                     </div>
                     <div class="solution-card fade-in">
@@ -439,15 +476,15 @@
                 <div class="clients-grid">
                     <a href="https://www.instagram.com/promusimpressao/" target="_blank" rel="noopener noreferrer" class="client-card promus fade-in">
                         <div class="client-pfp">
-                            <img src="promus.png" alt="Logo Promus Impressão">
+                            <img src="https://placehold.co/100x100/1a1a1a/FFF?text=P" alt="Logo Promus Impressão">
                         </div>
                         <h3 class="client-name">Promus Impressão Digital</h3>
                         <p class="client-handle">@promusimpressao</p>
-                        <p class="client-description">Excelência em comunicação visual e brindes personalizados. Da criação à impressão, entregam qualidade que marca presença em Santa Rosa e região.</p>
+                        <p class="client-description">Comunicação visual e brindes que marcam presença em Santa Rosa e região.</p>
                     </a>
                     <a href="https://www.instagram.com/alimentar.nutricaopet/" target="_blank" rel="noopener noreferrer" class="client-card alimentar fade-in">
                         <div class="client-pfp">
-                            <img src="alimentar.png" alt="Logo Alimentar Nutrição Pet">
+                            <img src="https://placehold.co/100x100/3D4D32/FFF?text=A" alt="Logo Alimentar Nutrição Pet">
                         </div>
                         <h3 class="client-name">Alimentar Nutrição Pet</h3>
                         <p class="client-handle">@alimentar.nutricaopet</p>
@@ -455,7 +492,7 @@
                     </a>
                     <a href="https://www.instagram.com/mercepecas.vendas/" target="_blank" rel="noopener noreferrer" class="client-card mercepecas fade-in">
                         <div class="client-pfp">
-                            <img src="mercepecas.png" alt="Logo Mercepeças">
+                            <img src="https://placehold.co/100x100/00ADEF/FFF?text=M" alt="Logo Mercepeças">
                         </div>
                         <h3 class="client-name">Mercepeças</h3>
                         <p class="client-handle">@mercepecas.vendas</p>
@@ -463,7 +500,7 @@
                     </a>
                     <a href="https://www.instagram.com/saideira_floripa/" target="_blank" rel="noopener noreferrer" class="client-card saideira fade-in">
                         <div class="client-pfp">
-                            <img src="saideira.png" alt="Logo Saideira Floripa">
+                            <img src="https://placehold.co/100x100/FFD43B/000?text=S" alt="Logo Saideira Floripa">
                         </div>
                         <h3 class="client-name">Saideira Floripa</h3>
                         <p class="client-handle">@saideira_floripa</p>
@@ -514,6 +551,15 @@
             <div class="footer-bottom"><p>&copy; 2025 Wake Up Vision. Todos os direitos reservados.</p></div>
         </div>
     </footer>
+
+    <!-- CÓDIGO DO GOOGLE TRADUTOR -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element_desktop');
+          new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element_mobile');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
         // Seletores dos elementos
@@ -569,3 +615,4 @@
     </script>
 </body>
 </html>
+
