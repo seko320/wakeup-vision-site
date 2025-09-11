@@ -74,14 +74,14 @@
         }
         
         .category-section {
-            margin-bottom: 5rem; /* Aumentado espaço entre seções */
+            margin-bottom: 6rem; /* Aumentado espaço entre seções */
         }
 
         .category-title {
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--preto-elegante);
-            margin-bottom: 3rem; /* Aumentado espaço abaixo do título */
+            margin-bottom: 3rem;
             text-align: center;
             position: relative;
         }
@@ -125,8 +125,13 @@
         .service-card h3 {
             font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem; /* Aumentado espaço abaixo do título */
             color: var(--preto-elegante);
+            text-align: center; /* Centralizado */
+            min-height: 3.5em; /* Garante altura mínima para títulos com quebra de linha */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .service-card .description {
@@ -134,24 +139,44 @@
             color: var(--cinza-texto);
             margin-bottom: 1.5rem;
             flex-grow: 1;
-            text-align: left; /* Melhor legibilidade */
+            text-align: justify; /* Justificado */
         }
         
-        /* --- ESTILO CORRIGIDO PARA LISTA DO IMPULSO ESTRATÉGICO --- */
         .service-card .description ul {
-            list-style-type: none; /* Remove bullet padrão */
+            list-style-type: none;
             padding-left: 0;
             margin-top: 1rem;
         }
 
         .service-card .description li {
             margin-bottom: 0.75rem;
-            font-size: 0.95rem; /* Texto menor */
-            padding-left: 1.5rem; /* Indentação */
+        }
+
+        /* --- ESTILO ESPECÍFICO PARA LISTA DO IMPULSO ESTRATÉGICO --- */
+        .impulso-list li {
+            font-size: 0.95rem;
+            text-align: right; /* Alinhado à direita */
+            padding-right: 1.5rem;
             position: relative;
         }
-         .service-card .description li::before {
-            content: '—'; /* Marcador personalizado */
+        .impulso-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--turquesa-principal);
+            font-weight: 700;
+        }
+        
+        /* --- ESTILO ESPECÍFICO PARA LISTA DE IDENTIDADE VISUAL --- */
+        .identidade-list {
+            margin-left: 1.5rem; /* Indentação */
+        }
+        .identidade-list li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .identidade-list li::before {
+            content: '—';
             position: absolute;
             left: 0;
             color: var(--turquesa-principal);
@@ -204,13 +229,12 @@
             font-size: 0.95rem;
         }
 
-        /* --- DESTAQUE PREMIUM CORRIGIDO --- */
         .premium-card {
             background: var(--preto-elegante);
             color: var(--off-white);
             border-top: 5px solid var(--dourado-premium);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            padding-top: 4rem; /* Espaço para o badge não sobrepor o texto */
+            padding-top: 3.5rem; /* Espaço para o badge */
         }
         .premium-card:hover {
             box-shadow: 0 20px 50px rgba(255, 212, 59, 0.3);
@@ -237,22 +261,6 @@
             box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
         }
         
-        /* --- NOVO LAYOUT PARA SEÇÃO DE PROJETOS --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Base de uma coluna */
-            gap: 2.5rem;
-        }
-        .projects-grid-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-        .full-width-card {
-            grid-column: 1 / -1; /* Ocupa a largura inteira */
-        }
-        
-        /* --- ANIMAÇÃO DE SCROLL --- */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -327,63 +335,61 @@
 
         <div class="category-section">
             <h2 class="category-title fade-in">Projetos de Fundação</h2>
-            <div class="projects-grid">
-                <div class="projects-grid-row">
-                    <div class="service-card fade-in">
-                        <h3>Sessão de Impulso Estratégico</h3>
-                        <p class="description">Uma consultoria intensiva de 90 minutos para destravar o potencial da sua marca. Mergulhamos em:
-                            <ul>
-                                <li>Análise SWOT rápida do negócio</li>
-                                <li>Definição do cliente ideal</li>
-                                <li>Identificação dos pilares de conteúdo</li>
-                                <li>Brainstorming de ideias para 30 dias</li>
-                                <li>Análise de otimizações de perfil</li>
-                            </ul>
-                        </p>
-                        <p class="price">R$ 450</p>
-                        <p class="price-note">Pagamento único</p>
-                    </div>
-                    <div class="service-card fade-in">
-                        <h3>Estruturação e "Glow Up" Digital</h3>
-                        <p class="description">Organizamos e damos uma cara nova para a sua presença digital, já entregando os primeiros conteúdos alinhados à estratégia.</p>
-                         <div class="package-options">
-                            <div class="package"><span class="package-name">Essencial (Estrutura + 3 Posts)</span><span class="package-price">R$ 800</span></div>
-                            <div class="package"><span class="package-name">Intermediário (Estrutura + 6 Posts)</span><span class="package-price">R$ 1.200</span></div>
-                            <div class="package"><span class="package-name">Completo (Estrutura + 9 Posts)</span><span class="package-price">R$ 1.600</span></div>
-                        </div>
-                    </div>
-                    <div class="service-card fade-in">
-                        <h3>Otimização de Presença Local</h3>
-                        <p class="description">Estruturação e otimização completa do Perfil da Empresa no Google. Inclui configuração inicial, otimização de palavras-chave, upload de fotos, criação de seção de Q&A, e os primeiros 3 posts na plataforma.</p>
-                        <p class="price">R$ 750</p>
-                        <p class="price-note">Pagamento único</p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h3>Sessão de Impulso<br>Estratégico</h3>
+                    <p class="description">Uma consultoria intensiva de 90 minutos para destravar o potencial da sua marca. Mergulhamos em:</p>
+                    <ul class="impulso-list">
+                        <li>Análise SWOT rápida do negócio</li>
+                        <li>Definição do cliente ideal</li>
+                        <li>Identificação dos pilares de conteúdo</li>
+                        <li>Brainstorming de ideias para 30 dias</li>
+                        <li>Análise de otimizações de perfil</li>
+                    </ul>
+                    <p class="price">R$ 450</p>
+                    <p class="price-note">Pagamento único</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Estruturação e<br>"Glow Up" Digital</h3>
+                    <p class="description">Organizamos e damos uma cara nova para a sua presença digital, já entregando os primeiros conteúdos alinhados à estratégia.</p>
+                     <div class="package-options">
+                        <div class="package"><span class="package-name">Essencial (Estrutura + 3 Posts)</span><span class="package-price">R$ 800</span></div>
+                        <div class="package"><span class="package-name">Intermediário (Estrutura + 6 Posts)</span><span class="package-price">R$ 1.200</span></div>
+                        <div class="package"><span class="package-name">Completo (Estrutura + 9 Posts)</span><span class="package-price">R$ 1.600</span></div>
                     </div>
                 </div>
-                <div class="service-card full-width-card fade-in">
+                <div class="service-card fade-in">
+                    <h3>Otimização de<br>Presença Local</h3>
+                    <p class="description">Estruturação e otimização completa do Perfil da Empresa no Google. Inclui configuração inicial, otimização de palavras-chave, upload de fotos, criação de seção de Q&A, e os primeiros 3 posts na plataforma.</p>
+                    <p class="price">R$ 750</p>
+                    <p class="price-note">Pagamento único</p>
+                </div>
+            </div>
+            <div class="services-grid" style="margin-top: 2.5rem;">
+                <div class="service-card fade-in full-width-card">
                     <h3>Identidade Visual & Guia de Marca</h3>
-                    <p class="description">Este é o projeto onde damos uma alma visual para a sua marca. Não é apenas um logo, é a construção de um universo visual completo. Entregamos:
-                        <ul>
-                            <li><strong>Estudo e Conceito:</strong> A história e a alma por trás da criação.</li>
-                            <li><strong>Logo Principal e Variações:</strong> Versões para todas as aplicações.</li>
-                            <li><strong>Tipografia e Paleta de Cores:</strong> Definições que conversam com a personalidade da marca.</li>
-                            <li><strong>Guia de Utilização:</strong> Um manual completo para aplicar a sua nova identidade de forma consistente.</li>
-                            <li><strong>Elementos de Marca:</strong> Vetores e formas próprias para uma comunicação única (opcional).</li>
-                        </ul>
-                    </p>
+                    <p class="description">Este é o projeto onde damos uma alma visual para a sua marca. Não é apenas um logo, é a construção de um universo visual completo. Entregamos:</p>
+                    <ul class="identidade-list">
+                        <li><strong>Estudo e Conceito:</strong> A história e a alma por trás da criação.</li>
+                        <li><strong>Logo Principal e Variações:</strong> Versões para todas as aplicações.</li>
+                        <li><strong>Tipografia e Paleta de Cores:</strong> Definições que conversam com a personalidade da marca.</li>
+                        <li><strong>Guia de Utilização:</strong> Um manual completo para aplicar a sua nova identidade de forma consistente.</li>
+                        <li><strong>Elementos de Marca:</strong> Vetores e formas próprias para uma comunicação única (opcional).</li>
+                    </ul>
                     <p class="price">a partir de R$ 1.200</p>
                 </div>
-                <div class="projects-grid-row" style="grid-template-columns: 1fr 1fr;">
-                    <div class="service-card fade-in">
-                        <h3>Site Institucional / Landing Page</h3>
-                        <p class="description">Criamos a sua sede digital, uma página focada em apresentar a sua marca de forma profissional e converter visitantes em clientes.
-                        <br><br><i>Nota: Desenvolvemos também e-commerce e soluções complexas. O investimento é definido conforme a necessidade e orçamentado com nossos parceiros.</i></p>
-                        <p class="price">a partir de R$ 1.990</p>
-                    </div>
-                     <div class="service-card fade-in">
-                        <h3>Consultoria Empresarial</h3>
-                        <p class="description">Um serviço totalmente personalizado para estruturar as bases do seu negócio. Pode incluir: criação de briefing, análise SWOT completa, mapeamento de processos, definição de funil de vendas, entre outras necessidades.</p>
-                        <p class="price">a partir de R$ 800</p>
-                    </div>
+            </div>
+            <div class="services-grid" style="margin-top: 2.5rem; grid-template-columns: 1fr 1fr;">
+                 <div class="service-card fade-in">
+                    <h3>Site Institucional / Landing Page</h3>
+                    <p class="description">Criamos a sua sede digital, uma página focada em apresentar a sua marca de forma profissional e converter visitantes em clientes.
+                    <br><br><i>Nota: Desenvolvemos também e-commerce e soluções complexas. O investimento é definido conforme a necessidade e orçamentado com nossos parceiros.</i></p>
+                    <p class="price">a partir de R$ 1.990</p>
+                </div>
+                 <div class="service-card fade-in">
+                    <h3>Consultoria Empresarial</h3>
+                    <p class="description">Um serviço totalmente personalizado para estruturar as bases do seu negócio. Pode incluir: criação de briefing, análise SWOT completa, mapeamento de processos, definição de funil de vendas, entre outras necessidades.</p>
+                    <p class="price">a partir de R$ 800</p>
                 </div>
             </div>
         </div>
