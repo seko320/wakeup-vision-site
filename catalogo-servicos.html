@@ -16,7 +16,7 @@
             --preto-elegante: #1a1a1a;
             --dourado-premium: #FFD43B;
             --cinza-texto: #4A4A4A;
-            --cinza-fundo: #f0f2f5;
+            --cinza-fundo: #f0f2f5; /* Um cinza claro para o fundo principal */
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -137,7 +137,7 @@
             color: var(--cinza-texto);
             margin-bottom: 1.5rem;
             flex-grow: 1;
-            text-align: justify; /* Alinhamento justificado */
+            text-align: left; /* Corrigido para alinhamento à esquerda para melhor legibilidade */
         }
         
         .service-card .description ul {
@@ -200,16 +200,15 @@
         .premium-card {
             background: var(--preto-elegante);
             color: var(--off-white);
-            border-top: 5px solid;
-            border-image: linear-gradient(to right, var(--dourado-premium) 0%, var(--turquesa-principal) 100%) 1;
+            border-top: 5px solid var(--dourado-premium); /* Corrigido para sólido */
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         .premium-card:hover {
             box-shadow: 0 20px 50px rgba(255, 212, 59, 0.3); /* Sombra dourada no hover */
-            border-image: linear-gradient(to right, var(--turquesa-principal) 0%, var(--dourado-premium) 100%) 1;
+            border-top-color: var(--turquesa-principal); /* Hover para turquesa */
         }
 
-        .premium-card h3, .premium-card .description, .premium-card .price-note {
+        .premium-card h3, .premium-card .description, .premium-card .price-note, .premium-card ul li {
             color: var(--off-white);
         }
         .premium-card .price, .premium-card .package-price {
@@ -259,6 +258,16 @@
             .header h1 { font-size: 2.2rem; }
             .category-title { font-size: 2rem; }
             .service-card { padding: 2rem 1.5rem; }
+            /* Ajuste para cartões de linha inteira em mobile */
+            .services-grid > .service-card[style*="grid-column: span"] {
+                grid-column: auto !important; /* Reseta o span para que o grid flua normalmente */
+            }
+        }
+        @media (min-width: 769px) {
+            /* Garantir que em desktop o cartão de ID Visual ocupe 2 colunas */
+            .services-grid.projects-grid-desktop > .service-card:nth-child(4) { /* O 4º cartão na seção "Projetos de Fundação" */
+                 grid-column: span 2;
+            }
         }
 
     </style>
@@ -304,8 +313,7 @@
 
         <div class="category-section">
             <h2 class="category-title fade-in">Projetos de Fundação</h2>
-            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                <div class="service-card fade-in">
+            <div class="services-grid projects-grid-desktop"> <div class="service-card fade-in">
                     <h3>Sessão de Impulso Estratégico</h3>
                     <p class="description">Uma consultoria intensiva de 90 minutos para destravar o potencial da sua marca. Mergulhamos em:
                         <ul>
@@ -334,7 +342,7 @@
                     <p class="price">R$ 750</p>
                     <p class="price-note">Pagamento único</p>
                 </div>
-                <div class="service-card fade-in" style="grid-column: span 1 / -1;">
+                <div class="service-card fade-in">
                     <h3>Identidade Visual & Guia de Marca</h3>
                     <p class="description">Este é o projeto onde damos uma alma visual para a sua marca. Não é apenas um logo, é a construção de um universo visual completo. Entregamos:
                         <ul>
