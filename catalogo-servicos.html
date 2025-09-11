@@ -152,16 +152,19 @@
             margin-bottom: 0.75rem;
         }
 
+        /* --- AJUSTE FINAL: ÍCONES À DIREITA --- */
         .impulso-list li {
             font-size: 0.95rem;
-            text-align: right;
-            padding-right: 1.5rem;
+            text-align: left; /* Alinhado à esquerda para ler primeiro */
             position: relative;
+            padding-right: 2rem; /* Espaço para o check à direita */
         }
         .impulso-list li::before {
             content: '✓';
             position: absolute;
-            left: 0;
+            right: 0; /* Posiciona o check à direita */
+            top: 50%;
+            transform: translateY(-50%);
             color: var(--turquesa-principal);
             font-weight: 700;
         }
@@ -260,7 +263,6 @@
             box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
         }
         
-        /* --- LAYOUT CORRIGIDO PARA PROJETOS DE FUNDAÇÃO --- */
         .projects-layout {
             display: flex;
             flex-direction: column;
@@ -365,9 +367,9 @@
                         <h3>Estruturação e<br>"Glow Up" Digital</h3>
                         <p class="description">Organizamos e damos uma cara nova para a sua presença digital, já entregando os primeiros conteúdos alinhados à estratégia.</p>
                          <div class="package-options">
-                            <div class="package"><span class="package-name">Essencial<br>(Estrutura + 3 Posts)</span><span class="package-price">R$ 800</span></div>
-                            <div class="package"><span class="package-name">Intermediário<br>(Estrutura + 6 Posts)</span><span class="package-price">R$ 1.200</span></div>
-                            <div class="package"><span class="package-name">Completo<br>(Estrutura + 9 Posts)</span><span class="package-price">R$ 1.600</span></div>
+                            <div class="package"><span class="package-name">Essencial (Estrutura + 3 Posts)</span><span class="package-price">R$ 800</span></div>
+                            <div class="package"><span class="package-name">Intermediário (Estrutura + 6 Posts)</span><span class="package-price">R$ 1.200</span></div>
+                            <div class="package"><span class="package-name">Completo (Estrutura + 9 Posts)</span><span class="package-price">R$ 1.600</span></div>
                         </div>
                     </div>
                     <div class="service-card fade-in">
