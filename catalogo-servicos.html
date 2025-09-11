@@ -1,290 +1,398 @@
-<style>
-    :root {
-        --off-white: #F9F9F9;
-        --turquesa-principal: #20B2AA;
-        --preto-elegante: #1a1a1a;
-        --dourado-premium: #FFD43B;
-        --cinza-texto: #4A4A4A;
-        --cinza-fundo: #f0f2f5;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-        font-family: 'dita', sans-serif; 
-        line-height: 1.7;
-        color: var(--preto-elegante);
-        background-color: var(--cinza-fundo);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Soluções - Wake Up Vision</title>
+    <link rel="stylesheet" href="https://use.typekit.net/zeq5iey.css">
     
-    .site-header {
-        background: #fff; padding: 1rem 2rem;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        text-align: center; border-bottom: 1px solid #eee;
-    }
-    .site-header a {
-        color: var(--turquesa-principal); text-decoration: none;
-        font-weight: 700; font-size: 1rem;
-    }
-    
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-    
-    .header {
-        text-align: center;
-        padding: 4rem 2rem;
-        margin-bottom: 3rem;
-    }
-    
-    .header .logo-container img {
-        height: 80px;
-        margin-bottom: 1.5rem;
-    }
+    <link rel="icon" type="image/png" href="Logo-WUV-Guia-Pagina.png">
+    <link rel="apple-touch-icon" href="Logo-WUV-Guia-Pagina.png">
 
-    .header h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-        color: var(--preto-elegante);
-        text-wrap: balance;
-    }
-    
-    .header p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-        max-width: 700px;
-        margin: 0 auto;
-        color: var(--cinza-texto);
-        text-wrap: balance;
-    }
-    
-    .category-section {
-        margin-bottom: 6rem; /* Aumentado espaço entre seções */
-    }
-
-    .category-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--preto-elegante);
-        margin-bottom: 3rem;
-        text-align: center;
-        position: relative;
-    }
-
-    .category-title::after {
-        content: '';
-        position: absolute;
-        width: 80px;
-        height: 4px;
-        background-color: var(--turquesa-principal);
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 2px;
-    }
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2.5rem;
-    }
-
-    .service-card {
-        background: linear-gradient(145deg, white, #f7f9fc);
-        border-radius: 20px;
-        padding: 2.5rem 2rem;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.07);
-        border-top: 5px solid var(--turquesa-principal);
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-top-color 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
-    
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(32, 178, 170, 0.15);
-        border-top-color: var(--dourado-premium);
-    }
-
-    .service-card h3 {
-        font-size: 1.6rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        color: var(--preto-elegante);
-        text-align: center;
-        min-height: 3.5em; /* Garante altura mínima para títulos com quebra de linha */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .service-card .description {
-        font-size: 1rem;
-        color: var(--cinza-texto);
-        margin-bottom: 1.5rem;
-        flex-grow: 1;
-        text-align: justify; /* Justificado */
-    }
-    
-    /* Remover bolinhas padrão para TODAS as listas dentro de service-card */
-    .service-card ul {
-        list-style-type: none; /* AQUI ESTÁ A GARANTIA */
-        padding-left: 0;
-        margin-top: 1rem;
-    }
-
-    /* --- ESTILO ESPECÍFICO PARA LISTA DO IMPULSO ESTRATÉGICO --- */
-    .impulso-list li {
-        font-size: 0.95rem;
-        text-align: right; /* Alinhado à direita */
-        padding-left: 0; /* Garante que o texto não seja empurrado pela bolinha padrão */
-        position: relative;
-        margin-bottom: 0.75rem; /* Espaçamento entre os itens da lista */
-    }
-    .impulso-list li::before {
-        content: '✓'; /* Nosso marcador personalizado */
-        position: absolute;
-        left: 0; /* Alinha o marcador à esquerda do item de lista */
-        color: var(--turquesa-principal);
-        font-weight: 700;
-        line-height: inherit; /* Garante alinhamento vertical com o texto */
-    }
-    .impulso-list {
-        padding-left: 1rem; /* Adiciona um padding à esquerda para toda a lista */
-    }
-    
-    /* --- ESTILO ESPECÍFICO PARA LISTA DE IDENTIDADE VISUAL --- */
-    .identidade-list li {
-        font-size: 1rem; /* Tamanho do texto padrão */
-        padding-left: 2.5rem; /* Espaço para o hífen duplo */
-        position: relative;
-        margin-bottom: 0.75rem; /* Espaçamento entre os itens da lista */
-        text-align: left; /* Garante que o texto fique à esquerda */
-    }
-    .identidade-list li::before {
-        content: '--'; /* HÍFEN DUPLO AGORA */
-        position: absolute;
-        left: 0;
-        color: var(--turquesa-principal);
-        font-weight: 700;
-        line-height: inherit;
-    }
-    .identidade-list {
-        padding-left: 1.5rem; /* Indentação para a lista toda */
-    }
+    <style>
+        :root {
+            --off-white: #F9F9F9;
+            --turquesa-principal: #20B2AA;
+            --preto-elegante: #1a1a1a;
+            --dourado-premium: #FFD43B;
+            --cinza-texto: #4A4A4A;
+            --cinza-fundo: #f0f2f5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'dita', sans-serif; 
+            line-height: 1.7;
+            color: var(--preto-elegante);
+            background-color: var(--cinza-fundo);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
         
-    .service-card .price {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--turquesa-principal);
-        margin-top: auto;
-        text-align: right;
-    }
+        .site-header {
+            background: #fff; padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center; border-bottom: 1px solid #eee;
+        }
+        .site-header a {
+            color: var(--turquesa-principal); text-decoration: none;
+            font-weight: 700; font-size: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .header .logo-container img {
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
 
-    .service-card .price-note {
-        font-size: 0.9rem;
-        text-align: right;
-        color: var(--cinza-texto);
-        opacity: 0.8;
-    }
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--preto-elegante);
+            text-wrap: balance;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--cinza-texto);
+            text-wrap: balance;
+        }
+        
+        .category-section {
+            margin-bottom: 6rem; /* Aumentado espaço entre seções */
+        }
 
-    .service-card .package-options {
-        margin-top: 1.5rem;
-        border-top: 1px solid #eee;
-        padding-top: 1.5rem;
-    }
-    
-    .service-card .package {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px dashed #eee;
-    }
-    .service-card .package:last-child {
-         margin-bottom: 0;
-         padding-bottom: 0;
-         border-bottom: none;
-    }
+        .category-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--preto-elegante);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
 
-    .service-card .package-name {
-        font-weight: 700;
-        font-size: 0.95rem;
-    }
+        .category-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--turquesa-principal);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
 
-    .service-card .package-price {
-        font-weight: 700;
-        color: var(--turquesa-principal);
-        font-size: 0.95rem;
-    }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
 
-    .premium-card {
-        background: var(--preto-elegante);
-        color: var(--off-white);
-        border-top: 5px solid var(--dourado-premium);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        padding-top: 3.5rem; /* Espaço para o badge */
-    }
-    .premium-card:hover {
-        box-shadow: 0 20px 50px rgba(255, 212, 59, 0.3);
-        border-top-color: var(--turquesa-principal);
-    }
+        .service-card {
+            background: linear-gradient(145deg, white, #f7f9fc);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+            border-top: 5px solid var(--turquesa-principal);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-top-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(32, 178, 170, 0.15);
+            border-top-color: var(--dourado-premium);
+        }
 
-    .premium-card h3, .premium-card .description, .premium-card .price-note, .premium-card ul li {
-        color: var(--off-white);
-    }
-    .premium-card .price, .premium-card .package-price {
-        color: var(--dourado-premium);
-    }
-    .premium-card::after {
-        content: 'MAIS POPULAR';
-        position: absolute;
-        top: 1.5rem;
-        right: -1px;
-        background: var(--dourado-premium);
-        color: var(--preto-elegante);
-        padding: 0.4rem 1rem;
-        font-size: 0.8rem;
-        font-weight: 700;
-        border-radius: 15px 0 0 15px;
-        box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
-    }
-    
-    .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
+        .service-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--preto-elegante);
+            text-align: center;
+            min-height: 3.5em; /* Garante altura mínima para títulos com quebra de linha */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    footer {
-        background: #1a1a1a;
-        color: var(--off-white);
-        padding: 4rem 2rem 2rem;
-        margin-top: 4rem;
-    }
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        text-align: center;
-    }
-    .footer-content p { opacity: 0.8; }
-    
-    @media (max-width: 768px) {
-        .container { padding: 1.5rem; }
-        .header { padding: 2rem 1rem; }
-        .header h1 { font-size: 2.2rem; }
-        .category-title { font-size: 2rem; }
-        .service-card { padding: 2rem 1.5rem; }
-    }
+        .service-card .description {
+            font-size: 1rem;
+            color: var(--cinza-texto);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            text-align: justify; /* Justificado */
+        }
+        
+        /* Remover bolinhas padrão para TODAS as listas dentro de service-card */
+        .service-card ul {
+            list-style-type: none; /* AQUI ESTÁ A GARANTIA */
+            padding-left: 0;
+            margin-top: 1rem;
+        }
 
-</style>
+        /* --- ESTILO ESPECÍFICO PARA LISTA DO IMPULSO ESTRATÉGICO --- */
+        .impulso-list {
+            padding-left: 1rem; /* Adiciona um padding à esquerda para toda a lista */
+        }
+        .impulso-list li {
+            font-size: 0.95rem;
+            text-align: right; /* Alinhado à direita */
+            padding-left: 0; /* Garante que o texto não seja empurrado pela bolinha padrão */
+            position: relative;
+            margin-bottom: 0.75rem; /* Espaçamento entre os itens da lista */
+            padding-right: 1.5rem; /* Espaço para o texto não ficar colado na borda */
+        }
+        .impulso-list li::before {
+            content: '✓'; /* Nosso marcador personalizado */
+            position: absolute;
+            left: 0; /* Alinha o marcador à esquerda do item de lista */
+            color: var(--turquesa-principal);
+            font-weight: 700;
+            line-height: inherit; /* Garante alinhamento vertical com o texto */
+        }
+        
+        /* --- ESTILO ESPECÍFICO PARA LISTA DE IDENTIDADE VISUAL --- */
+        .identidade-list {
+            padding-left: 1.5rem; /* Indentação para a lista toda */
+        }
+        .identidade-list li {
+            font-size: 1rem; /* Tamanho do texto padrão */
+            padding-left: 2.5rem; /* Espaço para o hífen duplo */
+            position: relative;
+            margin-bottom: 0.75rem; /* Espaçamento entre os itens da lista */
+            text-align: left; /* Garante que o texto fique à esquerda */
+        }
+        .identidade-list li::before {
+            content: '--'; /* HÍFEN DUPLO AGORA */
+            position: absolute;
+            left: 0;
+            color: var(--turquesa-principal);
+            font-weight: 700;
+            line-height: inherit;
+        }
+            
+        .service-card .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--turquesa-principal);
+            margin-top: auto;
+            text-align: right;
+        }
+
+        .service-card .price-note {
+            font-size: 0.9rem;
+            text-align: right;
+            color: var(--cinza-texto);
+            opacity: 0.8;
+        }
+
+        .service-card .package-options {
+            margin-top: 1.5rem;
+            border-top: 1px solid #eee;
+            padding-top: 1.5rem;
+        }
+        
+        .service-card .package {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #eee;
+        }
+        .service-card .package:last-child {
+             margin-bottom: 0;
+             padding-bottom: 0;
+             border-bottom: none;
+        }
+
+        .service-card .package-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .service-card .package-price {
+            font-weight: 700;
+            color: var(--turquesa-principal);
+            font-size: 0.95rem;
+        }
+
+        .premium-card {
+            background: var(--preto-elegante);
+            color: var(--off-white);
+            border-top: 5px solid var(--dourado-premium);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            padding-top: 3.5rem; /* Espaço para o badge */
+        }
+        .premium-card:hover {
+            box-shadow: 0 20px 50px rgba(255, 212, 59, 0.3);
+            border-top-color: var(--turquesa-principal);
+        }
+
+        .premium-card h3, .premium-card .description, .premium-card .price-note, .premium-card ul li {
+            color: var(--off-white);
+        }
+        .premium-card .price, .premium-card .package-price {
+            color: var(--dourado-premium);
+        }
+        .premium-card::after {
+            content: 'MAIS POPULAR';
+            position: absolute;
+            top: 1.5rem;
+            right: -1px;
+            background: var(--dourado-premium);
+            color: var(--preto-elegante);
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 15px 0 0 15px;
+            box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: var(--off-white);
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .footer-content p { opacity: 0.8; }
+        
+        @media (max-width: 768px) {
+            .container { padding: 1.5rem; }
+            .header { padding: 2rem 1rem; }
+            .header h1 { font-size: 2.2rem; }
+            .category-title { font-size: 2rem; }
+            .service-card { padding: 2rem 1.5rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html">← Voltar para o Site Principal</a>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="Logo-WUV-web.png" alt="Wake Up Vision Logo">
+            </div>
+            <h1>Nosso Catálogo de Soluções</h1>
+            <p>Construímos parcerias e projetos sob medida para despertar o potencial único da sua marca. Explore o nosso arsenal completo de soluções estratégicas.</p>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title fade-in">A Parceria de Crescimento</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h3>A Trilha do Mentor</h3>
+                    <p class="description">Consultoria mensal para guiar o cliente. Inclui reuniões, cronogramas e roteiros para que ele mesmo possa executar o seu marketing com uma direção estratégica clara.</p>
+                    <p class="price">a partir de R$ 700 <span style="font-size: 1rem;">/mês</span></p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>A Trilha do Executor</h3>
+                    <p class="description">A nossa gestão completa de conteúdo. Cuidamos de toda a estratégia e execução para que você possa focar no seu negócio.</p>
+                    <div class="package-options">
+                        <div class="package"><span class="package-name">Essencial (1 post + 2 stories/sem)</span><span class="package-price">R$ 850/mês</span></div>
+                        <div class="package"><span class="package-name">Intermediário (2 posts + 2 stories/sem)</span><span class="package-price">R$ 1.250/mês</span></div>
+                        <div class="package"><span class="package-name">Completo (3 posts + 5 stories/sem)</span><span class="package-price">R$ 1.750/mês</span></div>
+                    </div>
+                </div>
+                <div class="service-card premium-card fade-in">
+                    <h3>Pacote Presença Total</h3>
+                    <p class="description">A nossa solução premium. Inclui a gestão de conteúdo completa (pacote customizado) + 1 a 2 visitas mensais para captação de fotos e vídeos profissionais (feitos com iPhone, com edição e tratamento de cor para transmitir a alma da marca).</p>
+                    <p class="price">a partir de R$ 2.000 <span style="font-size: 1rem;">/mês</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title fade-in">Projetos de Fundação</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h3>Sessão de Impulso<br>Estratégico</h3>
+                    <p class="description">Uma consultoria intensiva de 90 minutos para destravar o potencial da sua marca. Mergulhamos em:</p>
+                    <ul class="impulso-list">
+                        <li>Análise SWOT rápida do negócio</li>
+                        <li>Definição do cliente ideal</li>
+                        <li>Identificação dos pilares de conteúdo</li>
+                        <li>Brainstorming de ideias para 30 dias</li>
+                        <li>Análise de otimizações de perfil</li>
+                    </ul>
+                    <p class="price">R$ 450</p>
+                    <p class="price-note">Pagamento único</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Estruturação e<br>"Glow Up" Digital</h3>
+                    <p class="description">Organizamos e damos uma cara nova para a sua presença digital, já entregando os primeiros conteúdos alinhados à estratégia.</p>
+                     <div class="package-options">
+                        <div class="package"><span class="package-name">Essencial (Estrutura + 3 Posts)</span><span class="package-price">R$ 800</span></div>
+                        <div class="package"><span class="package-name">Intermediário (Estrutura + 6 Posts)</span><span class="package-price">R$ 1.200</span></div>
+                        <div class="package"><span class="package-name">Completo (Estrutura + 9 Posts)</span><span class="package-price">R$ 1.600</span></div>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Otimização de<br>Presença Local</h3>
+                    <p class="description">Estruturação e otimização completa do Perfil da Empresa no Google. Inclui configuração inicial, otimização de palavras-chave, upload de fotos, criação de seção de Q&A, e os primeiros 3 posts na plataforma.</p>
+                    <p class="price">R$ 750</p>
+                    <p class="price-note">Pagamento único</p>
+                </div>
+            </div>
+            <div class="services-grid" style="margin-top: 2.5rem;">
+                <div class="service-card fade-in" style="grid-column: 1 / -1;">
+                    <h3>Identidade Visual & Guia de Marca</h3>
+                    <p class="description">Este é o projeto onde damos uma alma visual para a sua marca. Não é apenas um logo, é a construção de um universo visual completo. Entregamos:</p>
+                    <ul class="identidade-list">
+                        <li><strong>Estudo e Conceito:</strong> A história e a alma por trás da criação.</li>
+                        <li><strong>Logo Principal e Variações:</strong> Versões para todas as aplicações.</li>
+                        <li><strong>Tipografia e Paleta de Cores:</strong> Definições que conversam com a personalidade da marca.</li>
+                        <li><strong>Guia de Utilização:</strong> Um manual completo para aplicar a sua nova identidade de forma consistente.</li>
+                        <li><strong>Elementos de Marca:</strong> Vetores e formas próprias para uma comunicação única (opcional).</li>
+                    </ul>
+                    <p class="price">a partir de R$ 1.200</p>
+                </div>
+            </div>
+            <div class="services-grid" style="margin-top: 2.5rem;">
+                 <div class="service-card fade-in">
+                    <h3>Site Institucional / Landing Page</h3>
+                    <p class="description">Criamos a sua sede digital, uma página focada em apresentar a sua marca de forma profissional e converter visitantes em clientes.
+                    <br><br><i>Nota: Desenvolvemos também e-commerce e soluções complexas. O investimento é definido conforme a necessidade e orçamentado com nossos parceiros.</i></p>
+                    <p class="price">a partir de R$ 1.990</p>
+                </div>
+                 <div class="service-card fade-in">
+                    <h3>Consultoria Empresarial</h3>
+                    <p class="description">Um serviço totalmente personalizado para estruturar as bases do seu negócio. Pode incluir
